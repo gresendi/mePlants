@@ -30,6 +30,6 @@ passport.use(new JWTStrategy({
 app.use(require('./routes'))
 
 require('./db')
-  .sync() //delete this in order to restard the db, will delete content { force: true }
+  .sync() //delete this in order to restard the db, will delete content
   .then(() => app.listen(process.env.PORT || 3000))
 
