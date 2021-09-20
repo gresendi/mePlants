@@ -5,18 +5,20 @@ document.getElementById('createPost').addEventListener('click', event => {
 
   axios.post('/api/posts', {
     title: document.getElementById('title').value,
+    photo: document.getElementById('photo').value,
     body: document.getElementById('body').value
   }, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`
     }
   })
-    .then(({ data: { id, title, body, u: { username } } }) => {
+    .then(({ data: { id, title,photo, body, u: { username } } }) => {
       const postElem = document.createElement('li')
       postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
       postElem.innerHTML = `
         <div class="ms-2 me-auto">
           <div class="fw-bold">${title}</div>
+          ${photo}
           ${body}
         </div>
         <span class="badge bg-primary rounded-pill">${username}</span>

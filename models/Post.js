@@ -5,7 +5,7 @@ class Post extends Model { }
 
 Post.init({
   title: DataTypes.STRING,
-  img: DataTypes.LONGBLOB,
+  photo: DataTypes.BLOB,
   body: DataTypes.STRING
 }, { sequelize, modelName: 'post' })
 

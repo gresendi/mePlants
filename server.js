@@ -1,9 +1,10 @@
 require('dotenv').config()
 
 const express = require('express')
-const {join} = require('path')
+const { join } = require('path')
 const passport = require('passport')
-const {User,Post,Plant} = require('passport-jwt')
+const { User, Post, Plant } = require('./models')
+const { Strategy: JWTStrategy, ExtractJwt } = require('passport-jwt')
 
 const app = express()
 
@@ -14,20 +15,21 @@ app.use(express.json())
 app.use(passport.initialize())
 app.use(passport.session())
 
-passport.use(User.serializeUser())
-passport.deserializeUser(User.deserializeUser())
+passport.use(User.createStrategy())
 
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
 
 passport.use(new JWTStrategy({
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   secretOrKey: process.env.SECRET
-}, ({ id }, cb) => User.findOne({ where: { id }, include: [Post,Plant]})
+}, ({ id }, cb) => User.findOne({ where: { id }, include: [Post] })
   .then(user => cb(null, user))
   .catch(err => cb(err, null))))
 
 app.use(require('./routes'))
 
 require('./db')
-  .sync() //delete this in order to restard the db, will delete content  { force: true }
+  .sync({ force: true }) //delete this in order to restard the db, will delete content
   .then(() => app.listen(process.env.PORT || 3000))
 

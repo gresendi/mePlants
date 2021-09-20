@@ -6,7 +6,7 @@ class Plant extends Model { }
 Plant.init({
   officialName: DataTypes.STRING,
   nickName: DataTypes.STRING,
-  img: DataTypes.LONGBLOB,
+  photo: DataTypes.BLOB,
   care: DataTypes.STRING,
   lastWatered: DataTypes.DATEONLY,
   nextWatering: DataTypes.DATEONLY
