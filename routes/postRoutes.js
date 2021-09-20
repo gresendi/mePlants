@@ -10,7 +10,7 @@ router.get('/posts', passport.authenticate('jwt'), (req, res) => {
 
 router.post('/posts', passport.authenticate('jwt'), (req, res) => Post.create({
   title: req.body.title,
-  photo: req.body.photo
+  photo: req.body.photo,
   body: req.body.body,
 
   uid: req.user.id
