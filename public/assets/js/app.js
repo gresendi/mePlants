@@ -38,7 +38,7 @@ document.getElementById('goProfile').addEventListener('click', () => {
 
 document.getElementById('logOut').addEventListener('click', () => {
   localStorage.removeItem('token')
-  window.location = '/auth.html'
+  window.location = '/login.html'
 })
 
 axios.get('/api/posts', {
@@ -63,5 +63,5 @@ axios.get('/api/posts', {
   })
   .catch(err => {
     console.log(err)
-    window.location = '/auth.html'
+    window.location = '/login.html'
   })
