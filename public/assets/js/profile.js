@@ -1,4 +1,5 @@
 const { axios } = window
+let addPlant = 0
 
 document.getElementById('goHome').addEventListener('click', () => {
   window.location = '/'
@@ -23,6 +24,66 @@ document.addEventListener('click', event => {
       .then(() => event.target.parentNode.remove())
       .catch(err => console.error(err))
   }
+})
+
+document.getElementById('addPlant').addEventListener("click", event=>{
+  event.preventDefault()
+    if(addPlant==0){
+    console.log('clicked'+ addPlant)
+    let add = document.createElement('div')
+    add.className = "col-sm-6 mx-auto mb-5"
+    add.innerHTML=
+    `
+  <form>
+                <div class="mb-3">
+                  <label for="plantName" class="form-label">Plant Name</label>
+                  <input type="text" class="form-control" id="plantName" aria-describedby="emailHelp">
+
+                </div>
+              <div class="mb-3">
+                <label for="care" class="form-label">Care Tips</label>
+                <textarea class="form-control" id="care" rows="1"></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="plantName" class="form-label">Image url</label>
+                <input type="text" class="form-control" id="plantName" aria-describedby="emailHelp">
+
+              </div>
+
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Watered Today</label>
+                </div>
+                <button class="btn btn-primary addPlant">Add plant</button>
+                <button class="btn btn-danger closePlant">x</button>
+              </form>
+
+    `
+    //  let form = document.getElementById('plants')
+    // form.childNodes[0].innerHTML= add
+
+    document.getElementById('plants').prepend(add)
+    addPlant++
+}
+
+  
+
+})
+document.addEventListener('click', event => {
+  event.preventDefault()
+  if (event.target.classList.contains('addPlant')) {
+    console.log('adding plant')
+  }
+  else if (event.target.classList.contains('closePlant')) {
+    console.log('closing plant')
+    let closeForm = document.getElementById('plants')
+    closeForm.removeChild(closeForm.childNodes[0])
+    addPlant=0
+  }
+
+
+
 })
 
 axios.get('/api/users/posts', {
