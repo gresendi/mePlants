@@ -30,9 +30,10 @@ document.getElementById('logOut').addEventListener('click', () => {
 
 
 document.getElementById('addPost').addEventListener('click', event => {
-  
 
+  addPost++
   event.preventDefault()
+  if(addPost<=1){
   let form = document.createElement('div')
   form.innerHTML = `
    <form>
@@ -53,7 +54,6 @@ document.getElementById('addPost').addEventListener('click', event => {
       </form>
   `
   document.getElementById('topContainer').append(form)
-
   document.getElementById('createPost').addEventListener('click', event => {
     event.preventDefault()
 
@@ -78,12 +78,14 @@ document.getElementById('addPost').addEventListener('click', event => {
         <span class="badge bg-primary rounded-pill">${username}</span>
       `
         document.getElementById('posts').append(postElem)
-        location.reload()
         addPost = 0
+        location.reload()
+        
       })
       .catch(err => console.error(err))
   })
-
+  }
+  
 
 
 
@@ -115,7 +117,7 @@ function getPosts() {
     })
 
 
-
+  
 }
 
 function isLoggedIn(){
