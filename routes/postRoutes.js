@@ -2,7 +2,8 @@ const router = require('express').Router()
 const { Post, User } = require('../models')
 const passport = require('passport')
 
-router.get('/posts', passport.authenticate('jwt'), (req, res) => {
+// passport.authenticate('jwt'), used to verify user logged in
+router.get('/posts', (req, res) => {
   Post.findAll({ include: 'u' })
     .then(posts => res.json(posts))
     .catch(err => console.log(err))
