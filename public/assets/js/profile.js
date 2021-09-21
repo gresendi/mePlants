@@ -49,148 +49,15 @@ document.addEventListener('click', event => {
   }
 })
 
-// document.getElementById('addPlant').addEventListener("click", event=>{
-//   event.preventDefault()
-//     if(addPlant==0){
-//     console.log('clicked'+ addPlant)
-    
-//     let add = document.createElement('div')
-//     add.className = "col-sm-6 mx-auto mb-5 "
-//     add.innerHTML=
-//     `
-//     <form>
-//       <div class="mb-3">
-//         <label for="plantName" class="form-label">Plant Name</label>
-//         <input type="text" class="form-control" id="plantName" aria-describedby="emailHelp">
-//       </div>
-
-//       <div class="mb-3">
-//         <label for="care" class="form-label">Care Tips</label>
-//         <textarea class="form-control" id="care" rows="1"></textarea>
-//       </div>
-
-//       <div class="input-group mb-3 mt-3">
-//         <input type="file" class="form-control" accept="image/*" id="photo">
-//         <label class="input-group-text" for="photo"></label>
-//         <progress id="uploader">0%</progress>
-//       </div>
-
-//         <label for="sel1">Select list (select one):</label>
-//         <select id = 'sel1' class="form-select mb-3" aria-label="Default select example">
-//           <option selected>Water Every: </option>
-//           <option value="1">Day</option>
-//           <option value="2">2 days</option>
-//           <option value="3">3 days</option>
-//           <option value="4">4 days</option>
-//           <option value="5">5 days</option>
-//           <option value="6">6 days</option>
-//           <option value="7">7 days</option>
-//           <option value="8">8 days</option>
-//           <option value="9">9 days</option>
-//           </select>
-//         <button class="btn btn-primary addPlant">Add plant</button>
-//         <button class="btn btn-danger closePlant">x</button>
-
-//     </form>
-
-//     `
-//     //  let form = document.getElementById('plants')
-//     // form.childNodes[0].innerHTML= add
-
-//     document.getElementById('plants').prepend(add)
-//     addPlant++
-
-//     uploadPhoto()
-
-//     document.getElementById('addPlant').addEventListener('click', event => {
-//       event.preventDefault()
-//       console.log('adding plant')
-//       let intervals = document.getElementById('sel1').value
-//       console.log(intervals)
-//       axios.post('/api/plants', {
-//         officialName: '',
-//         nickName: document.getElementById('plantName').value,
-//         photo: imgUrl,
-//         care: document.getElementById('care').value,
-//         lastWatered: Date.now(),
-//         nextWatering: moment().add(intervals, 'days').format(),
-//         intervals: intervals
-//       }, {
-//         headers: {
-//           Authorization: `Bearer ${localStorage.getItem('token')}`
-//         }
-
-//       }).then(() => {
-//         console.log("plant added")
-//         location.reload()
-
-//         let imgUrl = ''
-//       })
-//         .catch(err => console.error(err))
-
-//     })
-// }
-// })
-
-
-document.getElementById('addPlant').addEventListener('click', event => {
-  event.preventDefault()
-
-  if (addPlant === 0) {
-    console.log('clicked' + addPlant);
-
-    console.log(addPlant);
-
-    let add = document.createElement('div')
-    add.class = 'col-sm-6 mx-auto mb-5'
-    add.innerHTML = 
-    `
-    <form>
-      <div class="mb-3">
-        <label for="plantName" class="form-label">Plant Name</label>
-        <input type="text" class="form-control" id="plantName" aria-describedby="emailHelp">
-      </div>
-
-      <div class="mb-3">
-        <label for="care" class="form-label">Care Tips</label>
-        <textarea class="form-control" id="care" rows="1"></textarea>
-      </div>
-
-      <div class="input-group mb-3 mt-3">
-        <input type="file" class="form-control" accept="image/*" id="photo">
-        <label class="input-group-text" for="photo"></label>
-        <progress id="uploader">0%</progress>
-      </div>
-
-        <label for="sel1">Select list (select one):</label>
-        <select id = 'sel1' class="form-select mb-3" aria-label="Default select example">
-          <option selected>Water Every: </option>
-          <option value="1">Day</option>
-          <option value="2">2 days</option>
-          <option value="3">3 days</option>
-          <option value="4">4 days</option>
-          <option value="5">5 days</option>
-          <option value="6">6 days</option>
-          <option value="7">7 days</option>
-          <option value="8">8 days</option>
-          <option value="9">9 days</option>
-          </select>
-        <button class="btn btn-primary addPlant">Add plant</button>
-        <button class="btn btn-danger closePlant">x</button>
-    </form>
-    `
-
-    document.getElementById('plants').prepend(add)
-    addPlant ++
-
-    // uploadPhoto()
-  }
+document.getElementById('addPlant').addEventListener("click", event=>{
+   window.location ='/addPlant.html'
+  
 })
+
 
 document.addEventListener('click', event => {
   event.preventDefault()
-  
-  if (event.target.classList.contains('closePlant')) {
+ if (event.target.classList.contains('closePlant')) {
     console.log('closing plant')
     let closeForm = document.getElementById('plants')
     closeForm.removeChild(closeForm.childNodes[0])
@@ -231,6 +98,12 @@ document.addEventListener('click', event => {
     })
     
   }
+  else if(event.target.classList.contains('createPlant')){
+    createPlant()
+  }
+
+
+
 })
 
 
@@ -303,6 +176,8 @@ axios.get('/api/users/posts', {
 
 
 function uploadPhoto() {
+
+  console.log('clicked')
   // event listener when the html file input is changed (to upload image/photo)
   document.getElementById('photo').addEventListener('change', event => {
     console.log('log event');
@@ -356,6 +231,7 @@ function uploadPhoto() {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log('File available at', downloadURL);
           imgUrl = downloadURL
+          
         });
       }
     );
