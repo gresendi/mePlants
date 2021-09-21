@@ -1,4 +1,5 @@
 const { axios } = window
+
 let addPlant = 0
 
 document.getElementById('goHome').addEventListener('click', () => {
@@ -50,11 +51,19 @@ document.getElementById('addPlant').addEventListener("click", event=>{
                 <input type="text" class="form-control" id="image" aria-describedby="emailHelp">
 
               </div>
-
-                <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Watered Today</label>
-                </div>
+                <label for="sel1">Select list (select one):</label>
+                <select id = 'sel1' class="form-select mb-3" aria-label="Default select example">
+                  <option selected>Water Every: </option>
+                  <option value="1">Day</option>
+                  <option value="2">2 days</option>
+                  <option value="3">3 days</option>
+                  <option value="4">4 days</option>
+                  <option value="5">5 days</option>
+                  <option value="6">6 days</option>
+                  <option value="7">7 days</option>
+                  <option value="8">8 days</option>
+                  <option value="9">9 days</option>
+                  </select>
                 <button class="btn btn-primary addPlant">Add plant</button>
                 <button class="btn btn-danger closePlant">x</button>
               </form>
@@ -75,13 +84,16 @@ document.addEventListener('click', event => {
   event.preventDefault()
   if (event.target.classList.contains('addPlant')) {
     console.log('adding plant')
+    let intervals = document.getElementById('sel1').value
+    console.log(intervals)
     axios.post('/api/plants', {
       officialName: '',
       nickName: document.getElementById('plantName').value,
       photo: document.getElementById('image').value,
       care: document.getElementById('care').value,
       lastWatered: Date.now(),
-      nextWatering: Date.now()
+      nextWatering: moment().add(intervals,'days').format(),
+      intervals: intervals
     }, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -108,6 +120,31 @@ document.addEventListener('click', event => {
     })
       .then(() => location.reload())
       .catch(err => console.error(err))
+  }
+  else if(event.target.classList.contains('water')) {
+    
+    axios.get('api/plants', {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+      .then(({ data: plants })=>{
+        plants.forEach(plant=>{
+          
+          if(plant.id==event.target.dataset.id)
+          {
+            let interval = plant.intervals
+            console.log(plant.intervals)
+            axios.put('/api/plants', {intervals: interval, id:plant.id })
+            .then(()=>{
+              console.log("updated")
+              location.reload()
+            })
+          }
+        })
+
+    })
+    
   }
 
 
@@ -166,10 +203,10 @@ axios.get('/api/users/posts', {
 
               <div class="col-sm-4">
                 <div class="row">
-                  <button class="col-sm-5 btn btn-primary water mb-2">Water</button>
+                  <button data-id = "${id}"  class="col-sm-5 btn btn-primary water mb-2">Water</button>
                 </div>
                 <div class="row">
-                  <button class="col-sm-6 btn btn-success scheduleWater mb-2">Schedule Watering</button>
+                  <button data-id = "${id}"  class="col-sm-6 btn btn-success scheduleWater mb-2">Schedule Watering</button>
                 </div>
                 <div class="row">
                   <button data-id = "${id}" class="col-sm-5 btn btn-danger removePlant ">Delete</button>

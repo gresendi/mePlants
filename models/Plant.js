@@ -9,7 +9,8 @@ Plant.init({
   photo: DataTypes.STRING,
   care: DataTypes.STRING,
   lastWatered: DataTypes.DATEONLY,
-  nextWatering: DataTypes.DATEONLY
+  nextWatering: DataTypes.DATEONLY,
+  intervals: DataTypes.INTEGER
 }, { sequelize, modelName: 'plant' })
 
 module.exports = Plant
