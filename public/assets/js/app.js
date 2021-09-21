@@ -3,6 +3,7 @@ const { axios } = window
 document.getElementById('createPost').addEventListener('click', event => {
   event.preventDefault()
 
+
   axios.post('/api/posts', {
     title: document.getElementById('title').value,
     photo: document.getElementById('photo').value,
@@ -12,18 +13,20 @@ document.getElementById('createPost').addEventListener('click', event => {
       Authorization: `Bearer ${localStorage.getItem('token')}`
     }
   })
-    .then(({ data: { id, title,photo, body, u: { username } } }) => {
+    .then(({ data: { id, title, photo, body, u: { username } } }) => {
       const postElem = document.createElement('li')
       postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
       postElem.innerHTML = `
-        <div class="ms-2 me-auto">
-          <div class="fw-bold">${title}</div>
-          ${photo}
-          ${body}
-        </div>
-        <span class="badge bg-primary rounded-pill">${username}</span>
-      `
+    <div class="ms-2 me-auto">
+    <div class="fw-bold">${title}</div>
+    ${photo}
+    ${body}
+    </div>
+    <span class="badge bg-primary rounded-pill">${username}</span>
+    `
       document.getElementById('posts').append(postElem)
+      document.getElementById('title').value = ''
+      document.getElementById('body').value = ''
     })
     .catch(err => console.error(err))
 })
