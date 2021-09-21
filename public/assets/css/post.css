@@ -15,10 +15,6 @@ body {
   border-bottom: 1px solid black;
 }
 
-button {
-  background-color: #48BF84;
-}
-
 .meplant-header-logo {
   font-size: 2.25rem;
   font-family: 'Gluten', cursive;

@@ -20,7 +20,6 @@ document.getElementById('logOut').addEventListener('click', () => {
   window.location = '/login.html'
 })
 
-
 document.getElementById('addPost').addEventListener('click', event => {
 
   addPost++
@@ -104,9 +103,6 @@ function getPosts() {
       console.log(err)
       window.location = '/login.html'
     })
-
-
-  
 }
 
 function isLoggedIn(){
@@ -119,7 +115,6 @@ function isLoggedIn(){
     button.innerHTML = `Sign In`
   }
 }
-
 
 getPosts()
 isLoggedIn()
