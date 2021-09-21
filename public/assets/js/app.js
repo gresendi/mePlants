@@ -1,5 +1,5 @@
 const { axios } = window
-let moment = require('moment')
+
 // // import initalizeApp from firebase app (version 9)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
 
