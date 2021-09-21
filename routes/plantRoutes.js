@@ -39,7 +39,11 @@ router.get('/plants', passport.authenticate('jwt'), (req, res) =>{
     .catch(err => console.log(err))
 
 })
-  
+
+router.delete('/plants/:id', (req, res) => Plant.destroy({ where: { id: req.params.id } })
+  .then(() => res.sendStatus(200))
+  .catch(err => console.log(err)))
+
 
 router.get('/users/plants', passport.authenticate('jwt'), (req, res) => res.json(req.user))
 

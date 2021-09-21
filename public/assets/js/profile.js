@@ -99,10 +99,22 @@ document.addEventListener('click', event => {
     closeForm.removeChild(closeForm.childNodes[0])
     addPlant=0
   }
+  else if (event.target.classList.contains('removePlant')) {
+    console.log('deleting plant')
+    axios.delete(`/api/plants/${event.target.dataset.id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+      .then(() => location.reload())
+      .catch(err => console.error(err))
+  }
 
 
 
 })
+
+
 
 axios.get('/api/users/posts', {
   headers: {
@@ -134,7 +146,7 @@ axios.get('/api/users/posts', {
   })
   .then(({data:plants})=>{
     console.log(plants)
-    plants.forEach(({nickName,care,photo,lastWatered,nextWatering})=>
+    plants.forEach(({nickName,care,photo,lastWatered,nextWatering,id})=>
     {
       let plant = document.createElement('div')
       plant.innerHTML=`
@@ -160,7 +172,7 @@ axios.get('/api/users/posts', {
                   <button class="col-sm-6 btn btn-success scheduleWater mb-2">Schedule Watering</button>
                 </div>
                 <div class="row">
-                  <button class="col-sm-5 btn btn-danger removePlant ">Delete</button>
+                  <button data-id = "${id}" class="col-sm-5 btn btn-danger removePlant ">Delete</button>
                 </div>
               </div>
             </div>
