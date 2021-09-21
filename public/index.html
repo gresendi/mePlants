@@ -14,30 +14,31 @@
 
 <body>
   <div class="container mt-3 ">
-    <div class=" mt-1 p-5 lavender text-white rounded ">
-      <h1>mePlant</h1>
-      <p>This is a simple app for keeping track of your plants, and getting plant inspiration.</p>
-      <button id="goHome" class="btn navButtons">Home</button>
-      <button id="goProfile" class="btn btn-success navbuttons">Plants</button>
-      <button id="logOut" class="btn btn-secondary navbuttons">Log Out</button>
+    <div class="mt-4 p-3 lavender text-black rounded">
+    <h1>mePlant</h1>
+    <p>This is a simple app for keeping track of your plants, and getting plant inspiration.</p>
+    <button id="goHome" class="btn grassy mt-1"><strong>Home</strong></button>
+    <button id="goProfile" class="btn grassy  mt-1"><strong>Plants</strong></button>
+    <button id="logOut" class="btn grassy  mt-1"><strong>Log Out</strong></button>
     </div>
-    <div class="row">
-      <form>
-        
-        <div class="input-group mb-3 mt-3">
-          <input type="file" class="form-control" id="photo">
-          <label class="input-group-text" for="photo"></label>
-        </div>
-        <div class="mb-3">
-          <label for="title" class="form-label">Username</label>
-          <input type="text" class="form-control" id="title">
-        </div>
-        <div class="mb-3">
-          <label for="body" class="form-label">Body</label>
-          <textarea  class="form-control" rows = "2" id="body"></textarea>
-        </div>
-        <button id="createPost" type="submit" class="btn btn-primary">Create Post</button>
-      </form>
+    <div id = "topContainer" class="row">
+
+      <div class="row mt-4 mb-3 ms-0">
+        <nav class="navbar navbar-light grassy">
+          <div class="container-fluid">
+            <a class="navbar-brand">Plants</a>
+            <form class="d-flex">
+      
+              <button id="addPost" class="btn btn-outline-success me-0" type="submit">+</button>
+              
+            </form>
+      
+          </div>
+        </nav>
+      
+      </div>
+
+     
     </div>
     <div id="posts" class="mt-4 row list-group">
 
