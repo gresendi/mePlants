@@ -53,22 +53,21 @@ document.getElementById('addPost').addEventListener('click', event => {
   let form = document.createElement('div')
   form.innerHTML = `
    <form>
-
-        <div class="input-group mb-3 mt-3">
-          <input type="file" class="form-control" accept="image/*" id="photo">
-          <label class="input-group-text" for="photo"></label>
-          <progress id="uploader">0%</progress>
-        </div>
-        <div class="mb-3">
-          <label for="title" class="form-label">Username</label>
-          <input type="text" class="form-control" id="title">
-        </div>
-        <div class="mb-3">
-          <label for="body" class="form-label">Body</label>
-          <textarea  class="form-control" rows = "2" id="body"></textarea>
-        </div>
-        <button id="createPost" type="submit" class="btn btn-primary">Create Post</button>
-      </form>
+      <div class="input-group mb-3 mt-3">
+        <input type="file" class="form-control" accept="image/*" id="photo">
+        <label class="input-group-text" for="photo"></label>
+        <progress id="uploader">0%</progress>
+      </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Username</label>
+        <input type="text" class="form-control" id="title">
+      </div>
+      <div class="mb-3">
+        <label for="body" class="form-label">Body</label>
+        <textarea  class="form-control" rows = "2" id="body"></textarea>
+      </div>
+      <button id="createPost" type="submit" class="btn btn-primary">Create Post</button>
+    </form>
   `
 
   document.getElementById('topContainer').append(form)
@@ -108,11 +107,8 @@ document.getElementById('addPost').addEventListener('click', event => {
       .catch(err => console.error(err))
   })
   }
-  
-
-
-
 })
+
 function getPosts() {
   axios.get('/api/posts', {
       headers: {
