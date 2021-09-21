@@ -39,6 +39,7 @@ router.get('/plants', passport.authenticate('jwt'), (req, res) =>{
     .catch(err => console.log(err))
 
 })
+  
 
 router.get('/users/plants', passport.authenticate('jwt'), (req, res) => res.json(req.user))
 
