@@ -4,11 +4,7 @@ const passport = require('passport')
 const moment = require('moment')
 const { update } = require('lodash')
 
-
-
 router.post('/plants', passport.authenticate('jwt'), (req, res) => Plant.create({
- 
-
   officialName: req.body.officialName,
   nickName: req.body.nickName,
   photo: req.body.photo,
@@ -59,15 +55,9 @@ router.put('/plants',(req,res)=>{
   .then(()=>{
     console.log('updated')
     res.sendStatus(200)
-  })
- 
-   
+  })  
 })
  
- 
-
-
-
 router.get('/users/plants', passport.authenticate('jwt'), (req, res) => res.json(req.user))
 
 module.exports = router

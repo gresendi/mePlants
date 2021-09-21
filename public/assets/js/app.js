@@ -28,15 +28,17 @@ document.getElementById('goHome').addEventListener('click', () => {
   window.location = '/'
 })
 
+document.getElementById('goPost').addEventListener('click', () => {
+  window.location = '/post.html'
+})
+
 document.getElementById('goProfile').addEventListener('click', () => {
-  if (localStorage.getItem('token')){
+  if (localStorage.getItem('token')) {
     window.location = '/profile.html'
-  }else{
+  } else {
     window.location = '/login.html'
   }
-    
-  
-  
+
 })
 
 document.getElementById('logOut').addEventListener('click', () => {
@@ -44,14 +46,13 @@ document.getElementById('logOut').addEventListener('click', () => {
   window.location = '/login.html'
 })
 
-
 document.getElementById('addPost').addEventListener('click', event => {
 
   addPost++
   event.preventDefault()
-  if(addPost<=1){
-  let form = document.createElement('div')
-  form.innerHTML = `
+  if (addPost <= 1) {
+    let form = document.createElement('div')
+    form.innerHTML = `
    <form>
 
         <div class="input-group mb-3 mt-3">
@@ -71,26 +72,26 @@ document.getElementById('addPost').addEventListener('click', event => {
       </form>
   `
 
-  document.getElementById('topContainer').append(form)
+    document.getElementById('topContainer').append(form)
 
-  uploadPhoto()
+    uploadPhoto()
 
-  document.getElementById('createPost').addEventListener('click', event => {
-    event.preventDefault()
+    document.getElementById('createPost').addEventListener('click', event => {
+      event.preventDefault()
 
-    axios.post('/api/posts', {
-      title: document.getElementById('title').value,
-      photo: imgUrl,
-      body: document.getElementById('body').value
-    }, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      }
-    })
-      .then(({ data: { id, title, photo, body, u: { username } } }) => {
-        const postElem = document.createElement('li')
-        postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
-        postElem.innerHTML = `
+      axios.post('/api/posts', {
+        title: document.getElementById('title').value,
+        photo: imgUrl,
+        body: document.getElementById('body').value
+      }, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      })
+        .then(({ data: { id, title, photo, body, u: { username } } }) => {
+          const postElem = document.createElement('li')
+          postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
+          postElem.innerHTML = `
         <div class="ms-2 me-auto">
           <div class="fw-bold">${title}</div>
           ${photo}
@@ -98,27 +99,24 @@ document.getElementById('addPost').addEventListener('click', event => {
         </div>
         <span class="badge bg-primary rounded-pill">${username}</span>
       `
-        document.getElementById('posts').append(postElem)
-        addPost = 0
-        location.reload()
+          document.getElementById('posts').append(postElem)
+          addPost = 0
+          location.reload()
 
-        let imgUrl = ''
-        
-      })
-      .catch(err => console.error(err))
-  })
+          let imgUrl = ''
+
+        })
+        .catch(err => console.error(err))
+    })
   }
-  
-
-
 
 })
 
 function getPosts() {
   axios.get('/api/posts', {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      }
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
   })
     .then(({ data: posts }) => {
       console.log(posts)
@@ -135,18 +133,18 @@ function getPosts() {
         document.getElementById('posts').append(postElem)
       })
     })
-  .catch(err => {
-    console.log(err)
-    window.location = '/login.html'
-  })
+    .catch(err => {
+      console.log(err)
+      window.location = '/login.html'
+    })
 }
 
 
-function isLoggedIn(){
-  if (localStorage.getItem('token')){
+function isLoggedIn() {
+  if (localStorage.getItem('token')) {
     console.log("logged in")
 
-  }else{
+  } else {
     console.log('not logged in')
     let button = document.getElementById('logOut')
     button.innerHTML = `Sign In`
