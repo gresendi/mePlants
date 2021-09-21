@@ -32,7 +32,7 @@ document.getElementById('addPlant').addEventListener("click", event=>{
     if(addPlant==0){
     console.log('clicked'+ addPlant)
     let add = document.createElement('div')
-    add.className = "col-sm-6 mx-auto mb-5"
+    add.className = "col-sm-6 mx-auto mb-5 "
     add.innerHTML=
     `
   <form>
