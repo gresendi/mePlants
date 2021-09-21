@@ -23,18 +23,17 @@ router.post('/plants', passport.authenticate('jwt'), (req, res) => Plant.create(
 
 
 router.get('/plants', passport.authenticate('jwt'), (req, res) =>{
-  Plant.findAll({ include: 'u' })
+  
+  
+  let user = req.user
+  console.log(user.dataValues.id)
+  
+  Plant.findAll({
+    where: {
+      uid: user.dataValues.id
+    }
+  })
     .then(plants => {
-      
-      let array = []
-      plants.forEach(plant=>{
-        
-        if(plant.u.id === plant.uid)
-        {
-          console.log(plant.u.id)
-        }
-      })
-      
       res.json(plants)
     })
     .catch(err => console.log(err))
