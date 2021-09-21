@@ -27,9 +27,11 @@
           <input type="text" class="form-control" id="title">
         </div>
         <div class="input-group mb-3">
-          <input type="file" class="form-control" id="photo">
+          <input type="file" class="form-control" id="photo" accept="image/*">
           <label class="input-group-text" for="photo"></label>
+          <progress id="uploader">0%</progress>
         </div>
+
         <div class="mb-3">
           <label for="body" class="form-label">Body</label>
           <input type="text" class="form-control" id="body">
@@ -45,7 +47,11 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="./assets/js/app.js"></script>
+  <!-- Firebase Scripts version 8 (not using currently as using version 9 but leaving in case need to revert) -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> -->
+  <!-- Scripts -->
+  <script type="module" src="./assets/js/app.js"></script>
 </body>
 
 </html>
