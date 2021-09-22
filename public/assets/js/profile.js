@@ -278,3 +278,48 @@ document.getElementById('waterAll').addEventListener('click',event =>{
     })
 
 })
+
+
+document.addEventListener('click', event =>{
+  event.preventDefault()
+  if(event.target.classList.contains('scheduleWater'))
+  {
+    console.log(event.target.dataset.id)
+    
+    let button = event.target
+    let id = button.dataset.id
+    let parent = button.parentNode
+    button.remove()
+    let container = document.createElement('form')
+    container.innerHTML = `
+    <label for="sel1">Days (select one):</label>
+        <select id='sel1' class="form-select mb-3" aria-label="Default select example">
+          <option selected>Water In </option>
+          <option value="1">1 day</option>
+          <option value="2">2 days</option>
+          <option value="3">3 days</option>
+          <option value="4">4 days</option>
+          <option value="5">5 days</option>
+          <option value="6">6 days</option>
+          <option value="7">7 days</option>
+          <option value="8">8 days</option>
+          <option value="9">9 days</option>
+        </select>
+        <button id="createPlant" class="btn btn-success mb-3 schedule">Schedule</button>
+    
+    `
+    parent.append(container)
+    document.addEventListener('click',event =>{
+      event.preventDefault()
+      if(event.target.classList.contains('schedule')){
+        let days = document.getElementById('sel1').value
+        console.log(days)
+        axios.put(`/api/plants/:${id}`,{daysFrom:days, id:id})
+        .then(()=>location.reload())
+      }
+    })
+
+    
+    //button.remove()
+  }
+})
