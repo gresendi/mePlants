@@ -89,15 +89,18 @@ function getPosts() {
   })
     .then(({ data: posts }) => {
       console.log(posts)
-      posts.forEach(({ id, title, body, u: { username } }) => {
+      posts.forEach(({ id, title, body,photo, u: { username } }) => {
         const postElem = document.createElement('li')
         postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
         postElem.innerHTML = `
         <div class="ms-2 me-auto">
+        <span class="badge lavender rounded-pill mb-1">${username}</span>
+          
+          <img src = ${photo} class="card-img-top" alt="plant">
           <div class="fw-bold">${title}</div>
           ${body}
         </div>
-        <span class="badge bg-primary rounded-pill">${username}</span>
+        
       `
         document.getElementById('posts').append(postElem)
       })
