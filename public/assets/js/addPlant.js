@@ -155,19 +155,6 @@ document.getElementById('createPlant').addEventListener('click', event => {
 
 
 uploadPhoto()
-
-
-
-
-
-
-
-
-
-
-
-
-
 isLoggedIn()
 
 
