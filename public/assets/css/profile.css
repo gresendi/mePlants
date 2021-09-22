@@ -43,3 +43,8 @@ body {
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
+
+.higher-z-index {
+  position: relative;
+  z-index: 10000000;
+}
