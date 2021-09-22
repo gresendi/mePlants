@@ -36,9 +36,9 @@ document.getElementById('addPlant').addEventListener('click', () => {
   window.location = '/addPlant.html'
 })
 
-document.getElementById('goProfile').addEventListener('click', () => {
-  window.location = '/profile.html'
-})
+// document.getElementById('goProfile').addEventListener('click', () => {
+//   window.location = '/profile.html'
+// })
 
 document.getElementById('logOut').addEventListener('click', () => {
   localStorage.removeItem('token')
