@@ -10,14 +10,36 @@ body {
   background-color: #def4c6;
 }
 
-.lavender {
-  background-color: #E0BAD7;
+.blog-header {
+  line-height: 1;
+  border-bottom: 1px solid black;
+  margin-bottom: 25px;
 }
 
-.navButtons {
-  background-color: #48BF84;
+.meplant-header-logo {
+  font-size: 30px;
+  font-family: 'Gluten', cursive;
 }
 
-.grassy {
-  background-color: #73E2A7;
+.material-icons-outlined {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 30px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
 }

@@ -19,6 +19,10 @@ button {
   background-color: #48BF84;
 }
 
+.lavender {
+  background-color: #E0BAD7;
+}
+
 .meplant-header-logo {
   font-size: 2.25rem;
   font-family: 'Gluten', cursive;
@@ -28,7 +32,7 @@ button {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 36px;
+  font-size: 30px;
   /* Preferred icon size */
   display: inline-block;
   line-height: 1;
@@ -45,4 +49,8 @@ button {
   -moz-osx-font-smoothing: grayscale;
   /* Support for IE. */
   font-feature-settings: 'liga';
+}
+
+.lavender {
+  background-color: #E0BAD7;
 }

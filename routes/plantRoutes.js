@@ -61,6 +61,22 @@ router.put('/plants',(req,res)=>{
     res.sendStatus(200)
   })  
 })
+
+router.put('/plants/:id',(req,res) =>{
+  let id = parseInt(req.body.id)
+  let days= req.body.daysFrom
+  let next = moment().add(days,'days').format()
+  Plant.update({nextWatering:next},
+    {
+      where:
+      {
+        id:id}
+    })
+    .then(()=>{
+      res.sendStatus(200)
+    })
+  
+})
  
 router.get('/users/plants', passport.authenticate('jwt'), (req, res) => res.json(req.user))
 
