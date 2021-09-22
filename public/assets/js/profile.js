@@ -115,15 +115,16 @@ axios.get('/api/users/posts', {
   }
 })
   .then(({ data: { username, posts } }) => {
-    posts.forEach(({ id, title, body }) => {
+    posts.forEach(({ id, title, body,photo }) => {
       const postElem = document.createElement('li')
       postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
       postElem.innerHTML = `
-        <div class="ms-2 me-auto">
+         <div class="ms-2 me-auto">
+        <span class="badge lavender rounded-pill mb-1">${username}</span>
+          
+          <img src = ${photo} class="card-img-top" alt="plant">
           <div class="fw-bold">${title}</div>
           ${body}
-        </div>
-        <span class="badge bg-primary rounded-pill infoPill">${username}</span>
         <span data-id="${id}" class="deletePost badge bg-danger rounded-pill">x</span>
       `
       document.getElementById('posts').append(postElem)
