@@ -29,7 +29,13 @@ document.getElementById('goHome').addEventListener('click', () => {
 })
 
 document.getElementById('goPost').addEventListener('click', () => {
-  window.location = '/post.html'
+  if (localStorage.getItem('token')) {
+    window.location = '/post.html'
+  } else {
+    window.location = '/login.html'
+  }
+  
+  
 })
 
 document.getElementById('goProfile').addEventListener('click', () => {
