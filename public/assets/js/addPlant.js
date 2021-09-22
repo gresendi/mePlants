@@ -44,16 +44,7 @@ document.getElementById('logOut').addEventListener('click', () => {
   window.location = '/login.html'
 })
 
-function isLoggedIn() {
-  if (localStorage.getItem('token')) {
-    console.log("logged in")
 
-  } else {
-    console.log('not logged in')
-    let button = document.getElementById('logOut')
-    button.innerHTML = `Sign In`
-  }
-}
 
 function uploadPhoto() {
   // event listener when the html file input is changed (to upload image/photo)
@@ -155,7 +146,7 @@ document.getElementById('createPlant').addEventListener('click', event => {
 
 
 uploadPhoto()
-isLoggedIn()
+
 
 
 
