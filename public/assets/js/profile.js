@@ -249,38 +249,30 @@ document.getElementById('waterAll').addEventListener('click',event =>{
   })
     .then(({ data: plants }) => {
       console.log(plants)
-      plants.forEach(({ nickName, care, photo, lastWatered, nextWatering, id }) => {
-      //   let plant = document.createElement('div')
-      //   plant.innerHTML = `
-      //    <div class="row mb-3">
-      //         <div class="col-sm-4">
-      //           <img src="${photo}"
-      //             class="card-img-top" alt="plant">
-      //         </div>
+      plants.forEach(({  intervals, id }) => {
+      
+        axios.get('api/plants', {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        })
+          .then(({ data: plants }) => {
+            plants.forEach(plant => {
 
-      //         <div class="col-sm-4">
-      //           <h5>${nickName}</h5>
-      //           <p>actual name</p>
-      //           <p>Care Tips: ${care}</p>
-      //           <p>Last Watered: ${lastWatered}</p>
-      //           <p>Next Watering: ${nextWatering}</p>
-      //         </div>
+              if (plant.id == id) {
+                let interval = plant.intervals
+                
+                axios.put('/api/plants', { intervals: interval , id: plant.id })
+                  .then(() => {
+                    location.reload()
+                    
+                  })
+              }
+            })
 
-      //         <div class="col-sm-4">
-      //           <div class="row">
-      //             <button data-id = "${id}"  class="col-sm-5 btn btn-primary water mb-2">Water</button>
-      //           </div>
-      //           <div class="row">
-      //             <button data-id = "${id}"  class="col-sm-6 btn btn-success scheduleWater mb-2">Schedule Watering</button>
-      //           </div>
-      //           <div class="row">
-      //             <button data-id = "${id}" class="col-sm-5 btn btn-danger removePlant ">Delete</button>
-      //           </div>
-      //         </div>
-      //       </div>
-      // `
-      //   document.getElementById('plants').append(plant)
-      console.log(lastWatered + ' '+ nextWatering + ' ' + id)
+          })
+
+
 
       })
     })
