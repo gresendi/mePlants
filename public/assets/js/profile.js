@@ -33,6 +33,10 @@ document.getElementById('goPost').addEventListener('click', () => {
   window.location = '/post.html'
 })
 
+document.getElementById('goLike').addEventListener('click', () => {
+  window.location = '/like.html'
+})
+
 document.getElementById('addPlant').addEventListener('click', () => {
   window.location = '/addPlant.html'
 })

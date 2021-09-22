@@ -17,7 +17,7 @@ body {
 }
 
 .meplant-header-logo {
-  font-size: 30px;
+  font-size: 2rem;
   font-family: 'Gluten', cursive;
 }
 
@@ -25,7 +25,7 @@ body {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 30px;
+  font-size: 20px;
   /* Preferred icon size */
   display: inline-block;
   line-height: 1;

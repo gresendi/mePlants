@@ -28,6 +28,14 @@ document.getElementById('goHome').addEventListener('click', () => {
   window.location = '/'
 })
 
+document.getElementById('goLike').addEventListener('click', () => {
+  if (localStorage.getItem('token')) {
+    window.location = '/like.html'
+  } else {
+    window.location = '/login.html'
+  }
+})
+
 document.getElementById('goProfile').addEventListener('click', () => {
   if (localStorage.getItem('token')) {
     window.location = '/profile.html'
