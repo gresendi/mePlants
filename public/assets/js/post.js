@@ -106,6 +106,7 @@ function uploadPhoto() {
 }
 
 uploadPhoto()
+
 document.getElementById('createPost').addEventListener('click', event => {
   event.preventDefault()
 
