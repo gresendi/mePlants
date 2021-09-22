@@ -15,32 +15,34 @@ let users = [
 
 let posts = [
   {
-    title: "Plant post",
-    photo: "url",
-    body: "test post",
+    title: "Cacti",
+    photo: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/close-up-of-potted-cactus-royalty-free-image-771499429-1553270484.jpg?crop=1xw:1xh;center,top&resize=980:*",
+    body: "These plants thrive in natural light. They only have to be watered once a week during the spring and summer and every three weeks during the fall and winter. ",
     uid: 1
   },
   {
-    title: "Plant post 2",
-    photo: "url",
-    body: "test post",
+    title: "English Ivy",
+    photo: "https://hips.hearstapps.com/hbu.h-cdn.co/assets/17/27/1499281854-english-ivy.jpg?crop=1.0xw:1xh;center,top&resize=980:*",
+    body: "Four hours of direct light (and indirect sun during the rest of the day) and steady moisture are key to keeping your ivy happy.",
     uid: 2
   }
 
 ]
-let plants = [
-  {
-    officialName: "NA",
-    nickName: "My Plant",
-    photo: "url",
-    care: "Love it",
-    lastWatered: Date.now(),
-    nextWatering: Date.now(),
-    intervals: 4,
 
-    uid: 2
-  }
-]
+
+// let plants = [
+//   {
+//     officialName: "NA",
+//     nickName: "My Plant",
+//     photo: "url",
+//     care: "Love it",
+//     lastWatered: Date.now(),
+//     nextWatering: Date.now(),
+//     intervals: 4,
+
+//     uid: 2
+//   }
+// ]
 
 
 
@@ -59,6 +61,7 @@ router.post('/users/register', (req, res) => {
 
 
   })
+  
 
 
 })
