@@ -29,6 +29,14 @@ document.getElementById('goHome').addEventListener('click', () => {
   window.location = '/'
 })
 
+document.getElementById('goPost').addEventListener('click', () => {
+  window.location = '/post.html'
+})
+
+document.getElementById('addPlant').addEventListener('click', () => {
+  window.location = '/addPlant.html'
+})
+
 document.getElementById('goProfile').addEventListener('click', () => {
   window.location = '/profile.html'
 })
@@ -50,19 +58,19 @@ document.addEventListener('click', event => {
   }
 })
 
-document.getElementById('addPlant').addEventListener("click", event=>{
-   window.location ='/addPlant.html'
-  
+document.getElementById('addPlant').addEventListener("click", event => {
+  window.location = '/addPlant.html'
+
 })
 
 
 document.addEventListener('click', event => {
   event.preventDefault()
- if (event.target.classList.contains('closePlant')) {
+  if (event.target.classList.contains('closePlant')) {
     console.log('closing plant')
     let closeForm = document.getElementById('plants')
     closeForm.removeChild(closeForm.childNodes[0])
-    addPlant=0
+    addPlant = 0
   }
   else if (event.target.classList.contains('removePlant')) {
     console.log('deleting plant')
@@ -74,32 +82,31 @@ document.addEventListener('click', event => {
       .then(() => location.reload())
       .catch(err => console.error(err))
   }
-  else if(event.target.classList.contains('water')) {
-    
+  else if (event.target.classList.contains('water')) {
+
     axios.get('api/plants', {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
     })
-      .then(({ data: plants })=>{
-        plants.forEach(plant=>{
-          
-          if(plant.id==event.target.dataset.id)
-          {
+      .then(({ data: plants }) => {
+        plants.forEach(plant => {
+
+          if (plant.id == event.target.dataset.id) {
             let interval = plant.intervals
             console.log(plant.intervals)
-            axios.put('/api/plants', {intervals: interval, id:plant.id })
-            .then(()=>{
-              console.log("updated")
-              location.reload()
-            })
+            axios.put('/api/plants', { intervals: interval, id: plant.id })
+              .then(() => {
+                console.log("updated")
+                location.reload()
+              })
           }
         })
 
-    })
-    
+      })
+
   }
-  else if(event.target.classList.contains('createPlant')){
+  else if (event.target.classList.contains('createPlant')) {
     createPlant()
   }
 
@@ -115,7 +122,7 @@ axios.get('/api/users/posts', {
   }
 })
   .then(({ data: { username, posts } }) => {
-    posts.forEach(({ id, title, body,photo }) => {
+    posts.forEach(({ id, title, body, photo }) => {
       const postElem = document.createElement('li')
       postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
       postElem.innerHTML = `
@@ -133,17 +140,16 @@ axios.get('/api/users/posts', {
   .catch(err => console.error(err))
 
 
-  axios.get('api/plants',{
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`
-    }
-  })
-  .then(({data:plants})=>{
+axios.get('api/plants', {
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem('token')}`
+  }
+})
+  .then(({ data: plants }) => {
     console.log(plants)
-    plants.forEach(({nickName,care,photo,lastWatered,nextWatering,id})=>
-    {
+    plants.forEach(({ nickName, care, photo, lastWatered, nextWatering, id }) => {
       let plant = document.createElement('div')
-      plant.innerHTML=`
+      plant.innerHTML = `
          <div class="row mb-3">
               <div class="col-sm-4">
                 <img src="${photo}"
@@ -172,7 +178,7 @@ axios.get('/api/users/posts', {
             </div>
       `
       document.getElementById('plants').append(plant)
-      
+
     })
   })
 
@@ -233,7 +239,7 @@ function uploadPhoto() {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log('File available at', downloadURL);
           imgUrl = downloadURL
-          
+
         });
       }
     );
@@ -241,7 +247,7 @@ function uploadPhoto() {
 }
 
 
-document.getElementById('waterAll').addEventListener('click',event =>{
+document.getElementById('waterAll').addEventListener('click', event => {
   event.preventDefault()
   axios.get('api/plants', {
     headers: {
@@ -250,8 +256,8 @@ document.getElementById('waterAll').addEventListener('click',event =>{
   })
     .then(({ data: plants }) => {
       console.log(plants)
-      plants.forEach(({  intervals, id }) => {
-      
+      plants.forEach(({ intervals, id }) => {
+
         axios.get('api/plants', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -262,11 +268,11 @@ document.getElementById('waterAll').addEventListener('click',event =>{
 
               if (plant.id == id) {
                 let interval = plant.intervals
-                
-                axios.put('/api/plants', { intervals: interval , id: plant.id })
+
+                axios.put('/api/plants', { intervals: interval, id: plant.id })
                   .then(() => {
                     location.reload()
-                    
+
                   })
               }
             })
@@ -281,12 +287,11 @@ document.getElementById('waterAll').addEventListener('click',event =>{
 })
 
 
-document.addEventListener('click', event =>{
+document.addEventListener('click', event => {
   event.preventDefault()
-  if(event.target.classList.contains('scheduleWater'))
-  {
+  if (event.target.classList.contains('scheduleWater')) {
     console.log(event.target.dataset.id)
-    
+
     let button = event.target
     let id = button.dataset.id
     let parent = button.parentNode
@@ -310,17 +315,17 @@ document.addEventListener('click', event =>{
     
     `
     parent.append(container)
-    document.addEventListener('click',event =>{
+    document.addEventListener('click', event => {
       event.preventDefault()
-      if(event.target.classList.contains('schedule')){
+      if (event.target.classList.contains('schedule')) {
         let days = document.getElementById('sel1').value
         console.log(days)
-        axios.put(`/api/plants/:${id}`,{daysFrom:days, id:id})
-        .then(()=>location.reload())
+        axios.put(`/api/plants/:${id}`, { daysFrom: days, id: id })
+          .then(() => location.reload())
       }
     })
 
-    
+
     //button.remove()
   }
 })
