@@ -115,8 +115,6 @@ document.getElementById('createPost').addEventListener('click', event => {
       let imgUrl = ''
       window.location = '/'
 
-      
-
     })
     .catch(err => console.error(err))
 })
