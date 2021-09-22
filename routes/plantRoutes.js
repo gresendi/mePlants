@@ -42,18 +42,22 @@ router.delete('/plants/:id', (req, res) => Plant.destroy({ where: { id: req.para
   .then(() => res.sendStatus(200))
   .catch(err => console.log(err)))
 
+
+
 router.put('/plants',(req,res)=>{
   console.log(req.body)
-  let intervals = req.body.intervals + 3
+  let intervals = req.body.intervals  
   console.log(intervals)
   let id = parseInt(req.body.id)
   let day = moment().add(intervals, 'days').format()
+  let today = moment().add(0, 'days').format()
   console.log(day)
-  Plant.update({ nextWatering:day },
+  Plant.update({ nextWatering:day, lastWatered: today },
   {where:
     {id:id}})
   .then(()=>{
     console.log('updated')
+    
     res.sendStatus(200)
   })  
 })
