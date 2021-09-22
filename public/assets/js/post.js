@@ -115,6 +115,19 @@ document.getElementById('createPost').addEventListener('click', event => {
       let imgUrl = ''
       window.location = '/'
 
+      
+
     })
     .catch(err => console.error(err))
+})
+
+document.getElementById('body').addEventListener('input', event => {
+  const target = event.currentTarget
+  const maxCharLength = target.getAttribute('maxlength')
+  const currentCharLength = target.value.length
+
+  // console.log(`${maxCharLength - currentCharLength} chars left`);
+  let charLeftCount = maxCharLength - currentCharLength
+  // console.log(`${charLeftCount} many characters left`);
+  document.getElementById('charLeftCounter').textContent = charLeftCount
 })
