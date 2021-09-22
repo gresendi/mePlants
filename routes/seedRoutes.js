@@ -33,19 +33,19 @@ let posts = [
     title: "Fiddle Leaf Fig Plant",
     photo: "https://firebasestorage.googleapis.com/v0/b/meplant-c89e1.appspot.com/o/seedImages%2Ffig-leaf-plant.jpg?alt=media&token=d0a3480f-f366-4474-b97e-915b6dc7c8c6",
     body: "Apparently this plant got it's name from the shape of their leaves! So cool!",
-    uid: 2
+    uid: 1
   },
   {
     title: "Mini Tree?",
     photo: "https://firebasestorage.googleapis.com/v0/b/meplant-c89e1.appspot.com/o/seedImages%2Fmini-tree-plant.jpg?alt=media&token=6fc6b743-e653-42d2-aebf-2c83409a3514",
     body: "I don't know what this is but it looks like a baby tree!",
-    uid: 3
+    uid: 2
   },
   {
     title: "Pothos",
     photo: "https://firebasestorage.googleapis.com/v0/b/meplant-c89e1.appspot.com/o/seedImages%2Fpothos-plant.jpg?alt=media&token=91520762-189f-4437-beb8-634fcdae6d13",
     body: "I love pothos plants - easy to take care of and very versatile. I also hear it's easy to propogate so can't wait to try!",
-    uid: 1
+    uid: 3
   },
   {
     title: "Snake Plant",
@@ -58,7 +58,7 @@ let posts = [
     photo: "https://firebasestorage.googleapis.com/v0/b/meplant-c89e1.appspot.com/o/seedImages%2Fzz-plant.jpg?alt=media&token=d9f56a3e-f877-4f75-b0c1-29fbc47c637d",
     body: "Makes for a great desk plant or floor plant. Putting one on",
     uid: 4
-  },
+  }
 ]
 
 // post route to seed users (for each user in users above register a new user)
