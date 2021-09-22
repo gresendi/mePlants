@@ -96,3 +96,25 @@ function uploadPhoto() {
     );
   })
 }
+
+uploadPhoto()
+document.getElementById('createPost').addEventListener('click', event => {
+  event.preventDefault()
+
+  axios.post('/api/posts', {
+    title: document.getElementById('title').value,
+    photo: imgUrl,
+    body: document.getElementById('body').value
+  }, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
+  })
+    .then(({ data: { id, title, photo, body, u: { username } } }) => {
+
+      let imgUrl = ''
+      window.location = '/'
+
+    })
+    .catch(err => console.error(err))
+})
