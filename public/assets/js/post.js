@@ -23,9 +23,16 @@ const firebaseApp = initializeApp(firebaseConfig);
 let imgUrl = ''
 
 
-
 document.getElementById('goHome').addEventListener('click', () => {
   window.location = '/'
+})
+
+document.getElementById('goLike').addEventListener('click', () => {
+  if (localStorage.getItem('token')) {
+    window.location = '/like.html'
+  } else {
+    window.location = '/login.html'
+  }
 })
 
 document.getElementById('goProfile').addEventListener('click', () => {

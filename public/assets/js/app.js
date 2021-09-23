@@ -28,14 +28,24 @@ document.getElementById('goHome').addEventListener('click', () => {
   window.location = '/'
 })
 
+document.getElementById('goLike').addEventListener('click', () => {
+  if (localStorage.getItem('token')) {
+    window.location = '/like.html'
+  } else {
+    window.location = '/login.html'
+  }
+
+
+})
+
 document.getElementById('goPost').addEventListener('click', () => {
   if (localStorage.getItem('token')) {
     window.location = '/post.html'
   } else {
     window.location = '/login.html'
   }
-  
-  
+
+
 })
 
 document.getElementById('goProfile').addEventListener('click', () => {
@@ -47,10 +57,10 @@ document.getElementById('goProfile').addEventListener('click', () => {
 
 })
 
-// document.getElementById('logOut').addEventListener('click', () => {
-//   localStorage.removeItem('token')
-//   window.location = '/login.html'
-// })
+document.getElementById('logOut').addEventListener('click', () => {
+  localStorage.removeItem('token')
+  window.location = '/login.html'
+})
 
 // document.getElementById('addPost').addEventListener('click', event => {
 
@@ -82,7 +92,7 @@ document.getElementById('goProfile').addEventListener('click', () => {
 
 //     uploadPhoto()
 
-   
+
 //   }
 
 // })
@@ -95,7 +105,7 @@ function getPosts() {
   })
     .then(({ data: posts }) => {
       console.log(posts)
-      posts.forEach(({ id, title, body,photo, u: { username } }) => {
+      posts.forEach(({ id, title, body, photo, u: { username } }) => {
         const postElem = document.createElement('li')
 
         //Verify current user had favorited this post
