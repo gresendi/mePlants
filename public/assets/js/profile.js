@@ -33,7 +33,7 @@ document.getElementById('logOut').addEventListener('click', () => {
   window.location = '/login.html'
 })
 
-document.getElementById('goLike').addEventListener('click', () => {
+document.getElementById('favorites').addEventListener('click', () => {
   window.location = '/like.html'
 })
 
@@ -41,8 +41,12 @@ document.getElementById('goPost').addEventListener('click', () => {
   window.location = '/post.html'
 })
 
-document.getElementById('addPlant').addEventListener('click', () => {
+document.getElementById('addPlant').addEventListener("click", event => {
   window.location = '/addPlant.html'
+})
+
+// document.getElementById('addPlant').addEventListener('click', () => {
+//   window.location = '/addPlant.html'
 
   // document.getElementById('createPlant').addEventListener('click', event => {
   //   event.preventDefault()
@@ -102,48 +106,17 @@ document.getElementById('addPlant').addEventListener('click', () => {
 
 // })
 
-
-
-
-
-  // document.getElementById('addPlant').addEventListener('click', () => {
-  //   window.location = '/addPlant.html'
-  // })
-
-  // document.getElementById('goProfile').addEventListener('click', () => {
-  //   window.location = '/profile.html'
-  // })
-
-  // document.getElementById('logOut').addEventListener('click', () => {
-  //   localStorage.removeItem('token')
-  //   window.location = '/login.html'
-  // })
-
-  document.addEventListener('click', event => {
-    if (event.target.classList.contains('deletePost')) {
-      axios.delete(`/api/posts/${event.target.dataset.id}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-      })
-        .then(() => event.target.parentNode.remove())
-        .catch(err => console.error(err))
-    }
-  })
-
-  // document.getElementById('addPlant').addEventListener("click", event => {
-  //   window.location = '/addPlant.html'
-
-  // })
-
-// document.getElementById('goProfile').addEventListener('click', () => {
-//   window.location = '/profile.html'
+// document.addEventListener('click', event => {
+//   if (event.target.classList.contains('deletePost')) {
+//     axios.delete(`/api/posts/${event.target.dataset.id}`, {
+//       headers: {
+//         Authorization: `Bearer ${localStorage.getItem('token')}`
+//       }
+//     })
+//       .then(() => event.target.parentNode.remove())
+//       .catch(err => console.error(err))
+//   }
 // })
-
-document.getElementById('logOut').addEventListener('click', () => {
-  localStorage.removeItem('token')
-  window.location = '/login.html'
-})
 
 document.addEventListener('click', event => {
   if (event.target.classList.contains('deletePost')) {
@@ -157,10 +130,6 @@ document.addEventListener('click', event => {
   }
 })
 
-document.getElementById('addPlant').addEventListener("click", event => {
-  window.location = '/addPlant.html'
-
-})
 
   document.addEventListener('click', event => {
     event.preventDefault()
