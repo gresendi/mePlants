@@ -44,32 +44,32 @@ document.getElementById('goPost').addEventListener('click', () => {
 document.getElementById('addPlant').addEventListener('click', () => {
   window.location = '/addPlant.html'
 
-  document.getElementById('createPlant').addEventListener('click', event => {
-    event.preventDefault()
-    console.log('adding plant')
+  // document.getElementById('createPlant').addEventListener('click', event => {
+  //   event.preventDefault()
+  //   console.log('adding plant')
 
 
-    let intervals = document.getElementById('sel1').value
-    console.log(intervals)
-    axios.post('/api/plants', {
-      officialName: '',
-      nickName: document.getElementById('plantName').value,
-      photo: imgUrl,
-      care: document.getElementById('care').value,
-      lastWatered: Date.now(),
-      nextWatering: moment().add(intervals, 'days').format(),
-      intervals: intervals
-    }, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      }
+  //   let intervals = document.getElementById('sel1').value
+  //   console.log(intervals)
+  //   axios.post('/api/plants', {
+  //     officialName: '',
+  //     nickName: document.getElementById('plantName').value,
+  //     photo: imgUrl,
+  //     care: document.getElementById('care').value,
+  //     lastWatered: Date.now(),
+  //     nextWatering: moment().add(intervals, 'days').format(),
+  //     intervals: intervals
+  //   }, {
+  //     headers: {
+  //       Authorization: `Bearer ${localStorage.getItem('token')}`
+  //     }
 
-    }).then(() => {
-      console.log("plant added")
-      window.location = '/profile.html'
-      imgUrl = ' '
-    })
-      .catch(err => console.error(err))
+  //   }).then(() => {
+  //     console.log("plant added")
+  //     window.location = '/profile.html'
+  //     imgUrl = ' '
+  //   })
+  //     .catch(err => console.error(err))
 
 
   })
@@ -299,6 +299,7 @@ document.getElementById('addPlant').addEventListener('click', () => {
       //button.remove()
     }
   })
+
   document.getElementById('photo').addEventListener('change', event => {
 
     console.log('log event');

@@ -23,7 +23,6 @@ const firebaseApp = initializeApp(firebaseConfig);
 let imgUrl = ''
 
 
-
 document.getElementById('goHome').addEventListener('click', () => {
   window.location = '/'
 })
