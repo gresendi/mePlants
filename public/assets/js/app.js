@@ -97,6 +97,10 @@ function getPosts() {
       console.log(posts)
       posts.forEach(({ id, title, body,photo, u: { username } }) => {
         const postElem = document.createElement('li')
+
+        //Verify current user had favorited this post
+
+
         postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
         postElem.innerHTML = `
         <div class="ms-2 me-auto">
@@ -105,12 +109,17 @@ function getPosts() {
           <img src = ${photo} class="card-img-top" alt="plant">
           <div class="fw-bold">${title}</div>
           ${body}
-          <button class="btn justify-content-end align-items-center material-icons-outlined" id="favorites">favorite_border</button>
-
+          <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite_border</button>
+          <p>${id}: for user</P>
         </div>
         
       `
         document.getElementById('posts').prepend(postElem)
+
+       
+
+
+
       })
     })
     .catch(err => {
@@ -118,7 +127,30 @@ function getPosts() {
       window.location = '/login.html'
     })
 }
+document.addEventListener('click', event => {
+  event.preventDefault()
+  if (event.target.classList.contains('favorite')) {
+    console.log("fav")
+    let pid = event.target.dataset.id
+    axios.post('/api/favorites', {
+      pid: pid
+      
+    }, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+      .then(() => {
 
+        console.log('favorite created')
+
+      })
+      .catch(err => console.error(err))
+
+
+
+  }
+})
 
 function isLoggedIn() {
   if (localStorage.getItem('token')) {
