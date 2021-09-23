@@ -38,12 +38,13 @@
 
     <div class="mb-3">
       <label for="title" class="form-label">Title</label>
-      <input type="text" class="form-control" id="title" placeholder="Caption">
+      <input type="text" class="form-control" id="title" placeholder="Caption" maxlength="250">
     </div>
     
     <div class="mb-3">
       <label for="body" class="form-label">Tell us about your plant</label>
-      <textarea class="form-control" id="body" rows="3"></textarea>
+      <textarea class="form-control" id="body" rows="3" maxlength="250"></textarea>
+      <div>Characters Remaining: <div id="charLeftCounter">250</div></div>
     </div>
     <div class="input-group mb-3 mt-3">
       <input type="file" class="form-control" accept="image/*" id="photo">

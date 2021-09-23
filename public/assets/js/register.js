@@ -9,3 +9,14 @@ document.getElementById('register').addEventListener('click', event => {
     .then(() => alert('User registered! Log in.'))
     .catch(err => console.error(err))
 })
+
+
+function errorMsg() {
+  let errorMessage = document.getElementById('errorMsg')
+  let usernameInput = document.getElementById('username')
+  let passwordInput = document.getElementById('password')
+
+  if (usernameInput === '' && passwordInput === '') {
+    errorMessage.textContent = 'Please enter a username and password'
+  }
+}
