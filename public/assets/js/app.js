@@ -115,10 +115,12 @@ function getPosts() {
           <img src = ${photo} class="card-img-top" alt="plant">
           <div class="fw-bold">${title}</div>
           ${body}
+          <button class="btn justify-content-end align-items-center material-icons-outlined" id="favorites">favorite_border</button>
+
         </div>
         
       `
-        document.getElementById('posts').append(postElem)
+        document.getElementById('posts').prepend(postElem)
       })
     })
     .catch(err => {
