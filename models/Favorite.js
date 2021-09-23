@@ -7,6 +7,13 @@ Favorite.init({
   pid: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    primaryKey:true
+
+  },
+  uid: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: true
 
   }
 }, { sequelize, modelName: 'favorite' })

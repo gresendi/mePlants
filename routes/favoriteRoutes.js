@@ -34,6 +34,31 @@ router.get('/favorites', passport.authenticate('jwt'), (req, res) => {
 
 })
 
+router.delete('/favorites/:pid', (req, res) => Favorite.destroy({ where: { pid: req.params.pid } })
+  .then(() => res.sendStatus(200))
+  .catch(err => console.log(err)))
+
+
+
+
+router.get('/favorites/:pid', passport.authenticate('jwt'), (req, res) => {
+
+
+  let post = req.params.pid 
+  
+  console.log((post))
+
+  Favorite.findAll({
+    where: {
+      pid: req.params.pid
+    }
+  })
+    .then(likes => {
+      res.json(likes)
+    })
+    .catch(err => console.log(err))
+
+})
 // router.delete('/plants/:id', (req, res) => Plant.destroy({ where: { id: req.params.id } })
 //   .then(() => res.sendStatus(200))
 //   .catch(err => console.log(err)))
@@ -77,6 +102,5 @@ router.get('/favorites', passport.authenticate('jwt'), (req, res) => {
 
 // })
 
-router.get('/users/plants', passport.authenticate('jwt'), (req, res) => res.json(req.user))
 
 module.exports = router
