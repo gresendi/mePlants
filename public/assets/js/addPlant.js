@@ -28,22 +28,21 @@ document.getElementById('goHome').addEventListener('click', () => {
   window.location = '/'
 })
 
+document.getElementById('goLike').addEventListener('click', () => {
+  window.location = '/like.html'
+})
+
+document.getElementById('goPost').addEventListener('click', () => {
+  window.location = '/post.html'
+})
+
 document.getElementById('goProfile').addEventListener('click', () => {
   if (localStorage.getItem('token')) {
     window.location = '/profile.html'
   } else {
     window.location = '/login.html'
   }
-
-
-
 })
-
-document.getElementById('logOut').addEventListener('click', () => {
-  localStorage.removeItem('token')
-  window.location = '/login.html'
-})
-
 
 
 function uploadPhoto() {
@@ -102,19 +101,15 @@ function uploadPhoto() {
           imgUrl = downloadURL
         });
       }
-    );
-  })
-}
-
-
-
-
-
-
+      );
+    })
+  }
+  
+uploadPhoto()
+  
 document.getElementById('createPlant').addEventListener('click', event => {
   event.preventDefault()
   console.log('adding plant')
-
 
   let intervals = document.getElementById('sel1').value
   console.log(intervals)
@@ -137,16 +132,4 @@ document.getElementById('createPlant').addEventListener('click', event => {
     imgUrl = ' '
   })
     .catch(err => console.error(err))
-
-
 })
-
-
-
-
-
-uploadPhoto()
-
-
-
-

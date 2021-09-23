@@ -28,14 +28,24 @@ document.getElementById('goHome').addEventListener('click', () => {
   window.location = '/'
 })
 
+document.getElementById('goLike').addEventListener('click', () => {
+  if (localStorage.getItem('token')) {
+    window.location = '/like.html'
+  } else {
+    window.location = '/login.html'
+  }
+
+
+})
+
 document.getElementById('goPost').addEventListener('click', () => {
   if (localStorage.getItem('token')) {
     window.location = '/post.html'
   } else {
     window.location = '/login.html'
   }
-  
-  
+
+
 })
 
 document.getElementById('goProfile').addEventListener('click', () => {
@@ -47,45 +57,7 @@ document.getElementById('goProfile').addEventListener('click', () => {
 
 })
 
-// document.getElementById('logOut').addEventListener('click', () => {
-//   localStorage.removeItem('token')
-//   window.location = '/login.html'
-// })
 
-// document.getElementById('addPost').addEventListener('click', event => {
-
-//   addPost++
-//   event.preventDefault()
-//   if (addPost <= 1) {
-//     let form = document.createElement('div')
-//     form.innerHTML = `
-//    <form>
-
-//         <div class="input-group mb-3 mt-3">
-//           <input type="file" class="form-control" accept="image/*" id="photo">
-//           <label class="input-group-text" for="photo"></label>
-//           <progress id="uploader">0%</progress>
-//         </div>
-//         <div class="mb-3">
-//           <label for="title" class="form-label">Username</label>
-//           <input type="text" class="form-control" id="title">
-//         </div>
-//         <div class="mb-3">
-//           <label for="body" class="form-label">Body</label>
-//           <textarea  class="form-control" rows = "2" id="body"></textarea>
-//         </div>
-//         <button id="createPost" type="submit" class="btn btn-primary">Create Post</button>
-//       </form>
-//   `
-
-//     document.getElementById('topContainer').append(form)
-
-//     uploadPhoto()
-
-   
-//   }
-
-// })
 
 function getPosts() {
   axios.get('/api/posts', {
@@ -95,7 +67,7 @@ function getPosts() {
   })
     .then(({ data: posts }) => {
       console.log(posts)
-      posts.forEach(({ id, title, body,photo, u: { username } }) => {
+      posts.forEach(({ id, title, body, photo, u: { username } }) => {
         const postElem = document.createElement('li')
 
         //Verify current user had favorited this post
@@ -116,7 +88,7 @@ function getPosts() {
       `
         document.getElementById('posts').prepend(postElem)
 
-       
+
 
 
 
@@ -134,7 +106,7 @@ document.addEventListener('click', event => {
     let pid = event.target.dataset.id
     axios.post('/api/favorites', {
       pid: pid
-      
+
     }, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -152,16 +124,6 @@ document.addEventListener('click', event => {
   }
 })
 
-function isLoggedIn() {
-  if (localStorage.getItem('token')) {
-    console.log("logged in")
-
-  } else {
-    console.log('not logged in')
-    let button = document.getElementById('logOut')
-    button.innerHTML = `Sign In`
-  }
-}
 
 function uploadPhoto() {
   // event listener when the html file input is changed (to upload image/photo)
@@ -223,6 +185,6 @@ function uploadPhoto() {
   })
 }
 
-
+//Rendering posts onto the page
 getPosts()
-isLoggedIn()
+
