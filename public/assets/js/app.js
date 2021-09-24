@@ -201,6 +201,5 @@ function uploadPhoto() {
   })
 }
 
-
 getPosts()
 isLoggedIn()
