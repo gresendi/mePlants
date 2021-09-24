@@ -175,7 +175,7 @@ function getPosts() {
             }
             else {
 
-              postElem.className = 'd-flex  mb-2 listItem'
+              postElem.className = 'd-flex mb-2 listItem'
               postElem.innerHTML = `
          <div class="col-lg-12  mb-4">
     <div class="card border-dark">

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mePlant</title>
+  <link rel="icon" type="image/icon" href="./assets/image/mePlant_logo_w_background.ico">
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gluten&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+  <section class="container">
+    <header class="blog-header py-3">
+      <div class="row flex-nowrap justify-content-between align-items-center">
+
+        <div class="col-2">
+          <img class="btn" id="goHome" src="./assets/image/001_mePlant_logo.png" alt="mePlant Logo" height="70"
+            width="80">
+        </div>
+
+        <div class="meplant-header-logo col-5 text-center">
+          <p>mePlant</p>
+        </div>
+
+        <div class="col-4 d-flex justify-content-end align-items-center">
+          <button class="btn material-icons-outlined" id="goLike">favorite_border</button>
+          <button class="btn material-icons-outlined" id="goPost">add_circle_outline</button>
+          <button class="btn material-icons-outlined" id="goProfile">yard</button>
+        </div>
+
+      </div>
+    </header>
+    <main>
+      <div class="card w-75 me-auto border-dark">
+
+        <div class="card-header">
+          <span class="badge bg-success">
+            ${username}
+          </span>
+          <div class="fw-bold text-center">
+            ${title}
+          </div>
+        </div>
+
+        <div class="card-body">
+          <img src="assets/image/001_mePlant_logo.png" class="card-img-top" alt="plant">
+          <div>
+            <button data-id="${id}"
+              class="btn justify-content-end align-items-center material-icons-outlined favorite" style="margin-top: 10px;">favorite</button>
+          </div>
+          <hr style="border: solid black 1px;">
+          <p class="card-text">${body}</p>
+        </div>
+
+      </div>
+
+      <div class="card ms-2 me-auto">
+      
+        <div class="card-header">
+          <span class="badge bg-success">
+            ${username}
+          </span>
+          <div class="fw-bold text-center">
+            ${title}
+          </div>
+        </div>
+      
+        <div class="card-body">
+          <img src="assets/image/mePlant_Color_V1.png" class="card-img-top" alt="plant">
+          <p class="card-text">${body}</p>
+        </div>
+      
+      </div>
+    </main>
+
+
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- Firebase Scripts version 8 (not using currently as using version 9 but leaving in case need to revert) -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> -->
+  <!-- Scripts -->
+  <script type="module" src="./assets/js/app.js"></script>
+</body>
+
+</html>

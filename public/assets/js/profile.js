@@ -33,7 +33,7 @@ document.getElementById('logOut').addEventListener('click', () => {
   window.location = '/login.html'
 })
 
-document.getElementById('goLike').addEventListener('click', () => {
+document.getElementById('favorites').addEventListener('click', () => {
   window.location = '/like.html'
 })
 
@@ -41,11 +41,9 @@ document.getElementById('goPost').addEventListener('click', () => {
   window.location = '/post.html'
 })
 
-document.getElementById('addPlant').addEventListener('click', () => {
+document.getElementById('addPlant').addEventListener("click", event => {
   window.location = '/addPlant.html'
 })
-
-
 
   document.addEventListener('click', event => {
     if (event.target.classList.contains('deletePost')) {
@@ -94,14 +92,43 @@ document.getElementById('addPlant').addEventListener('click', () => {
             }
           })
 
+    axios.get('api/plants', {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+      .then(({ data: plants }) => {
+        plants.forEach(plant => {
+
+          if (plant.id == event.target.dataset.id) {
+            let interval = plant.intervals
+            console.log(plant.intervals)
+            axios.put('/api/plants', { intervals: interval, id: plant.id })
+              .then(() => {
+                console.log("updated")
+                location.reload()
+              })
+          }
         })
+      })
+  }
+})
 
-    }
 
+axios.get('/api/users/posts', {
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem('token')}`
+  }
+})
+  .then(({ data: { username } }) => {
+    const userElem = document.createElement('div')
+    userElem.innerHTML = `
+    <p>${username}</p>
+    `
+    document.getElementById('username').append(userElem)
   })
-
-
-
+  .catch(err => console.error(err))
+  
   axios.get('/api/users/posts', {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -121,22 +148,22 @@ document.getElementById('addPlant').addEventListener('click', () => {
           ${body}
         <span data-id="${id}" class="deletePost badge bg-danger rounded-pill">x</span>
       `
-        document.getElementById('posts').append(postElem)
-      })
+      document.getElementById('posts').append(postElem)
     })
-    .catch(err => console.error(err))
-
-
-  axios.get('api/plants', {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`
-    }
   })
-    .then(({ data: plants }) => {
-      console.log(plants)
-      plants.forEach(({ nickName, care, photo, lastWatered, nextWatering, id }) => {
-        let plant = document.createElement('div')
-        plant.innerHTML = `
+  .catch(err => console.error(err))
+
+
+axios.get('api/plants', {
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem('token')}`
+  }
+})
+  .then(({ data: plants }) => {
+    console.log(plants)
+    plants.forEach(({ nickName, care, photo, lastWatered, nextWatering, id }) => {
+      let plant = document.createElement('div')
+      plant.innerHTML = `
          <div class="row mb-3">
               <div class="col-sm-4">
                 <img src="${photo}"
@@ -164,64 +191,64 @@ document.getElementById('addPlant').addEventListener('click', () => {
               </div>
             </div>
       `
-        document.getElementById('plants').append(plant)
+      document.getElementById('plants').append(plant)
 
-      })
     })
-
-
-
-  document.getElementById('waterAll').addEventListener('click', event => {
-
-    axios.get('api/plants', {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      }
-    })
-      .then(({ data: plants }) => {
-        console.log(plants)
-        plants.forEach(({ intervals, id }) => {
-
-          axios.get('api/plants', {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem('token')}`
-            }
-          })
-            .then(({ data: plants }) => {
-              plants.forEach(plant => {
-
-                if (plant.id == id) {
-                  let interval = plant.intervals
-
-                  axios.put('/api/plants', { intervals: interval, id: plant.id })
-                    .then(() => {
-                      location.reload()
-
-                    })
-                }
-              })
-
-            })
-
-
-
-        })
-      })
-
   })
 
 
-  document.addEventListener('click', event => {
 
-    if (event.target.classList.contains('scheduleWater')) {
-      console.log(event.target.dataset.id)
+document.getElementById('waterAll').addEventListener('click', event => {
 
-      let button = event.target
-      let id = button.dataset.id
-      let parent = button.parentNode
-      button.remove()
-      let container = document.createElement('form')
-      container.innerHTML = `
+  axios.get('api/plants', {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
+  })
+    .then(({ data: plants }) => {
+      console.log(plants)
+      plants.forEach(({ intervals, id }) => {
+
+        axios.get('api/plants', {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        })
+          .then(({ data: plants }) => {
+            plants.forEach(plant => {
+
+              if (plant.id == id) {
+                let interval = plant.intervals
+
+                axios.put('/api/plants', { intervals: interval, id: plant.id })
+                  .then(() => {
+                    location.reload()
+
+                  })
+              }
+            })
+
+          })
+
+
+
+      })
+    })
+
+})
+
+
+document.addEventListener('click', event => {
+
+  if (event.target.classList.contains('scheduleWater')) {
+    console.log(event.target.dataset.id)
+
+    let button = event.target
+    let id = button.dataset.id
+    let parent = button.parentNode
+    button.remove()
+    let container = document.createElement('form')
+    container.innerHTML = `
     <label for="sel1">Days (select one):</label>
         <select id='sel1' class="form-select mb-3" aria-label="Default select example">
           <option selected>Water In </option>
@@ -238,20 +265,20 @@ document.getElementById('addPlant').addEventListener('click', () => {
         <button id="createPlant" class="btn btn-success mb-3 schedule">Schedule</button>
     
     `
-      parent.append(container)
-      document.addEventListener('click', event => {
+    parent.append(container)
+    document.addEventListener('click', event => {
 
-        if (event.target.classList.contains('schedule')) {
-          let days = document.getElementById('sel1').value
-          console.log(days)
-          axios.put(`/api/plants/:${id}`, { daysFrom: days, id: id })
-            .then(() => location.reload())
-        }
-      })
+      if (event.target.classList.contains('schedule')) {
+        let days = document.getElementById('sel1').value
+        console.log(days)
+        axios.put(`/api/plants/:${id}`, { daysFrom: days, id: id })
+          .then(() => location.reload())
+      }
+    })
 
 
-      //button.remove()
-    }
-  })
+    //button.remove()
+  }
+})
 
-  
+
