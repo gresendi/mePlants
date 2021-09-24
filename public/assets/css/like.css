@@ -17,6 +17,8 @@ body {
 }
 
 .meplant-header-logo {
+  padding-top: 5%;
+  padding-left: 5%;
   font-size: 2rem;
   font-family: 'Gluten', cursive;
 }
@@ -42,4 +44,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* Support for IE. */
   font-feature-settings: 'liga';
+}
+
+.mePlantBkLogo {
+  padding-top: 2%;
+  padding-left: 8%;
+  width: 90%;
+  z-index: 10;
+  opacity: 25%;
 }

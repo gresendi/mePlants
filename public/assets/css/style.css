@@ -24,7 +24,9 @@ button {
 }
 
 .meplant-header-logo {
-  font-size: 2rem;
+  font-size: 25px;
+  padding-right: 13%;
+  padding-top: 5%;
   font-family: 'Gluten', cursive;
 }
 
@@ -54,3 +56,18 @@ button {
 .lavender {
   background-color: #E0BAD7;
 }
+
+.mePlantBkLogo {
+  padding-top: 2%;
+  padding-left: 0%;
+  width: 100%;
+  z-index: 10;
+  opacity: 25%;
+}
+
+/* @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  #meplant-header-logo {
+    font-size: 29px!important;
+    font-family: 'Gluten', cursive;
+  }
+} */
