@@ -93,12 +93,12 @@
     <div id="topContainer" class="row">
       <form>
         <div class="mb-3">
-          <label for="plantName" class="form-label">Plant Name</label>
+          <label for="plantName" class="h4 form-label">Plant Name</label>
           <input type="text" class="form-control" id="plantName" aria-describedby="emailHelp" maxlength="250">
     
         </div>
         <div class="mb-3">
-          <label for="care" class="form-label">Care Tips</label>
+          <label for="care" class="h4 form-label">Care Tips</label>
           <textarea class="form-control" id="care" rows="1" maxlength="250"></textarea>
         </div>
     
@@ -106,13 +106,13 @@
           <input type="file" class="form-control" accept="image/*" id="photo">
         </div>
         <div class="d-inline align-items-center">
-          <label for="uploader" class="form-label">Plant Image Status </label>
+          <label for="uploader" class="h4 form-label">Plant Image Status: </label>
           <progress id="uploader">0%</progress>
         </div>
-        <label for="sel1">Select list (select one):</label>
+        <label for="sel1" class="h4">Water Option (select one):</label>
         <select id='sel1' class="form-select mb-3" aria-label="Default select example">
           <option selected>Water Every: </option>
-          <option value="1">Day</option>
+          <option value="1">1 Day</option>
           <option value="2">2 days</option>
           <option value="3">3 days</option>
           <option value="4">4 days</option>
@@ -123,7 +123,6 @@
           <option value="9">9 days</option>
         </select>
         <button id="createPlant" class="btn btn-primary addPlant">Add plant</button>
-        <button id="closePlant" class="btn btn-danger closePlant">x</button>
       </form>
     
     </div>
