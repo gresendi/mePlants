@@ -162,7 +162,8 @@ axios.get('api/plants', {
 })
   .then(({ data: plants }) => {
     console.log(plants)
-    plants.forEach(({ nickName, care, photo, lastWatered, nextWatering, id }) => {
+    plants.forEach(({ nickName, officialName, care, photo, lastWatered, nextWatering, id }) => {
+      console.log(officialName)
       let plant = document.createElement('div')
       plant.innerHTML = `
          <div class="row mb-3">
@@ -173,7 +174,7 @@ axios.get('api/plants', {
 
               <div class="col-sm-4">
                 <h5>${nickName}</h5>
-                <p>actual name</p>
+                <p>${officialName}</p>
                 <p>Care Tips: ${care}</p>
                 <p>Last Watered: ${lastWatered}</p>
                 <p>Next Watering: ${nextWatering}</p>
