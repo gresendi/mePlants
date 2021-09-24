@@ -43,44 +43,61 @@
     </header>
 
     <div id="topContainer"  class="row justify-content-center ">
-      <div class="col-6">
+      <div class="col-7">
 <form>
-  <div class="mb-3">
-    <label for="plantName" class="form-label">Give it a name</label>
-    <input type="text" class="form-control" id="plantName" aria-describedby="emailHelp" maxlength="250">
-
-  </div>
-  <div class="mb-3">
-    <label for="officialName" class="form-label">Common name</label>
-    <input type="text" class="form-control" id="officialName" aria-describedby="emailHelp" maxlength="250">
-
-  </div>
-  <div class="mb-3">
-    <label for="care" class="form-label">Care Tips</label>
-    <textarea class="form-control" id="care" rows="1" maxlength="250"></textarea>
+  <div class="row mb-3">
+    <label for="plantName" class="h3 col-sm-3 col-form-label text-center">Nickname:</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="plantName" aria-describedby="emailHelp">
+    </div>
   </div>
 
-  <div class="input-group mb-3 mt-3">
+  <div class="row mb-3">
+    <label for="officialName" class="h3 col-sm-3 col-form-label text-center">Common name:</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="officialName" aria-describedby="emailHelp">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="care" class="h3 col-sm-3 col-form-label text-center">Care Tips:</label>
+    <div class="col-sm-9">
+      <textarea class="form-control" id="care" rows="1"></textarea>
+    </div>
+  </div>
+
+  <div class="input-group mb-3">
     <input type="file" class="form-control" accept="image/*" id="photo">
   </div>
-  <div class="d-inline align-items-center">
-    <label for="uploader" class="form-label">Plant Image Status </label>
+
+  <div class="d-inline mb-3 align-items-center">
+    <label for="uploader" class="h3 col-sm-3 col-form-label text-center">Image Status:</label>
     <progress id="uploader">0%</progress>
   </div>
-  <label for="sel1">Select list (select one):</label>
-  <select id='sel1' class="form-select mb-3" aria-label="Default select example">
-    <option selected>Water Every: </option>
-    <option value="1">Day</option>
-    <option value="2">2 days</option>
-    <option value="3">3 days</option>
-    <option value="4">4 days</option>
-    <option value="5">5 days</option>
-    <option value="6">6 days</option>
-    <option value="7">7 days</option>
-    <option value="8">8 days</option>
-    <option value="9">9 days</option>
-  </select>
-  <button id="createPlant" class="btn btn-primary addPlant">Add plant</button>
+
+  <br>
+
+  <div class="row mb-3">
+    <label for="sel1" class="h3 col-sm-3 col-form-label text-center">Water Option:</label>
+    <div class="col-sm-9">
+      <select id='sel1' class="form-select mb-3" aria-label="Default select example">
+        <option selected>Water Every: </option>
+        <option value="1">Day</option>
+        <option value="2">2 days</option>
+        <option value="3">3 days</option>
+        <option value="4">4 days</option>
+        <option value="5">5 days</option>
+        <option value="6">6 days</option>
+        <option value="7">7 days</option>
+        <option value="8">8 days</option>
+        <option value="9">9 days</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="d-grid col-6 mx-auto">
+    <button id="createPlant" class="btn btn-primary addPlant">Add plant</button>
+  </div>
 </form>
       </div>
       
