@@ -91,6 +91,7 @@ document.getElementById('addPlant').addEventListener("click", event => {
                 })
             }
           })
+        })
 
     axios.get('api/plants', {
       headers: {
