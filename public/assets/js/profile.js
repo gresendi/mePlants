@@ -128,7 +128,7 @@ axios.get('/api/users/posts', {
     document.getElementById('username').append(userElem)
   })
   .catch(err => console.error(err))
-
+  
   axios.get('/api/users/posts', {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`

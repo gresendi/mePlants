@@ -52,5 +52,7 @@ button {
 }
 
 .card {
+  margin: 0 auto;
+  float: none;
   margin-top: 20px;
 }
