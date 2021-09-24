@@ -4,7 +4,7 @@ document.getElementById('login').addEventListener('click', event => {
   event.preventDefault()
 
   let errorMessage = document.getElementById('errorMsg')
-  let usernameInput = document.getElementById('username').value
+  let usernameInput = document.getElementById('username').value.toLowerCase()
   let passwordInput = document.getElementById('password').value
 
   if (usernameInput === '' && passwordInput === '') {

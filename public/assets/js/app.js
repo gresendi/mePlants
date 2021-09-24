@@ -57,7 +57,7 @@ document.getElementById('goProfile').addEventListener('click', () => {
 
 })
 
-function getFavorites(){
+function getFavorites() {
 
 
   let favs = 'blank'
@@ -68,16 +68,16 @@ function getFavorites(){
     }
   })
     .then(({ data: favorites }) => {
-      
+
       favs = favorites
       favs.forEach(fav => {
-       
+
         let num = parseInt(fav.pid)
         postFav.push(num)
       })
     })
 
- 
+
 
 
 
@@ -94,15 +94,15 @@ function getPosts() {
     }
   })
     .then(({ data: posts }) => {
-     
+
       let favorites = [1]
       favorites.push(getFavorites())
-      
-      posts.forEach(({ id, title, body, photo, u: { username, id:{uid} }}) => {
+
+      posts.forEach(({ id, title, body, photo, u: { username, id: { uid } } }) => {
         const postElem = document.createElement('li')
 
         let filter = false
-     
+
 
 
 
@@ -126,7 +126,7 @@ function getPosts() {
                 filter = true
               }
               else {
-                
+
               }
             }
             axios.get(`/api/favorites/:${id}`, {
@@ -141,10 +141,10 @@ function getPosts() {
 
 
             if (filter) {
-              
-              
-              
-              
+
+
+
+
 
 
               console.log('You liked this plant already')
@@ -175,18 +175,17 @@ function getPosts() {
             }
             else {
 
-              postElem.className = 'd-flex  mb-2 listItem'
+              postElem.className = 'd-flex mb-2 listItem'
               postElem.innerHTML = `
-         <div class="col-lg-12  mb-4">
-    <div class="card border-dark">
-      <img src="${photo}" alt="" class="card-img-top">
+    <div class="mb-4 card border-dark">
+        <img src="${photo}" alt="a plant" class"card-img-top" >
       <div class="card-body">
         <span class="badge lavender rounded-pill mb-1">${username}</span>
         <h5 class="card-title">${title}</h5>
         <p class="card-text">${body}</p>
       <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite_border</button>
 
-      </div>
+      
      </div>
     </div>
 
@@ -217,12 +216,11 @@ document.addEventListener('click', event => {
   event.preventDefault()
   if (event.target.classList.contains('favorite')) {
     console.log("fav")
-    
+
     let target = event.target
 
 
-    if (target.innerHTML ==='favorite')
-    {
+    if (target.innerHTML === 'favorite') {
       console.log('make clear')
       target.innerHTML = 'favorite_border'
       axios.delete(`/api/favorites/${event.target.dataset.id}`, {
@@ -237,9 +235,9 @@ document.addEventListener('click', event => {
         )
         .catch(err => console.error(err))
 
-    }else if (target.innerHTML==='favorite_border'){
-        console.log('not solid')
-       
+    } else if (target.innerHTML === 'favorite_border') {
+      console.log('not solid')
+
       let pid = event.target.dataset.id
       axios.post('/api/favorites', {
         pid: pid
@@ -253,7 +251,7 @@ document.addEventListener('click', event => {
 
           console.log('favorite created')
 
-        
+
 
           target.innerHTML = 'favorite'
 
@@ -264,8 +262,8 @@ document.addEventListener('click', event => {
         }
         )
     }
-    
-    
+
+
 
 
 

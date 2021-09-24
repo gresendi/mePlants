@@ -4,19 +4,19 @@ const { Post, User, Plant } = require('../models')
 // users seed data to create 'dummy' users
 let users = [
   {
-    username: "johnDoe",
+    username: "johndoe",
     password: "123"
   },
   {
-    username: "janeDoe",
+    username: "janedoe",
     password: "123"
   },
   {
-    username: "jackDoe",
+    username: "jackdoe",
     password: "123"
   },
   {
-    username: "jackieDoe",
+    username: "jackiedoe",
     password: "123"
   }
 ]
