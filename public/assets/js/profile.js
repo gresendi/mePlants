@@ -45,80 +45,7 @@ document.getElementById('addPlant').addEventListener('click', () => {
   window.location = '/addPlant.html'
 })
 
-  // document.getElementById('createPlant').addEventListener('click', event => {
-  //   event.preventDefault()
-  //   console.log('adding plant')
 
-
-  //   let intervals = document.getElementById('sel1').value
-  //   console.log(intervals)
-  //   axios.post('/api/plants', {
-  //     officialName: '',
-  //     nickName: document.getElementById('plantName').value,
-  //     photo: imgUrl,
-  //     care: document.getElementById('care').value,
-  //     lastWatered: Date.now(),
-  //     nextWatering: moment().add(intervals, 'days').format(),
-  //     intervals: intervals
-  //   }, {
-  //     headers: {
-  //       Authorization: `Bearer ${localStorage.getItem('token')}`
-  //     }
-
-  //   }).then(() => {
-  //     console.log("plant added")
-  //     window.location = '/profile.html'
-  //     imgUrl = ' '
-  //   })
-  //     .catch(err => console.error(err))
-
-
-// document.getElementById('createPlant').addEventListener('click', event => {
-//   event.preventDefault()
-//   console.log('adding plant')
-
-
-//   let intervals = document.getElementById('sel1').value
-//   console.log(intervals)
-//   axios.post('/api/plants', {
-//     officialName: '',
-//     nickName: document.getElementById('plantName').value,
-//     photo: imgUrl,
-//     care: document.getElementById('care').value,
-//     lastWatered: Date.now(),
-//     nextWatering: moment().add(intervals, 'days').format(),
-//     intervals: intervals
-//   }, {
-//     headers: {
-//       Authorization: `Bearer ${localStorage.getItem('token')}`
-//     }
-
-//   }).then(() => {
-//     console.log("plant added")
-//     window.location = '/profile.html'
-//     imgUrl = ' '
-//   })
-//     .catch(err => console.error(err))
-
-
-// })
-
-
-
-
-
-  // document.getElementById('addPlant').addEventListener('click', () => {
-  //   window.location = '/addPlant.html'
-  // })
-
-  // document.getElementById('goProfile').addEventListener('click', () => {
-  //   window.location = '/profile.html'
-  // })
-
-  // document.getElementById('logOut').addEventListener('click', () => {
-  //   localStorage.removeItem('token')
-  //   window.location = '/login.html'
-  // })
 
   document.addEventListener('click', event => {
     if (event.target.classList.contains('deletePost')) {
@@ -132,36 +59,7 @@ document.getElementById('addPlant').addEventListener('click', () => {
     }
   })
 
-  // document.getElementById('addPlant').addEventListener("click", event => {
-  //   window.location = '/addPlant.html'
 
-  // })
-
-// document.getElementById('goProfile').addEventListener('click', () => {
-//   window.location = '/profile.html'
-// })
-
-document.getElementById('logOut').addEventListener('click', () => {
-  localStorage.removeItem('token')
-  window.location = '/login.html'
-})
-
-document.addEventListener('click', event => {
-  if (event.target.classList.contains('deletePost')) {
-    axios.delete(`/api/posts/${event.target.dataset.id}`, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      }
-    })
-      .then(() => event.target.parentNode.remove())
-      .catch(err => console.error(err))
-  }
-})
-
-document.getElementById('addPlant').addEventListener("click", event => {
-  window.location = '/addPlant.html'
-
-})
 
   document.addEventListener('click', event => {
     event.preventDefault()
@@ -210,6 +108,7 @@ document.getElementById('addPlant').addEventListener("click", event => {
     }
   })
     .then(({ data: { username, posts } }) => {
+      document.getElementById('username').innerText= username
       posts.forEach(({ id, title, body, photo }) => {
         const postElem = document.createElement('li')
         postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'

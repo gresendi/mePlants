@@ -100,15 +100,18 @@ function getPosts() {
 
                 postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
                 postElem.innerHTML = `
-        <div class="ms-2 me-auto">
+     <div class="col-lg-12 mb-4  border-dark">
+    <div class="card  border-dark">
+      <img src="${photo}" alt="" class="card-img-top">
+      <div class="card-body">
         <span class="badge lavender rounded-pill mb-1">${username}</span>
-          
-          <img src = ${photo} class="card-img-top" alt="plant">
-          <div class="fw-bold">${title}</div>
-          ${body}
-          <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite</button>
-          <p>${id}: for user</P>
-        </div>
+        <h5 class="card-title">${title}</h5>
+        <p class="card-text">${body}</p>
+      <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite</button>
+
+      </div>
+     </div>
+    </div>
         
       `
                 document.getElementById('likes').prepend(postElem)
