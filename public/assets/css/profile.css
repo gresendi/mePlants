@@ -17,7 +17,9 @@ body {
 }
 
 .meplant-header-logo {
-  font-size: 2rem;
+  padding-top: 5%;
+  padding-left: 8%;
+  font-size: 25px;
   font-family: 'Gluten', cursive;
 }
 
@@ -47,4 +49,12 @@ body {
 .higher-z-index {
   position: relative;
   z-index: 10000000;
+}
+
+.mePlantBkLogo {
+  padding-top: 2%;
+  padding-left: 8%;
+  width: 90%;
+  z-index: 10;
+  opacity: 25%;
 }

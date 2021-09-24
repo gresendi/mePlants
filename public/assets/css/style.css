@@ -25,7 +25,9 @@ button {
 }
 
 .meplant-header-logo {
-  font-size: 2rem;
+  font-size: 25px;
+  padding-right: 13%;
+  padding-top: 5%;
   font-family: 'Gluten', cursive;
 }
 
