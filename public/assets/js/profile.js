@@ -45,53 +45,53 @@ document.getElementById('addPlant').addEventListener("click", event => {
   window.location = '/addPlant.html'
 })
 
-  document.addEventListener('click', event => {
-    if (event.target.classList.contains('deletePost')) {
-      axios.delete(`/api/posts/${event.target.dataset.id}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-      })
-        .then(() => event.target.parentNode.remove())
-        .catch(err => console.error(err))
-    }
-  })
+document.addEventListener('click', event => {
+  if (event.target.classList.contains('deletePost')) {
+    axios.delete(`/api/posts/${event.target.dataset.id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+      .then(() => event.target.parentNode.parentNode.remove())
+      .catch(err => console.error(err))
+  }
+})
 
 
 
-  document.addEventListener('click', event => {
-    event.preventDefault()
-    if (event.target.classList.contains('removePlant')) {
-      console.log('deleting plant')
-      axios.delete(`/api/plants/${event.target.dataset.id}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-      })
-        .then(() => location.reload())
-        .catch(err => console.error(err))
-    }
-    else if (event.target.classList.contains('water')) {
+document.addEventListener('click', event => {
+  event.preventDefault()
+  if (event.target.classList.contains('removePlant')) {
+    console.log('deleting plant')
+    axios.delete(`/api/plants/${event.target.dataset.id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+      .then(() => location.reload())
+      .catch(err => console.error(err))
+  }
+  else if (event.target.classList.contains('water')) {
 
-      axios.get('api/plants', {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-      })
-        .then(({ data: plants }) => {
-          plants.forEach(plant => {
+    axios.get('api/plants', {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+      .then(({ data: plants }) => {
+        plants.forEach(plant => {
 
-            if (plant.id == event.target.dataset.id) {
-              let interval = plant.intervals
-              console.log(plant.intervals)
-              axios.put('/api/plants', { intervals: interval, id: plant.id })
-                .then(() => {
-                  console.log("updated")
-                  location.reload()
-                })
-            }
-          })
+          if (plant.id == event.target.dataset.id) {
+            let interval = plant.intervals
+            console.log(plant.intervals)
+            axios.put('/api/plants', { intervals: interval, id: plant.id })
+              .then(() => {
+                console.log("updated")
+                location.reload()
+              })
+          }
         })
+      })
 
     axios.get('api/plants', {
       headers: {
@@ -129,25 +129,26 @@ axios.get('/api/users/posts', {
     document.getElementById('username').append(userElem)
   })
   .catch(err => console.error(err))
-  
-  axios.get('/api/users/posts', {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`
-    }
-  })
-    .then(({ data: { username, posts } }) => {
-      document.getElementById('username').innerText= username
-      posts.forEach(({ id, title, body, photo }) => {
-        const postElem = document.createElement('li')
-        postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
-        postElem.innerHTML = `
-         <div class="ms-2 me-auto">
-        <span class="badge lavender rounded-pill mb-1">${username}</span>
-          
-          <img src = ${photo} class="card-img-top" alt="plant">
-          <div class="fw-bold">${title}</div>
-          ${body}
-        <span data-id="${id}" class="deletePost badge bg-danger rounded-pill">x</span>
+
+axios.get('/api/users/posts', {
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem('token')}`
+  }
+})
+  .then(({ data: { username, posts } }) => {
+    document.getElementById('username').innerText = username
+    posts.forEach(({ id, title, body, photo }) => {
+      const postElem = document.createElement('li')
+      postElem.className = 'd-flex mb-2 listItem'
+      postElem.innerHTML = `
+    <div class="mb-4 card border-dark">
+      <img src="${photo}" alt="a plant" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">${title}</h5>
+        <p class="card-text">${body}</p>
+      <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined btn-danger deletePost">delete</button>
+      </div>
+     </div>
       `
       document.getElementById('posts').append(postElem)
     })

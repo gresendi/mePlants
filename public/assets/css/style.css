@@ -76,7 +76,7 @@ button {
   /* The image used */
   background-image: url("../image/leaf1.jpg");
   /* Set a specific height */
-  min-height: 500px;
+  /* min-height: 100%; */
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;

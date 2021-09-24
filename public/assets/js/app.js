@@ -152,9 +152,9 @@ function getPosts() {
               postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
               postElem.innerHTML = `
 
- <div class="col-lg-12 mb-4  border-dark">
-    <div class="card  border-dark">
-      <img src="${photo}" alt="" class="card-img-top">
+ <div class="col-lg-12 mb-4 border-dark">
+    <div class="card border-dark">
+      <img src="${photo}" alt="a plant" class="card-img-top">
       <div class="card-body">
         <span class="badge lavender rounded-pill mb-1">${username}</span>
         <h5 class="card-title">${title}</h5>
@@ -163,8 +163,6 @@ function getPosts() {
         
       </div>
      </div>
-    </div>
-
       `
               document.getElementById('posts').prepend(postElem)
 
