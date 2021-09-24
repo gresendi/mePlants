@@ -8,6 +8,7 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #def4c6;
+  flex-direction: column;
 }
 
 .blog-header {
@@ -54,3 +55,29 @@ button {
 .lavender {
   background-color: #E0BAD7;
 }
+
+.card {
+  margin: 0 auto;
+  float: none;
+  margin-top: 20px;
+  width: 75%;
+}
+
+@media only screen and (min-width: 500px) {
+  .card {
+    width: 25%;
+  }
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("../image/DSC_0663[1].jpg");
+  /* Set a specific height */
+  min-height: 500px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
