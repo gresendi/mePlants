@@ -8,6 +8,7 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #def4c6;
+  flex-direction: column;
 }
 
 .blog-header {
@@ -57,17 +58,29 @@ button {
   background-color: #E0BAD7;
 }
 
-.mePlantBkLogo {
-  padding-top: 2%;
-  padding-left: 0%;
-  width: 100%;
-  z-index: 10;
-  opacity: 25%;
+.card {
+  margin: 0 auto;
+  float: none;
+  margin-top: 20px;
+  width: 75%;
 }
 
-/* @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
-  #meplant-header-logo {
-    font-size: 29px!important;
-    font-family: 'Gluten', cursive;
+
+@media only screen and (min-width: 1000px) {
+  .card {
+    width: 25%;
   }
-} */
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("../image/leaf1.jpg");
+  /* Set a specific height */
+  min-height: 500px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+

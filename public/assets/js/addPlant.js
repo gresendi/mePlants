@@ -124,7 +124,7 @@ document.getElementById('createPlant').addEventListener('click', event => {
 
   // axios post for all the user input
   axios.post('/api/plants', {
-    officialName: '',
+    officialName: document.getElementById('officialName').value,
     nickName: document.getElementById('plantName').value,
     photo: imgUrl,
     care: document.getElementById('care').value,
