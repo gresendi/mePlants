@@ -175,13 +175,13 @@ axios.get('api/plants', {
      
          
              
-         <div class="row mb-2 justify-content-center ">
+         <div class="row  mb-2 justify-content-center ">
               <div class="col-sm-4 ">
                 <img src="${photo}"
-                  class="card-img-top" alt="plant">
+                  class="card-img-top rounded border border-dark" alt="plant">
               </div>
 
-              <div class="  col-sm-4 card-text text-center plantCard ">
+              <div class="rounded border border-dark col-sm-4 card-text text-center plantCard ">
                 <h5 class = 'mt-5'>${nickName}</h5>
                 <p>${officialName}</p>
                 <p>Care Tips: ${care}</p>
