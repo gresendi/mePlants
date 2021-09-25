@@ -65,12 +65,6 @@ button {
   width: 75%;
 }
 
-@media only screen and (min-width: 1000px) {
-  .card {
-    width: 25%;
-  }
-}
-
 .parallax {
   /* The image used */
   background-image: url("../image/leaf1.jpg");
