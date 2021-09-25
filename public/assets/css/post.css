@@ -45,3 +45,12 @@ body {
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
+
+.postChar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#charLeftCounter {
+  margin-left: 10px;
+}
