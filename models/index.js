@@ -2,6 +2,7 @@ const User = require('./User.js')
 const Post = require('./Post.js')
 const Plant = require('./Plant.js')
 const Favorite = require('./Favorite.js')
+const Comment = require('./Comment.js')
 
 
 
@@ -15,6 +16,7 @@ Plant.belongsTo(User, {as:'u',foreignKey: 'uid'})
 User.hasMany(Post, { foreignKey: 'uid' })
 Favorite.belongsTo(User, { as: 'u', foreignKey: 'uid' })
 
-
-module.exports = { User, Post, Plant, Favorite }
+User.hasMany(Comment, { foreignKey: 'uid' })
+Comment.belongsTo(User, { as: 'u', foreignKey: 'uid' })
+module.exports = { User, Post, Plant, Favorite, Comment }
 
