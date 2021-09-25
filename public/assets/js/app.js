@@ -87,8 +87,8 @@ function getFavorites() {
 
 function getPosts() {
   let userId = 0
-  let user=''
-  
+  let user = ''
+
   axios.get('/api/posts', {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -101,11 +101,11 @@ function getPosts() {
 
       posts.forEach(({ id, title, body, photo, u }) => {
         const postElem = document.createElement('li')
-        
+
         let filter = false
         userId = u.id
         user = u.username
-        
+
         console.log(userId + ' USERID')
 
 
@@ -133,24 +133,24 @@ function getPosts() {
 
               }
             }
-            
+
             let postID = id
 
             axios.get(`/api/comments/${postID}`).then(res => {
-             
-              
-              let  commentsArray = [...res.data]
+
+
+              let commentsArray = [...res.data]
               console.log(commentsArray)
               let commentDiv = document.createElement('ul')
-              
-              commentsArray.forEach(comment=>{
+
+              commentsArray.forEach(comment => {
                 comment.pid
-                if(id ==comment.pid){
+                if (id == comment.pid) {
                   let commentItem = document.createElement('li')
                   commentItem.innerText = comment.comment
                   commentDiv.append(commentItem)
                 }
-                
+
               })
 
               console.log(commentDiv.innerHTML)
@@ -200,10 +200,9 @@ function getPosts() {
     <div class="mb-4 card border-dark">
         <img src="${photo}" alt="a plant" class"card-img-top" >
       <div class="card-body">
-        <span class="badge lavender rounded-pill mb-1">${u.username}</span>
+        <h5><span class="badge bg-success rounded-pill mb-2">${u.username}</span></h5>
         <h5 class="card-title">${title}</h5>
         <p class="card-text">${body}</p>
-      <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite_border</button>
  <div class= "row">
         ${commentDiv.innerHTML}
         <form class="X7cDz" method="POST">
@@ -237,16 +236,16 @@ function getPosts() {
 
 
 
-              
+
             })
 
-      
-          
+
+
 
 
 
           })
-        
+
 
         let i = 0
 
@@ -254,22 +253,22 @@ function getPosts() {
       })
 
       document.addEventListener('click', event => {
-        
+
         event.preventDefault()
         if (event.target.classList.contains('postComment')) {
           console.log("i see you want to make a post")
           let post = event.target.dataset.id
           let comment = document.getElementById(`comment${post}`).value
-          
-    
 
-          
+
+
+
           let postId = parseInt(post)
-          axios.post('/api/comments',{
-              pid: postId,
-              username: user,
+          axios.post('/api/comments', {
+            pid: postId,
+            username: user,
             comment: comment
-            }, {
+          }, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -277,10 +276,10 @@ function getPosts() {
             .then(() => {
 
               console.log("comment created")
-              document.getElementById(`comment${post}`).value= ' '
+              document.getElementById(`comment${post}`).value = ' '
             })
             .catch(err => console.error(err))
-      
+
         }
       })
     })
