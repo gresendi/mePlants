@@ -14,7 +14,6 @@ body {
 .blog-header {
   line-height: 1;
   border-bottom: 1px solid black;
-  margin-bottom: 25px;
 }
 
 .meplant-header-logo {
@@ -86,7 +85,7 @@ body {
     padding-right: 10%;
     font-size: 125px;
   }
-}
+
 
 @media (max-width: 4000px) and (min-width: 2001px) {
   #goHome {
@@ -285,4 +284,22 @@ body {
   -moz-border-radius: 25px;
   -ms-border-radius: 25px;
   -o-border-radius: 25px;
+}
+
+.parallax3 {
+  border-radius: 20px;
+  /*Theimageused*/
+  background-image: url("../image/User\ background\ 2.jpg");
+  /*Setaspecificheight*/
+  /*min-height: 500px;
+  */
+  /*Createtheparallaxscrollingeffect*/
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }

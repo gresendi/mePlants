@@ -190,7 +190,7 @@ function getPosts() {
                   `
                 <div class="col-lg-12 mb-4 border-dark">
                     <div class="card border-dark">
-                      <img src="${photo}" alt="" class="card-img-top">
+                      <img src="${photo}" alt="a plant" class="card-img-top">
                       <div class="card-body">
                         <h5>
                         <span class="badge bg-success rounded-pill mb-1">${u.username}</span>
@@ -199,12 +199,13 @@ function getPosts() {
                         <p class="card-text">${body}</p>
                     
                         <div class= "row">
-                         <div class="col-12 ">
+                         <div class="col-11">
                            <ul id = "commentBox${id}" class ='ct' >${commentDiv.innerHTML}</ul >
                          </div>
 
                           <form method="POST" class="bottomSec">
                             <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite</button>
+
                             <textarea id = "comment${id}" aria-label="Add a comment…" placeholder="Comment…" class="form-control comment" autocomplete="off" autocorrect="off" style="height: 30px;"></textarea>
                             <button data-id="${id}" class="btn btn-success postComment" type="submit">Post</button>
                           </form>
@@ -224,7 +225,7 @@ function getPosts() {
                   `
                 <div class="col-lg-12 mb-4 border-dark">
                     <div class="card border-dark">
-                      <img src="${photo}" alt="" class="card-img-top">
+                      <img src="${photo}" alt="a plant" class="card-img-top">
                       <div class="card-body">
                         <h5>
                         <span class="badge bg-success rounded-pill mb-1">${u.username}</span>
@@ -233,11 +234,12 @@ function getPosts() {
                         <p class="card-text">${body}</p>
                     
                          <div class= "row">
-                           <div class="col-11 ">
+                           <div class="col-11">
                              <ul id = "commentBox${id}" class ='ct' >${commentDiv.innerHTML}</ul >
                            </div>
                           <form method="POST" class="bottomSec">
-                            <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite_border</button>
+                            <button data-id="${id}" class="btn justify-content-end  align-items-center material-icons-outlined favorite" >favorite_border</button>
+
                             <textarea id = "comment${id}" aria-label="Add a comment…" placeholder="Comment…" class="form-control comment" autocomplete="off" autocorrect="off" style="height: 30px;"></textarea>
                             <button data-id="${id}"" class="btn btn-success postComment" type="submit">Post</button>
                           </form>
