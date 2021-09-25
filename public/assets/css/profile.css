@@ -73,7 +73,6 @@ body {
   }
 }
 
-@media (max-width: 8000px) and (min-width: 4001px) {
   #goHome {
     width: 250px;
     height: inherit;
