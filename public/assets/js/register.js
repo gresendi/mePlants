@@ -1,14 +1,17 @@
 const { bootstrap } = window
 
+// event listener when register button is clicked
 document.getElementById('register').addEventListener('click', event => {
   event.preventDefault()
 
+  // assign variables (and send the username input to lower case to help prevent duplciates)
   let errorMessage = document.getElementById('errorMsg')
   let usernameInput = document.getElementById('username').value.toLowerCase()
   let passwordInput = document.getElementById('password').value
 
-  console.log(usernameInput);
+  // console.log(usernameInput);
 
+  // axios get usernames
   axios.get('/api/usernames')
     .then(({ data: usernames }) => {
       const usernamesLowerCase = usernames.map(username => username.toLowerCase())
