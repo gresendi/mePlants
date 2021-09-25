@@ -287,3 +287,8 @@ body {
   -ms-border-radius: 25px;
   -o-border-radius: 25px;
 }
+
+.plantCard
+{
+  background-color: #def4c6;
+}

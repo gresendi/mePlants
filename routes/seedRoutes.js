@@ -2,6 +2,12 @@ const router = require('express').Router()
 const { Post, User, Plant } = require('../models')
 
 // users seed data to create 'dummy' users
+
+
+
+
+
+
 let users = [
   {
     username: "johndoe",
@@ -19,6 +25,61 @@ let users = [
     username: "jackiedoe",
     password: "123"
   }
+]
+
+let userComments = [
+  {
+    comment: "I love this plant!" 
+  },
+  {
+    comment: "Amazing!!"
+  },
+  {
+    comment: "I want one of those"
+  },
+  {
+    comment: "Where did you get it?"
+  },
+  {
+    comment: "That color is to die for."
+  },
+  {
+    comment: "So vibrant"
+  },
+  {
+    comment: "Inspired!!"
+  },
+  {
+    comment: "Need some little ones like this these"
+  },
+  {
+    comment: "Wow!😍 so beautiful!!"
+  },
+  {
+    comment: "❤️❤️"
+  },
+  {
+    comment: "They’re so beautiful😍"
+  },
+  {
+    comment: "Goals 🙌💚"
+  },
+  {
+    comment: "I love this plant!"
+  },
+  {
+    comment: "I love this plant!"
+  },
+  {
+    comment: "I love this plant!"
+  },
+  {
+    comment: "❤️❤️"
+  },
+  {
+    comment: "I love this plant!"
+  },
+ 
 ]
 
 // posts seed data to create 'dummy' posts from users above (all imgs are original)

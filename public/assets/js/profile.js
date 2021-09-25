@@ -168,21 +168,23 @@ axios.get('api/plants', {
       console.log(officialName)
       let plant = document.createElement('div')
       plant.innerHTML = `
+
+   <div class="row mb-3">
+             
+
+      
          <div class="row mb-3">
               <div class="col-sm-4">
                 <img src="${photo}"
                   class="card-img-top" alt="plant">
               </div>
 
-              <div class="col-sm-4">
+              <div class=" col-sm-4 card-text plantCard ">
                 <h5>${nickName}</h5>
                 <p>${officialName}</p>
                 <p>Care Tips: ${care}</p>
                 <p>Last Watered: ${lastWatered}</p>
                 <p>Next Watering: ${nextWatering}</p>
-              </div>
-
-              <div class="col-sm-4">
                 <div class="row">
                   <button data-id = "${id}"  class="col-sm-5 btn btn-primary water mb-2">Water</button>
                 </div>
@@ -193,7 +195,10 @@ axios.get('api/plants', {
                   <button data-id = "${id}" class="col-sm-5 btn btn-danger removePlant ">Delete</button>
                 </div>
               </div>
+
+              
             </div>
+
       `
       document.getElementById('plants').append(plant)
 

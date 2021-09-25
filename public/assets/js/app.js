@@ -188,8 +188,8 @@ function getPosts() {
                 postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
                 postElem.innerHTML = 
                 `
-                <div class="col-lg-12 mb-4 border-dark">
-                    <div class="card border-dark">
+                <div class="col-lg-12 mb-4  border-dark">
+                    <div class=" shadow-lg border-dark card ">
                       <img src="${photo}" alt="" class="card-img-top">
                       <div class="card-body">
                         <h5>
