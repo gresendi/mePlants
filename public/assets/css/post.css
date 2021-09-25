@@ -56,7 +56,7 @@ body {
     padding-left: 10%;
     font-size: 110px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 10%;
     font-size: 125px;
   }
@@ -72,7 +72,7 @@ body {
     padding-left: 10%;
     font-size: 110px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 10%;
     font-size: 125px;
   }
@@ -88,7 +88,7 @@ body {
     padding-left: 5%;
     font-size: 100px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 10%;
     font-size: 100px;
   }
@@ -104,7 +104,7 @@ body {
     padding-left: 5%;
     font-size: 90px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 10%;
     font-size: 80px;
   }
@@ -120,7 +120,7 @@ body {
     padding-left: 5%;
     font-size: 80px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 10%;
     font-size: 70px;
   }
@@ -136,7 +136,7 @@ body {
     padding-left: 5%;
     font-size: 70px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 10%;
     font-size: 60px;
   }
@@ -152,7 +152,7 @@ body {
     padding-left: 5%;
     font-size: 50px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 10%;
     font-size: 40px;
   }
@@ -167,7 +167,7 @@ body {
     padding-left: 5%;
     font-size: 35px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 20%;
     padding-left: 5%;
     font-size: 30px;
@@ -183,7 +183,7 @@ body {
     padding-left: 15%;
     font-size: 25px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 20%;
     padding-left: 5%;
     font-size: 15px;
@@ -199,9 +199,18 @@ body {
     padding-left: 15%;
     font-size: 20px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 20%;
     padding-left: 5%;
     font-size: 10px;
   }
+}
+
+.postChar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#charLeftCounter {
+  margin-left: 10px;
 }

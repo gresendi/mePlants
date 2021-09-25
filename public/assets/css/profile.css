@@ -60,16 +60,47 @@ body {
   opacity: 25%;
 }
 
+.card {
+  margin: 0 auto;
+  float: none;
+  margin-top: 20px;
+  width: 65%;
+}
+
 .parallax {
   /* The image used */
   background-image: url("../image/leaf1.jpg");
   /* Set a specific height */
-  min-height: 500px;
+  /* min-height: 500px; */
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.parallax2 {
+  border-radius: 25px;
+  /*Theimageused*/
+  background-image: url("../image/User\'s\ background.jpg");
+  /*Setaspecificheight*/
+  /*min-height: 500px;
+  */
+  /*Createtheparallaxscrollingeffect*/
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}
+
+@media only screen and (min-width: 1000px) {
+  .card {
+    width: 40%;
+  }
 }
 
 @media (max-width: 8000px) and (min-width: 4001px) {
@@ -82,7 +113,7 @@ body {
     padding-left: 5%;
     font-size: 100px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 10%;
     font-size: 125px;
   }
@@ -98,7 +129,7 @@ body {
     padding-left: 5%;
     font-size: 100px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 10%;
     font-size: 125px;
   }
@@ -114,7 +145,7 @@ body {
     padding-left: 5%;
     font-size: 100px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 10%;
     font-size: 100px;
   }
@@ -130,7 +161,7 @@ body {
     padding-left: 5%;
     font-size: 90px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 10%;
     font-size: 80px;
   }
@@ -146,7 +177,7 @@ body {
     padding-left: 5%;
     font-size: 80px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 10%;
     font-size: 70px;
   }
@@ -162,7 +193,7 @@ body {
     padding-left: 5%;
     font-size: 55px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 10%;
     font-size: 60px;
   }
@@ -178,7 +209,7 @@ body {
     padding-left: 5%;
     font-size: 40px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 10%;
     font-size: 40px;
   }
@@ -193,7 +224,7 @@ body {
     padding-left: 5%;
     font-size: 20px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 20%;
     padding-left: 5%;
     font-size: 30px;
@@ -210,7 +241,7 @@ body {
     padding-left: 15%;
     font-size: 10px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 20%;
     padding-left: 5%;
     font-size: 15px;
@@ -227,7 +258,7 @@ body {
     padding-left: 15%;
     font-size: 8px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 20%;
     padding-left: 5%;
     font-size: 8px;
@@ -244,9 +275,15 @@ body {
     padding-left: 15%;
     font-size: 10px;
   }
-  .mqbtn {
+  .navBtn {
     padding-right: 20%;
     padding-left: 5%;
     font-size: 5px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .card {
+    width: 40%;
   }
 }
