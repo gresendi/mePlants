@@ -72,6 +72,38 @@ body {
   background-size: cover;
 }
 
+@media (max-width: 8000px) and (min-width: 4001px) {
+  #goHome {
+    width: 250px;
+    height: inherit;
+  }
+  .meplant-header-logo {
+    padding-bottom: 2%;
+    padding-left: 5%;
+    font-size: 100px;
+  }
+  .btn {
+    padding-right: 10%;
+    font-size: 125px;
+  }
+}
+
+@media (max-width: 4000px) and (min-width: 2001px) {
+  #goHome {
+    width: 250px;
+    height: inherit;
+  }
+  .meplant-header-logo {
+    padding-bottom: 2%;
+    padding-left: 5%;
+    font-size: 100px;
+  }
+  .btn {
+    padding-right: 10%;
+    font-size: 125px;
+  }
+}
+
 @media (max-width: 2000px) and (min-width: 1400px) {
   #goHome {
     width: 200px;
@@ -128,7 +160,7 @@ body {
   .meplant-header-logo {
     padding-bottom: 1%;
     padding-left: 5%;
-    font-size: 70px;
+    font-size: 55px;
   }
   .btn {
     padding-right: 10%;
@@ -144,7 +176,7 @@ body {
   .meplant-header-logo {
     padding-bottom: 0%;
     padding-left: 5%;
-    font-size: 50px;
+    font-size: 40px;
   }
   .btn {
     padding-right: 10%;
@@ -159,7 +191,7 @@ body {
   }
   .meplant-header-logo {
     padding-left: 5%;
-    font-size: 35px;
+    font-size: 20px;
   }
   .btn {
     padding-right: 20%;
@@ -176,7 +208,7 @@ body {
   .meplant-header-logo {
     padding-top: 8%;
     padding-left: 15%;
-    font-size: 25px;
+    font-size: 10px;
   }
   .btn {
     padding-right: 20%;
@@ -193,7 +225,7 @@ body {
   .meplant-header-logo {
     padding-top: 10%;
     padding-left: 15%;
-    font-size: 15px;
+    font-size: 8px;
   }
   .btn {
     padding-right: 20%;
