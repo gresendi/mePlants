@@ -92,7 +92,39 @@ button {
   background-size: cover;
 }
 
-@media (max-width: 4000px) and (min-width: 1400px) {
+@media (max-width: 8000px) and (min-width: 4001px) {
+  #goHome {
+    width: 250px;
+    height: inherit;
+  }
+  .meplant-header-logo {
+    padding-bottom: 2%;
+    padding-left: 10%;
+    font-size: 110px;
+  }
+  .btn {
+    padding-right: 10%;
+    font-size: 125px;
+  }
+}
+
+@media (max-width: 4000px) and (min-width: 2001px) {
+  #goHome {
+    width: 250px;
+    height: inherit;
+  }
+  .meplant-header-logo {
+    padding-bottom: 2%;
+    padding-left: 10%;
+    font-size: 110px;
+  }
+  .btn {
+    padding-right: 10%;
+    font-size: 125px;
+  }
+}
+
+@media (max-width: 2000px) and (min-width: 1400px) {
   #goHome {
     width: 200px;
     height: inherit;
