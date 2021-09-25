@@ -111,7 +111,7 @@ function getPosts() {
               postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
               postElem.innerHTML = 
               `
-              <div class="col-lg-12 mb-4  border-dark">
+              <div class="col-lg-12 mb-4 border-dark">
                 <div class="card  border-dark">
                   <img src="${photo}" alt="" class="card-img-top">
                   <div class="card-body">
@@ -123,7 +123,6 @@ function getPosts() {
                 </div>
               </div>   
               `
-
               // prepend the post elements to the likes section (favorites)
               document.getElementById('likes').prepend(postElem)
               }
@@ -155,7 +154,7 @@ document.addEventListener('click', event => {
       // target inner html is favorite_border (not favorited)
       target.innerHTML = 'favorite_border'
 
-      // axios delete
+      // axios delete favorite
       axios.delete(`/api/favorites/${event.target.dataset.id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -164,41 +163,34 @@ document.addEventListener('click', event => {
         .then(() => {
           target.innerHTML = 'favorite_border'
           location.reload()
-
-        }
-        )
+        })
         .catch(err => console.error(err))
+    } 
+    // else if the target inner html contains favorite_border (not favorite)
+    else if (target.innerHTML === 'favorite_border') {
+      // console.log('not solid')
 
-    } else if (target.innerHTML === 'favorite_border') {
-      console.log('not solid')
-
+      // assign pid (post id) as the event target dataset id (post id)
       let pid = event.target.dataset.id
+      // axios post to favorites
       axios.post('/api/favorites', {
         pid: pid
-
-      }, {
+      }, 
+      {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
       })
         .then(() => {
-
-          console.log('favorite created')
-
-
-
+          // console.log('favorite created')
           target.innerHTML = 'favorite'
-
-
         })
         .catch(err => {
           console.error(err)
-        }
-        )
+        })
     }
   }
 })
 
-
-
+// call function to get posts
 getPosts()

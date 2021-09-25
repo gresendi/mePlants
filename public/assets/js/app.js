@@ -79,19 +79,17 @@ function getFavorites() {
         postFav.push(num)
       })
     })
-
-
-
-
-
 }
 
 
 // function to get posts
 function getPosts() {
+
+  // variables for userId and user (username)
   let userId = 0
   let user=''
   
+  // axios get posts
   axios.get('/api/posts', {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -99,20 +97,23 @@ function getPosts() {
   })
     .then(({ data: posts }) => {
 
+      // variable for favorites and call function get favorites and push to favorites
       let favorites = [1]
       favorites.push(getFavorites())
 
+      // for each post
       posts.forEach(({ id, title, body, photo, u }) => {
+
+        // create a list element
         const postElem = document.createElement('li')
         
+        // variable for filter (to filter if favorite or not favorite) and set the userId as the u (user) id and hte user as the u (user) username
         let filter = false
         userId = u.id
         user = u.username
-        
-        console.log(userId + ' USERID')
+        // console.log(userId + ' USERID')
 
-
-
+        // variable for favs and postFav
         let favs = 'blank'
         let postFav = []
 
@@ -131,170 +132,140 @@ function getPosts() {
               postFav.push(num)
             })
 
-
             // for loop to update filter (to mark as a favorite or not)
             let i = 0
             for (i; i < postFav.length; i++) {
               if (postFav[i] == id) {
                 filter = true
               }
-              else {
-
-              }
+              else {}
             }
             
+            // variable set postID as the id (post id)
             let postID = id
 
+            // axios get comments using post id
             axios.get(`/api/comments/${postID}`).then(res => {
              
-              
+              // comments aray equal to the response (spread/rest)
               let  commentsArray = [...res.data]
-              console.log(commentsArray)
+              // console.log(commentsArray)
+
+              // create element unordered list for the comment
               let commentDiv = document.createElement('ul')
               
+              // for each comment in the comments array
               commentsArray.forEach(comment=>{
+                // comment post id
                 comment.pid
+                // if the id (post id) matches the commments post id
                 if(id ==comment.pid){
+                  // create a list element and set the inner text as the comments comment amd append the comment to the post
                   let commentItem = document.createElement('li')
                   commentItem.innerText = comment.comment
                   commentDiv.append(commentItem)
                 }
-                
               })
 
-              console.log(commentDiv.innerHTML)
+              // console.log(commentDiv.innerHTML)
+              // if the filter (favorite)
               if (filter) {
-
-
-
-
-
-
-                console.log('You liked this plant already')
-
+                // console.log('You liked this plant already')
+                // add class name for the post element and add the inner html with the post details
                 postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
-                postElem.innerHTML = `
-
- <div class="col-lg-12 mb-4  border-dark">
-    <div class="card  border-dark">
-      <img src="${photo}" alt="" class="card-img-top">
-      <div class="card-body">
-        <span class="badge lavender rounded-pill mb-1">${u.username}</span>
-        <h5 class="card-title">${title}</h5>
-        <p class="card-text">${body}</p>
-     
-        <div class= "row">
-        ${commentDiv.innerHTML}
-        <form class="X7cDz" method="POST">
- <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite</button>
-<textarea id = "comment${id}" aria-label="Add a comment…" placeholder="Add a comment…" class="" autocomplete="off" autocorrect="off" style="height: 30px"></textarea>
-<button data-id="${id}"" class="postComment" type="submit">Post</button>
-</form>
-</div>
-      </div>
-     </div>
-     
-    </div>
-
-      `
+                postElem.innerHTML = 
+                `
+                <div class="col-lg-12 mb-4 border-dark">
+                    <div class="card border-dark">
+                      <img src="${photo}" alt="" class="card-img-top">
+                      <div class="card-body">
+                        <span class="badge lavender rounded-pill mb-1">${u.username}</span>
+                        <h5 class="card-title">${title}</h5>
+                        <p class="card-text">${body}</p>
+                    
+                        <div class= "row">
+                          ${commentDiv.innerHTML}
+                          <form method="POST">
+                            <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite</button>
+                            <textarea id = "comment${id}" aria-label="Add a comment…" placeholder="Add a comment…" class="" autocomplete="off" autocorrect="off" style="height: 30px"></textarea>
+                            <button data-id="${id}"" class="postComment" type="submit">Post</button>
+                          </form>
+                       </div>
+                      </div>
+                    </div>
+                </div>
+                `
+                // prepend the post elements to the post section on the html
                 document.getElementById('posts').prepend(postElem)
-
-
-
-
-
               }
+              // else the filter (not favorite)
               else {
-
-                postElem.className = 'd-flex mb-2 listItem'
-                postElem.innerHTML = `
-    <div class="mb-4 card border-dark">
-        <img src="${photo}" alt="a plant" class"card-img-top" >
-      <div class="card-body">
-        <span class="badge lavender rounded-pill mb-1">${u.username}</span>
-        <h5 class="card-title">${title}</h5>
-        <p class="card-text">${body}</p>
-      <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite_border</button>
- <div class= "row">
-        ${commentDiv.innerHTML}
-        <form class="X7cDz" method="POST">
- <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite_border</button>
-<textarea id = "comment${id}" aria-label="Add a comment…" placeholder="Add a comment…" class="" autocomplete="off" autocorrect="off" style="height: 30px"></textarea>
-<button data-id="${id}"" class="postComment" type="submit">Post</button>
-</form>
-</div>
-      </div>
-     </div>
-
-    </div>
-        
-      `
+                // add class name for the post element and add the inner html with the post details
+                postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
+                postElem.innerHTML = 
+                `
+                <div class="col-lg-12 mb-4 border-dark">
+                    <div class="card border-dark">
+                      <img src="${photo}" alt="" class="card-img-top">
+                      <div class="card-body">
+                        <span class="badge lavender rounded-pill mb-1">${u.username}</span>
+                        <h5 class="card-title">${title}</h5>
+                        <p class="card-text">${body}</p>
+                    
+                        <div class= "row">
+                          ${commentDiv.innerHTML}
+                          <form method="POST">
+                            <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite_border</button>
+                            <textarea id = "comment${id}" aria-label="Add a comment…" placeholder="Add a comment…" class="" autocomplete="off" autocorrect="off" style="height: 30px"></textarea>
+                            <button data-id="${id}"" class="postComment" type="submit">Post</button>
+                          </form>
+                       </div>
+                      </div>
+                    </div>
+                </div>
+                `
+                // prepend the post elements to the post section on the html
                 document.getElementById('posts').prepend(postElem)
-
-
-
-
               }
-
-
-
-
-
-
-
-
-
-
-
-
-
-              
             })
-
-      
-          
-
-
-
           })
-        
-
-        let i = 0
-
-        console.log(user)
       })
 
+      // event listener when click
       document.addEventListener('click', event => {
-        
         event.preventDefault()
+
+        // if the event target classlist contains postComment
         if (event.target.classList.contains('postComment')) {
-          console.log("i see you want to make a post")
+          // console.log("i see you want to make a post")
+
+          // assign post as the event target dataset id (post id) and the comment to the commentpost(post id)
           let post = event.target.dataset.id
           let comment = document.getElementById(`comment${post}`).value
           
-    
-
-          
+          // assign postId as the parse interger of post (post id)
           let postId = parseInt(post)
-          axios.post('/api/comments',{
-              pid: postId,
-              username: user,
+          // axios post comments
+          axios.post('/api/comments',
+          {
+            pid: postId,
+            username: user,
             comment: comment
-            }, {
+            }, 
+            {
             headers: {
               Authorization: `Bearer ${localStorage.getItem('token')}`
             }
           })
             .then(() => {
-
-              console.log("comment created")
+              // console.log("comment created")
               document.getElementById(`comment${post}`).value= ' '
             })
             .catch(err => console.error(err))
-      
         }
       })
     })
+    // catch error and go to login html
     .catch(err => {
       console.log(err)
       window.location = '/login.html'
@@ -309,11 +280,13 @@ document.addEventListener('click', event => {
   if (event.target.classList.contains('favorite')) {
     console.log("fav")
 
+    // assign target to equal the event target
     let target = event.target
 
-
+    // if the target inner html is favorite
     if (target.innerHTML === 'favorite') {
-      console.log('make clear')
+      // console.log('make clear')
+      // target inner html is favorite_border (not favorite)
       target.innerHTML = 'favorite_border'
 
       // axios delete the favorite by the event target dataset id
@@ -324,14 +297,16 @@ document.addEventListener('click', event => {
       })
         .then(() => {
           target.innerHTML = 'favorite_border'
-        }
-        )
+        })
         .catch(err => console.error(err))
-
-    } else if (target.innerHTML === 'favorite_border') {
+    } 
+    // else if the target inner html is favorite_border (not favorite)
+    else if (target.innerHTML === 'favorite_border') {
       console.log('not solid')
 
+      // assign the pid (post id) to the event target dataset id (post id)
       let pid = event.target.dataset.id
+      // axios post favorites
       axios.post('/api/favorites', 
       {
         pid: pid
@@ -343,21 +318,10 @@ document.addEventListener('click', event => {
       })
         .then(() => {
           // console.log('favorite created')
-
-          console.log('favorite created')
-
-
-
           target.innerHTML = 'favorite'
         })
-        .catch(err => {console.error(err)}
-        )
+        .catch(err => {console.error(err)})
     }
-
-
-
-
-
   }
 })
 
