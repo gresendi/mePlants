@@ -205,3 +205,12 @@ body {
     font-size: 10px;
   }
 }
+
+.postChar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#charLeftCounter {
+  margin-left: 10px;
+}
