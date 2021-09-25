@@ -153,6 +153,7 @@ function getPosts() {
 
               // create element unordered list for the comment
               let commentDiv = document.createElement('ul')
+              commentDiv.className = "list-group  list-group-flush ct"
               
               // for each comment in the comments array
               commentsArray.forEach(comment=>{
@@ -162,6 +163,7 @@ function getPosts() {
                 if(id ==comment.pid){
                   // create a list element and set the inner text as the comments comment amd append the comment to the post
                   let commentItem = document.createElement('li')
+                  commentItem.className = "list-group-item"
                   commentItem.innerText = comment.comment
                   commentDiv.append(commentItem)
                 }
@@ -184,7 +186,10 @@ function getPosts() {
                         <p class="card-text">${body}</p>
                     
                         <div class= "row">
-                          ${commentDiv.innerHTML}
+                         <div class="col-12 ">
+                           <ul class ='ct' >${commentDiv.innerHTML}</ul>
+                         </div>
+
                           <form method="POST">
                             <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite</button>
                             <textarea id = "comment${id}" aria-label="Add a comment…" placeholder="Add a comment…" class="" autocomplete="off" autocorrect="off" style="height: 30px"></textarea>
@@ -212,8 +217,10 @@ function getPosts() {
                         <h5 class="card-title">${title}</h5>
                         <p class="card-text">${body}</p>
                     
-                        <div class= "row">
-                          ${commentDiv.innerHTML}
+                         <div class= "row">
+                           <div class="col-11 ">
+                             <ul class ='ct' >${commentDiv.innerHTML}</ul>
+                           </div>
                           <form method="POST">
                             <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite_border</button>
                             <textarea id = "comment${id}" aria-label="Add a comment…" placeholder="Add a comment…" class="" autocomplete="off" autocorrect="off" style="height: 30px"></textarea>

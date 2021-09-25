@@ -65,6 +65,21 @@ button {
   width: 75%;
 }
 
+
+
+.ct {
+  max-block-size: 200px;
+  min-block-size: 200px;
+  height: 5vh;
+  overflow: scroll
+}
+
+@media only screen and (min-width: 1000px) {
+  .card {
+    width: 25%;
+  }
+}
+
 .parallax {
   /* The image used */
   background-image: url("../image/leaf1.jpg");
