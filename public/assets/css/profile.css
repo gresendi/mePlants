@@ -67,11 +67,11 @@ body {
   width: 65%;
 }
 
-/* @media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1000px) {
   .card {
-    width: 25%;
+    width: 40%;
   }
-} */
+}
 
 .parallax {
   /* The image used */

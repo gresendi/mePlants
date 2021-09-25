@@ -156,8 +156,8 @@ function getPosts() {
     <div class="card border-dark">
       <img src="${photo}" alt="a plant" class="card-img-top">
       <div class="card-body">
-        <span class="badge lavender rounded-pill mb-1">${username}</span>
-        <h5 class="card-title">${title}</h5>
+        <h5><span class="badge bg-success rounded-pill mb-2">${username}</span></h5>
+        <h4 class="card-title">${title}</h4>
         <p class="card-text">${body}</p>
       <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite</button>
         
@@ -178,7 +178,7 @@ function getPosts() {
     <div class="mb-4 card border-dark">
         <img src="${photo}" alt="a plant" class"card-img-top" >
       <div class="card-body">
-        <span class="badge lavender rounded-pill mb-1">${username}</span>
+        <span class="badge bg-success rounded-pill mb-1">${username}</span>
         <h5 class="card-title">${title}</h5>
         <p class="card-text">${body}</p>
       <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite_border</button>
