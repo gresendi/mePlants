@@ -142,11 +142,13 @@ function getPosts() {
               let  commentsArray = [...res.data]
               console.log(commentsArray)
               let commentDiv = document.createElement('ul')
+              commentDiv.className = "list-group  list-group-flush ct"
               
               commentsArray.forEach(comment=>{
                 comment.pid
                 if(id ==comment.pid){
                   let commentItem = document.createElement('li')
+                  commentItem.className = "list-group-item"
                   commentItem.innerText = comment.comment
                   commentDiv.append(commentItem)
                 }
@@ -154,6 +156,7 @@ function getPosts() {
               })
 
               console.log(commentDiv.innerHTML)
+              
               if (filter) {
 
 
@@ -172,10 +175,13 @@ function getPosts() {
       <div class="card-body">
         <span class="badge lavender rounded-pill mb-1">${u.username}</span>
         <h5 class="card-title">${title}</h5>
-        <p class="card-text">${body}</p>
+        <p class="card-text"  >${body}</p>
      
         <div class= "row">
-        ${commentDiv.innerHTML}
+        <div class="col-11 "><ul class ='ct' >${commentDiv.innerHTML}</ul>
+        
+        </div>
+        
         <form class="X7cDz" method="POST">
  <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite</button>
 <textarea id = "comment${id}" aria-label="Add a comment…" placeholder="Add a comment…" class="" autocomplete="off" autocorrect="off" style="height: 30px"></textarea>

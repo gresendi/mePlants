@@ -65,6 +65,15 @@ button {
   width: 75%;
 }
 
+
+
+.ct {
+  max-block-size: 200px;
+  min-block-size: 200px;
+  height: 5vh;
+  overflow: scroll
+}
+
 @media only screen and (min-width: 1000px) {
   .card {
     width: 25%;
@@ -83,7 +92,7 @@ button {
   background-size: cover;
 }
 
-@media (max-width: 2000px) and (min-width: 1400px) {
+@media (max-width: 4000px) and (min-width: 1400px) {
   #goHome {
     width: 200px;
     height: inherit;
