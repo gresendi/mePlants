@@ -72,6 +72,15 @@ button {
   overflow: scroll
 }
 
+.bottomSec {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userCom {
+  margin-right: 5px;
+}
+
 @media only screen and (min-width: 1000px) {
   .card {
     width: 30%;
@@ -104,6 +113,9 @@ button {
     padding-right: 10%;
     font-size: 125px;
   }
+  .comment {
+    width: 420px;
+  }
 }
 
 @media (max-width: 4000px) and (min-width: 2001px) {
@@ -120,6 +132,9 @@ button {
     padding-right: 10%;
     font-size: 125px;
   }
+  .comment {
+    width: 420px;
+  }
 }
 
 @media (max-width: 2000px) and (min-width: 1400px) {
@@ -134,6 +149,9 @@ button {
   .navBtn {
     padding-right: 10%;
     font-size: 100px;
+  }
+  .comment {
+    width: 270px;
   }
 }
 
@@ -150,6 +168,9 @@ button {
     padding-right: 10%;
     font-size: 80px;
   }
+  .comment {
+    width: 200px;
+  }
 }
 
 @media (max-width: 1199px) and (min-width: 1025px) {
@@ -164,6 +185,9 @@ button {
   .navBtn {
     padding-right: 10%;
     font-size: 70px;
+  }
+  .comment {
+    width: 170px;
   }
 }
 
@@ -180,6 +204,9 @@ button {
     padding-right: 10%;
     font-size: 60px;
   }
+  .comment {
+    width: 420px;
+  }
 }
 
 @media (max-width: 768px) and (min-width: 540px) {
@@ -194,6 +221,9 @@ button {
   .navBtn {
     padding-right: 10%;
     font-size: 40px;
+  }
+  .comment {
+    width: 260px;
   }
 }
 
@@ -211,6 +241,9 @@ button {
     padding-left: 5%;
     font-size: 20px;
   }
+  .comment {
+    width: 150px;
+  }
 }
 
 @media (max-width: 369px) and (min-width: 237px) {
@@ -226,5 +259,8 @@ button {
     padding-right: 20%;
     padding-left: 5%;
     font-size: 15px;
+  }
+  .comment {
+    width: 100px;
   }
 }
