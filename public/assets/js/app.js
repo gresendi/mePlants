@@ -159,13 +159,24 @@ function getPosts() {
               commentsArray.forEach(comment=>{
                 // comment post id
                 comment.pid
+                
                 // if the id (post id) matches the commments post id
                 if(id ==comment.pid){
                   // create a list element and set the inner text as the comments comment amd append the comment to the post
                   let commentItem = document.createElement('li')
                   commentItem.className = "list-group-item"
-                  commentItem.innerText = comment.comment
+                  let pill = document.createElement('span')
+
+                 
+                  pill.className = 'badge bg-success rounded - pill mb - 1'
+                  pill.innerText= comment.username
+                  let commentSpan = document.createElement('span')
+                  commentSpan.innerText= comment.comment
+                  commentItem.append(pill)
+                  commentItem.append(commentSpan)
                   commentDiv.append(commentItem)
+                  // commentItem.innerText = comment.username + ' ' + comment.comment
+                  // commentDiv.append(commentItem)
                 }
               })
 
@@ -187,7 +198,7 @@ function getPosts() {
                     
                         <div class= "row">
                          <div class="col-12 ">
-                           <ul class ='ct' >${commentDiv.innerHTML}</ul>
+                           <ul id = "commentBox${id}" class ='ct' >${commentDiv.innerHTML}</ul >
                          </div>
 
                           <form method="POST">
@@ -219,7 +230,7 @@ function getPosts() {
                     
                          <div class= "row">
                            <div class="col-11 ">
-                             <ul class ='ct' >${commentDiv.innerHTML}</ul>
+                             <ul id = "commentBox${id}" class ='ct' >${commentDiv.innerHTML}</ul >
                            </div>
                           <form method="POST">
                             <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite_border</button>
@@ -266,6 +277,21 @@ function getPosts() {
           })
             .then(() => {
               // console.log("comment created")
+              let commentItem = document.createElement('li')
+              commentItem.className = "list-group-item"
+             
+              let pill = document.createElement('span')
+
+
+              pill.className = 'badge bg-success rounded - pill mb - 1'
+              pill.innerText = user
+              let commentSpan = document.createElement('span')
+              commentSpan.innerText = comment
+              commentItem.append(pill)
+              commentItem.append(commentSpan)
+              
+              document.getElementById(`commentBox${post}`).append(commentItem)
+
               document.getElementById(`comment${post}`).value= ' '
             })
             .catch(err => console.error(err))
@@ -396,3 +422,5 @@ function uploadPhoto() {
 //Rendering posts onto the page
 getPosts()
 
+
+//got to line 400
