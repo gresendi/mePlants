@@ -22,92 +22,95 @@ const firebaseApp = initializeApp(firebaseConfig);
 // set empty variable for image url
 let imgUrl = ''
 
+// assign addPost as zero
 let addPost = 0
 
+// event listener when goHome button is clicked to go to home page
 document.getElementById('goHome').addEventListener('click', () => {
   window.location = '/'
 })
 
+// event listener when goLike button is clicked to go to like (favorites page), have to be authenticated as if not go to login page
 document.getElementById('goLike').addEventListener('click', () => {
   if (localStorage.getItem('token')) {
     window.location = '/like.html'
   } else {
     window.location = '/login.html'
   }
-
-
 })
 
+// event listener when goPost button is clicked to go to the post page
 document.getElementById('goPost').addEventListener('click', () => {
   if (localStorage.getItem('token')) {
     window.location = '/post.html'
   } else {
     window.location = '/login.html'
   }
-
-
 })
 
+// event listener when goProfile button is clicked to go to the profile page
 document.getElementById('goProfile').addEventListener('click', () => {
   if (localStorage.getItem('token')) {
     window.location = '/profile.html'
   } else {
     window.location = '/login.html'
   }
-
 })
 
+// function to get
 function getFavorites(){
 
-
+  // assign favs as blank and postFav array as empty
   let favs = 'blank'
   let postFav = []
+
+  // axios get favorites
   axios.get('/api/favorites', {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`
     }
   })
+    // then for each favorite let the num be equal to the favorite post id and push the num (post id) to the postFav array
     .then(({ data: favorites }) => {
-      
       favs = favorites
       favs.forEach(fav => {
-       
         let num = parseInt(fav.pid)
         postFav.push(num)
       })
     })
-
- 
-
-
-
+    .catch(err => console.log(err))
 }
 
 
-
+// function to get posts
 function getPosts() {
 
-
+  // axios get posts
   axios.get('/api/posts', {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`
     }
   })
     .then(({ data: posts }) => {
-     
+
+      // push the favorites into the called getFavorites function
       let favorites = [1]
       favorites.push(getFavorites())
       
+      // for each post
       posts.forEach(({ id, title, body, photo, u: { username, id:{uid} }}) => {
+
+        // create a post element list item
         const postElem = document.createElement('li')
 
+        // assign the filter as false (to filter out if favorite or not later)
         let filter = false
      
-
-
-
+        // assign favs and post fav as blank and empty
         let favs = 'blank'
         let postFav = []
+
+        // axios get favorites
         axios.get('/api/favorites', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -115,20 +118,25 @@ function getPosts() {
         })
           .then(({ data: favorites }) => {
 
+            // for each favorite push the post id to the postFav array
             favs = favorites
             favs.forEach(fav => {
-
               let num = parseInt(fav.pid)
               postFav.push(num)
             })
+
+
+            // for loop to update filter (to mark as a favorite or not)
+            let i = 0
             for (i; i < postFav.length; i++) {
               if (postFav[i] == id) {
                 filter = true
               }
               else {
-                
               }
             }
+
+            // axios get favorites by id
             axios.get(`/api/favorites/:${id}`, {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -137,73 +145,53 @@ function getPosts() {
               console.log((likes))
             })
 
-
-
-
+            // if the filter (true - a favorite post)
             if (filter) {
-              
-              
-              
-              
+              // console.log('You liked this plant already')
 
-
-              console.log('You liked this plant already')
-
+              // add a class name and create innerHTML of the post photo, username, title, body and data id (favorite button shows as favorited)
               postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
-              postElem.innerHTML = `
+              postElem.innerHTML = 
+              `
+              <div class="col-lg-12 mb-4  border-dark">
+                <div class="card  border-dark">
+                  <img src="${photo}" alt="" class="card-img-top">
+                  <div class="card-body">
+                      <span class="badge lavender rounded-pill mb-1">${username}</span>
+                      <h5 class="card-title">${title}</h5>
+                      <p class="card-text">${body}</p>
+                    <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite</button>
+                  </div>
+                </div>
+              </div>
+              `
 
- <div class="col-lg-12 mb-4  border-dark">
-    <div class="card  border-dark">
-      <img src="${photo}" alt="" class="card-img-top">
-      <div class="card-body">
-        <span class="badge lavender rounded-pill mb-1">${username}</span>
-        <h5 class="card-title">${title}</h5>
-        <p class="card-text">${body}</p>
-      <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite</button>
-        
-      </div>
-     </div>
-    </div>
-
-      `
+              // prepend the posts to the posts section on html
               document.getElementById('posts').prepend(postElem)
-
-
-
-
-
             }
+            // else, if the filter is not true (not a favorite)
             else {
 
+              // add a class name and create inner html of the post photo, username, title, body, and data id (favorite button shows as not a favorite)
               postElem.className = 'd-flex  mb-2 listItem'
-              postElem.innerHTML = `
-         <div class="col-lg-12  mb-4">
-    <div class="card border-dark">
-      <img src="${photo}" alt="" class="card-img-top">
-      <div class="card-body">
-        <span class="badge lavender rounded-pill mb-1">${username}</span>
-        <h5 class="card-title">${title}</h5>
-        <p class="card-text">${body}</p>
-      <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite_border</button>
-
-      </div>
-     </div>
-    </div>
-
-        
-      `
+              postElem.innerHTML = 
+              `
+              <div class="col-lg-12  mb-4">
+                <div class="card border-dark">
+                  <img src="${photo}" alt="" class="card-img-top">
+                  <div class="card-body">
+                    <span class="badge lavender rounded-pill mb-1">${username}</span>
+                    <h5 class="card-title">${title}</h5>
+                    <p class="card-text">${body}</p>
+                    <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite_border</button>
+                  </div>
+                </div>
+              </div>        
+              `
+              // prepend the posts to the posts section on html
               document.getElementById('posts').prepend(postElem)
-
-
-
-
             }
-
           })
-
-        let i = 0
-
-
       })
     })
     .catch(err => {
@@ -212,19 +200,26 @@ function getPosts() {
     })
 }
 
-
+// event listener (global) when click (toggle favorite and not favorite)
 document.addEventListener('click', event => {
   event.preventDefault()
+
+  // if the target class list contains favorite
   if (event.target.classList.contains('favorite')) {
-    console.log("fav")
+    // console.log("fav")
     
+    // assign target to the event.target
     let target = event.target
 
-
+    // if the target inner html is favorite
     if (target.innerHTML ==='favorite')
     {
-      console.log('make clear')
+      // console.log('make clear')
+
+      // target inner border to favorite_border (not a favorite)
       target.innerHTML = 'favorite_border'
+
+      // axios delete the favorite by the event target dataset id
       axios.delete(`/api/favorites/${event.target.dataset.id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -232,47 +227,37 @@ document.addEventListener('click', event => {
       })
         .then(() => {
           target.innerHTML = 'favorite_border'
-
         }
         )
         .catch(err => console.error(err))
-
-    }else if (target.innerHTML==='favorite_border'){
-        console.log('not solid')
+    }
+    // else if, the target inner html to favorite_border (not a favorite)
+    else if (target.innerHTML==='favorite_border'){
+      // console.log('not solid')
        
       let pid = event.target.dataset.id
-      axios.post('/api/favorites', {
+      axios.post('/api/favorites', 
+      {
         pid: pid
-
-      }, {
+      }, 
+      {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
       })
         .then(() => {
+          // console.log('favorite created')
 
-          console.log('favorite created')
-
-        
-
+          // target innert html to favorite (favorited)
           target.innerHTML = 'favorite'
-
-
         })
-        .catch(err => {
-          console.error(err)
-        }
+        .catch(err => {console.error(err)}
         )
     }
-    
-    
-
-
-
   }
 })
 
-
+// function to upload photo to firebase
 function uploadPhoto() {
   // event listener when the html file input is changed (to upload image/photo)
   document.getElementById('photo').addEventListener('change', event => {

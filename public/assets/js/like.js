@@ -22,11 +22,12 @@ const firebaseApp = initializeApp(firebaseConfig);
 // set empty variable for image url
 let imgUrl = ''
 
-
+// event listener when goHome button is clicked to go to home page
 document.getElementById('goHome').addEventListener('click', () => {
   window.location = '/'
 })
 
+// event listener when goPost button is clicked to go to post page (if authenticated) or to login page (if  not authenticated)
 document.getElementById('goPost').addEventListener('click', () => {
   if (localStorage.getItem('token')) {
     window.location = '/post.html'
@@ -35,6 +36,7 @@ document.getElementById('goPost').addEventListener('click', () => {
   }
 })
 
+// event listener when goProfile button is clicked to go to profile page (if authenticated) or to login page (if not authenticated)
 document.getElementById('goProfile').addEventListener('click', () => {
   if (localStorage.getItem('token')) {
     window.location = '/profile.html'
@@ -43,10 +45,10 @@ document.getElementById('goProfile').addEventListener('click', () => {
   }
 })
 
+// function to check if user is logged in
 function isLoggedIn() {
   if (localStorage.getItem('token')) {
     console.log("logged in")
-
   } else {
     console.log('not logged in')
     let button = document.getElementById('logOut')
@@ -54,12 +56,13 @@ function isLoggedIn() {
   }
 }
 
+// call the function to check if user is logged in
 isLoggedIn()
 
-
+// function to get posts
 function getPosts() {
 
-
+  // axios get posts
   axios.get('/api/posts', {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -67,19 +70,20 @@ function getPosts() {
   })
     .then(({ data: posts }) => {
 
-      
-      
-
+      // for each post 
       posts.forEach(({ id, title, body, photo, u: { username, id: { uid } } }) => {
+
+        // create a post element list
         const postElem = document.createElement('li')
 
+        // assign filter as false
         let filter = false
 
-
-
-
+        // assign favs and postFav as blank/empty
         let favs = 'blank'
         let postFav = []
+
+        // axios get favorites
         axios.get('/api/favorites', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -87,72 +91,71 @@ function getPosts() {
         })
           .then(({ data: favorites }) => {
 
+            // for each favorite in favorites push the num (post id) to the postFav array
             favs = favorites
             favs.forEach(fav => {
-
               let num = parseInt(fav.pid)
               postFav.push(num)
             })
+
+            let i = 0
+
+            // for the post favorites length
             for (i; i < postFav.length; i++) {
+
+              // if the post fav id matches the post id
               if (postFav[i] == id) {
-              
-                console.log('You liked this plant already')
+              // console.log('You liked this plant already')
 
-                postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
-                postElem.innerHTML = `
-     <div class="col-lg-12 mb-4  border-dark">
-    <div class="card  border-dark">
-      <img src="${photo}" alt="" class="card-img-top">
-      <div class="card-body">
-        <span class="badge lavender rounded-pill mb-1">${username}</span>
-        <h5 class="card-title">${title}</h5>
-        <p class="card-text">${body}</p>
-      <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite</button>
+              // add a class name to the post element and add the photo, username, title, body and data id to the html
+              postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
+              postElem.innerHTML = 
+              `
+              <div class="col-lg-12 mb-4  border-dark">
+                <div class="card  border-dark">
+                  <img src="${photo}" alt="" class="card-img-top">
+                  <div class="card-body">
+                    <span class="badge lavender rounded-pill mb-1">${username}</span>
+                    <h5 class="card-title">${title}</h5>
+                    <p class="card-text">${body}</p>
+                    <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite</button>
+                  </div>
+                </div>
+              </div>   
+              `
 
-      </div>
-     </div>
-    </div>
-        
-      `
-                document.getElementById('likes').prepend(postElem)
-
+              // prepend the post elements to the likes section (favorites)
+              document.getElementById('likes').prepend(postElem)
               }
               else {
-
               }
             }
-
-
-
-
-
           })
-
-        let i = 0
-
-
       })
     })
-    .catch(err => {
-      console.log(err)
-     
-    })
+    .catch(err => { console.log(err)} )
 }
 
 
-
-
+// event listener (global) when click (toggle favorite and not favorite)
 document.addEventListener('click', event => {
   event.preventDefault()
+
+  // if the target class list contains 
   if (event.target.classList.contains('favorite')) {
     console.log("fav")
 
+    // assign target to the event target
     let target = event.target
 
-
+    // if the target inner html is favorite (favorited)
     if (target.innerHTML === 'favorite') {
-      console.log('make clear')
+      // console.log('make clear')
+
+      // target inner html is favorite_border (not favorited)
       target.innerHTML = 'favorite_border'
+
+      // axios delete
       axios.delete(`/api/favorites/${event.target.dataset.id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -193,11 +196,6 @@ document.addEventListener('click', event => {
         }
         )
     }
-
-
-
-
-
   }
 })
 

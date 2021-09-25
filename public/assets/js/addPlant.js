@@ -22,20 +22,25 @@ const firebaseApp = initializeApp(firebaseConfig);
 // set empty variable for image url
 let imgUrl = ''
 
+// assign addPost to zero
 let addPost = 0
 
+// event listener to go to home page
 document.getElementById('goHome').addEventListener('click', () => {
   window.location = '/'
 })
 
+// event listener to go to the likes/favorite page
 document.getElementById('goLike').addEventListener('click', () => {
   window.location = '/like.html'
 })
 
+// event listener to go to the post page
 document.getElementById('goPost').addEventListener('click', () => {
   window.location = '/post.html'
 })
 
+// event listener to go to the profile page
 document.getElementById('goProfile').addEventListener('click', () => {
   if (localStorage.getItem('token')) {
     window.location = '/profile.html'
@@ -44,7 +49,7 @@ document.getElementById('goProfile').addEventListener('click', () => {
   }
 })
 
-
+// function to upload a photo to firebase
 function uploadPhoto() {
   // event listener when the html file input is changed (to upload image/photo)
   document.getElementById('photo').addEventListener('change', event => {
@@ -103,16 +108,21 @@ function uploadPhoto() {
       }
       );
     })
-  }
+}
   
+// call the function to upload the photo
 uploadPhoto()
-  
+
+// event listener for when createPlant button is clicked
 document.getElementById('createPlant').addEventListener('click', event => {
   event.preventDefault()
-  console.log('adding plant')
+  // console.log('adding plant')
 
+  // assign intervals to the elementId
   let intervals = document.getElementById('sel1').value
-  console.log(intervals)
+  // console.log(intervals)
+
+  // axios post for all the user input
   axios.post('/api/plants', {
     officialName: '',
     nickName: document.getElementById('plantName').value,
