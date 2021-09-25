@@ -67,6 +67,36 @@ body {
   width: 65%;
 }
 
+.parallax {
+  /* The image used */
+  background-image: url("../image/leaf1.jpg");
+  /* Set a specific height */
+  /* min-height: 500px; */
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax2 {
+  border-radius: 25px;
+  /*Theimageused*/
+  background-image: url("../image/User\'s\ background.jpg");
+  /*Setaspecificheight*/
+  /*min-height: 500px;
+  */
+  /*Createtheparallaxscrollingeffect*/
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}
+
 @media only screen and (min-width: 1000px) {
   .card {
     width: 40%;
