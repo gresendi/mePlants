@@ -86,8 +86,9 @@ function getFavorites() {
 
 
 function getPosts() {
-
-
+  let userId = 0
+  let user=''
+  
   axios.get('/api/posts', {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -98,11 +99,14 @@ function getPosts() {
       let favorites = [1]
       favorites.push(getFavorites())
 
-      posts.forEach(({ id, title, body, photo, u: { username, id: { uid } } }) => {
+      posts.forEach(({ id, title, body, photo, u }) => {
         const postElem = document.createElement('li')
-
+        
         let filter = false
-
+        userId = u.id
+        user = u.username
+        
+        console.log(userId + ' USERID')
 
 
 
@@ -129,80 +133,157 @@ function getPosts() {
 
               }
             }
-            axios.get(`/api/favorites/:${id}`, {
-              headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
-              }
-            }).then(({ data: likes }) => {
-              console.log((likes))
-            })
+            
+            let postID = id
+
+            axios.get(`/api/comments/${postID}`).then(res => {
+             
+              
+              let  commentsArray = [...res.data]
+              console.log(commentsArray)
+              let commentDiv = document.createElement('ul')
+              
+              commentsArray.forEach(comment=>{
+                comment.pid
+                if(id ==comment.pid){
+                  let commentItem = document.createElement('li')
+                  commentItem.innerText = comment.comment
+                  commentDiv.append(commentItem)
+                }
+                
+              })
+
+              console.log(commentDiv.innerHTML)
+              if (filter) {
 
 
 
 
-            if (filter) {
 
 
+                console.log('You liked this plant already')
 
-
-
-
-              console.log('You liked this plant already')
-
-              postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
-              postElem.innerHTML = `
+                postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
+                postElem.innerHTML = `
 
  <div class="col-lg-12 mb-4  border-dark">
     <div class="card  border-dark">
       <img src="${photo}" alt="" class="card-img-top">
       <div class="card-body">
-        <span class="badge lavender rounded-pill mb-1">${username}</span>
+        <span class="badge lavender rounded-pill mb-1">${u.username}</span>
         <h5 class="card-title">${title}</h5>
         <p class="card-text">${body}</p>
-      <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite</button>
-        
+     
+        <div class= "row">
+        ${commentDiv.innerHTML}
+        <form class="X7cDz" method="POST">
+ <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite</button>
+<textarea id = "comment${id}" aria-label="Add a comment…" placeholder="Add a comment…" class="" autocomplete="off" autocorrect="off" style="height: 30px"></textarea>
+<button data-id="${id}"" class="postComment" type="submit">Post</button>
+</form>
+</div>
       </div>
      </div>
+     
     </div>
 
       `
-              document.getElementById('posts').prepend(postElem)
+                document.getElementById('posts').prepend(postElem)
 
 
 
 
 
-            }
-            else {
+              }
+              else {
 
-              postElem.className = 'd-flex mb-2 listItem'
-              postElem.innerHTML = `
+                postElem.className = 'd-flex mb-2 listItem'
+                postElem.innerHTML = `
     <div class="mb-4 card border-dark">
         <img src="${photo}" alt="a plant" class"card-img-top" >
       <div class="card-body">
-        <span class="badge lavender rounded-pill mb-1">${username}</span>
+        <span class="badge lavender rounded-pill mb-1">${u.username}</span>
         <h5 class="card-title">${title}</h5>
         <p class="card-text">${body}</p>
       <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite_border</button>
-
-      
+ <div class= "row">
+        ${commentDiv.innerHTML}
+        <form class="X7cDz" method="POST">
+ <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite_border</button>
+<textarea id = "comment${id}" aria-label="Add a comment…" placeholder="Add a comment…" class="" autocomplete="off" autocorrect="off" style="height: 30px"></textarea>
+<button data-id="${id}"" class="postComment" type="submit">Post</button>
+</form>
+</div>
+      </div>
      </div>
-    </div>
 
+    </div>
         
       `
-              document.getElementById('posts').prepend(postElem)
+                document.getElementById('posts').prepend(postElem)
 
 
 
 
-            }
+              }
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+            })
+
+      
+          
+
+
 
           })
+        
 
         let i = 0
 
+        console.log(user)
+      })
 
+      document.addEventListener('click', event => {
+        
+        event.preventDefault()
+        if (event.target.classList.contains('postComment')) {
+          console.log("i see you want to make a post")
+          let post = event.target.dataset.id
+          let comment = document.getElementById(`comment${post}`).value
+          
+    
+
+          
+          let postId = parseInt(post)
+          axios.post('/api/comments',{
+              pid: postId,
+              username: user,
+            comment: comment
+            }, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+          })
+            .then(() => {
+
+              console.log("comment created")
+              document.getElementById(`comment${post}`).value= ' '
+            })
+            .catch(err => console.error(err))
+      
+        }
       })
     })
     .catch(err => {
