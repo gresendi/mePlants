@@ -168,32 +168,39 @@ axios.get('api/plants', {
       console.log(officialName)
       let plant = document.createElement('div')
       plant.innerHTML = `
-         <div class="row mb-3">
-              <div class="col-sm-4">
+
+   <div class="row mb-2 justify-content-center  ">
+             
+
+     
+         
+             
+         <div class="row  mb-2 justify-content-center ">
+              <div class="col-sm-4 ">
                 <img src="${photo}"
-                  class="card-img-top" alt="plant">
+                  class="card-img-top rounded border border-dark" alt="plant">
               </div>
 
-              <div class="col-sm-4">
-                <h5>${nickName}</h5>
+              <div class="rounded border border-dark col-sm-4 card-text text-center plantCard ">
+                <h5 class = 'mt-5'>${nickName}</h5>
                 <p>${officialName}</p>
                 <p>Care Tips: ${care}</p>
                 <p>Last Watered: ${lastWatered}</p>
                 <p>Next Watering: ${nextWatering}</p>
+                <div class="row justify-content-center">
+                  <button data-id = "${id}"  class=" col-sm-5 btn btn-primary water mb-2">Water</button>
+                </div>
+                <div class="row justify-content-center">
+                  <button data-id = "${id}"  class="col-sm-6 btn btn-success scheduleWater mb-2 ">Schedule Watering</button>
+                </div>
+                <div class="row justify-content-center align-items-end">
+                  <button data-id = "${id}" class="col-sm-5 btn btn-danger mb-3 removePlant ">Delete</button>
+                </div>
               </div>
 
-              <div class="col-sm-4">
-                <div class="row">
-                  <button data-id = "${id}"  class="col-sm-5 btn btn-primary water mb-2">Water</button>
-                </div>
-                <div class="row">
-                  <button data-id = "${id}"  class="col-sm-6 btn btn-success scheduleWater mb-2">Schedule Watering</button>
-                </div>
-                <div class="row">
-                  <button data-id = "${id}" class="col-sm-5 btn btn-danger removePlant ">Delete</button>
-                </div>
-              </div>
+              
             </div>
+
       `
       document.getElementById('plants').append(plant)
 
