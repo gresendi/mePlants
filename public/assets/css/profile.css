@@ -8,6 +8,7 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #def4c6;
+  flex-direction: column;
 }
 
 .blog-header {
@@ -57,4 +58,16 @@ body {
   width: 90%;
   z-index: 10;
   opacity: 25%;
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("../image/leaf1.jpg");
+  /* Set a specific height */
+  min-height: 500px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
