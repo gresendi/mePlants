@@ -84,3 +84,21 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.parallax2 {
+  border-radius: 25px;
+  /*Theimageused*/
+  background-image: url("../image/User\'s\ background.jpg");
+  /*Setaspecificheight*/
+  /*min-height: 500px;
+  */
+  /*Createtheparallaxscrollingeffect*/
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}
