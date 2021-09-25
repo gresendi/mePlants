@@ -8,12 +8,13 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #def4c6;
+  flex-direction: column;
 }
 
 .blog-header {
   line-height: 1;
   border-bottom: 1px solid black;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .meplant-header-logo {
@@ -64,7 +65,7 @@ body {
     padding-left: 10%;
     font-size: 110px;
   }
-  .btn {
+  .navBtn {
     padding-right: 10%;
     font-size: 125px;
   }
@@ -80,7 +81,7 @@ body {
     padding-left: 10%;
     font-size: 110px;
   }
-  .btn {
+  .navBtn {
     padding-right: 10%;
     font-size: 125px;
   }
@@ -96,7 +97,7 @@ body {
     padding-left: 5%;
     font-size: 100px;
   }
-  .btn {
+  .navBtn {
     padding-right: 10%;
     font-size: 100px;
   }
@@ -112,7 +113,7 @@ body {
     padding-left: 5%;
     font-size: 90px;
   }
-  .btn {
+  .navBtn {
     padding-right: 10%;
     font-size: 80px;
   }
@@ -128,7 +129,7 @@ body {
     padding-left: 5%;
     font-size: 80px;
   }
-  .btn {
+  .navBtn {
     padding-right: 10%;
     font-size: 70px;
   }
@@ -144,7 +145,7 @@ body {
     padding-left: 5%;
     font-size: 70px;
   }
-  .btn {
+  .navBtn {
     padding-right: 10%;
     font-size: 60px;
   }
@@ -160,7 +161,7 @@ body {
     padding-left: 5%;
     font-size: 50px;
   }
-  .btn {
+  .navBtn {
     padding-right: 10%;
     font-size: 40px;
   }
@@ -175,7 +176,7 @@ body {
     padding-left: 5%;
     font-size: 35px;
   }
-  .btn {
+  .navBtn {
     padding-right: 20%;
     padding-left: 5%;
     font-size: 30px;
@@ -192,7 +193,7 @@ body {
     padding-left: 15%;
     font-size: 25px;
   }
-  .btn {
+  .navBtn {
     padding-right: 20%;
     padding-left: 5%;
     font-size: 15px;
@@ -209,7 +210,7 @@ body {
     padding-left: 15%;
     font-size: 15px;
   }
-  .btn {
+  .navBtn {
     padding-right: 20%;
     padding-left: 5%;
     font-size: 8px;
@@ -226,9 +227,34 @@ body {
     padding-left: 15%;
     font-size: 10px;
   }
-  .btn {
+  .navBtn {
     padding-right: 20%;
     padding-left: 5%;
     font-size: 5px;
   }
+}
+
+.card {
+  margin: 0 auto;
+  float: none;
+  margin-top: 20px;
+  width: 65%;
+}
+
+@media only screen and (min-width: 1000px) {
+  .card {
+    width: 30%;
+  }
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("../image/leaf1.jpg");
+  /* Set a specific height */
+  /* min-height: 100%; */
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
