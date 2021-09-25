@@ -192,8 +192,10 @@ function getPosts() {
                     <div class="card border-dark">
                       <img src="${photo}" alt="" class="card-img-top">
                       <div class="card-body">
-                        <span class="badge lavender rounded-pill mb-1">${u.username}</span>
-                        <h5 class="card-title">${title}</h5>
+                        <h5>
+                        <span class="badge bg-success rounded-pill mb-1">${u.username}</span>
+                        </h5>
+                        <h4 class="card-title">${title}</h4>
                         <p class="card-text">${body}</p>
                     
                         <div class= "row">
@@ -224,8 +226,10 @@ function getPosts() {
                     <div class="card border-dark">
                       <img src="${photo}" alt="" class="card-img-top">
                       <div class="card-body">
-                        <span class="badge lavender rounded-pill mb-1">${u.username}</span>
-                        <h5 class="card-title">${title}</h5>
+                        <h5>
+                        <span class="badge bg-success rounded-pill mb-1">${u.username}</span>
+                        </h5>
+                        <h4 class="card-title">${title}</h4>
                         <p class="card-text">${body}</p>
                     
                          <div class= "row">

@@ -144,6 +144,7 @@ axios.get('/api/users/posts', {
     <div class="mb-4 card border-dark">
       <img src="${photo}" alt="a plant" class="card-img-top">
       <div class="card-body">
+      
         <h5 class="card-title">${title}</h5>
         <p class="card-text">${body}</p>
       <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined btn-danger deletePost">delete</button>
