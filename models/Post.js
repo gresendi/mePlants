@@ -9,6 +9,7 @@ Post.init({
   title: DataTypes.STRING,
   photo: DataTypes.STRING,
   body: DataTypes.STRING,
+  pid: DataTypes.INTEGER
 }, { sequelize, modelName: 'post' })
 
 // export Post

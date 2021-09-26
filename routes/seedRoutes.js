@@ -1,24 +1,102 @@
 const router = require('express').Router()
-const { Post, User, Plant } = require('../models')
+const { Post, User, Plant, Comment } = require('../models')
 
 // users seed data to create 'dummy' users
+
+
+
+
+
+
 let users = [
   {
-    username: "johndoe",
+    username: "Emerald",
     password: "123"
   },
   {
-    username: "janedoe",
+    username: "Penny",
     password: "123"
   },
   {
-    username: "jackdoe",
+    username: "Mr. Prickles",
     password: "123"
   },
   {
-    username: "jackiedoe",
+    username: "Morgan Treeman",
+    password: "123"
+  },
+  {
+    username: "Orlando Bloom",
+    password: "123"
+  },
+  {
+    username: "Vincent Van Grow",
+    password: "123"
+  },
+  {
+    username: "Tree Diddy",
+    password: "123"
+  },
+  {
+    username: "Lil Plant",
     password: "123"
   }
+
+]
+
+let userComments = [
+  {
+    comment: "I love this plant!" 
+  },
+  {
+    comment: "Amazing!!"
+  },
+  {
+    comment: "I want one of those"
+  },
+  {
+    comment: "Where did you get it?"
+  },
+  {
+    comment: "That color is to die for."
+  },
+  {
+    comment: "So vibrant"
+  },
+  {
+    comment: "Inspired!!"
+  },
+  {
+    comment: "Need some little ones like this these"
+  },
+  {
+    comment: "Wow!😍 so beautiful!!"
+  },
+  {
+    comment: "❤️❤️"
+  },
+  {
+    comment: "They’re so beautiful😍"
+  },
+  {
+    comment: "Goals 🙌💚"
+  },
+  {
+    comment: "Please share how to propagate these plants too!"
+  },
+  {
+    comment: "Please share how to propagate these plants too!"
+  },
+  {
+    comment: "Please share how to propagate these plants too!"
+  },
+  {
+    comment: "❤️❤️"
+  },
+  {
+    comment: "It’s lovely! "
+  },
+ 
 ]
 
 // posts seed data to create 'dummy' posts from users above (all imgs are original)
@@ -58,7 +136,48 @@ let posts = [
     photo: "https://firebasestorage.googleapis.com/v0/b/meplant-c89e1.appspot.com/o/seedImages%2Fzz-plant.jpg?alt=media&token=d9f56a3e-f877-4f75-b0c1-29fbc47c637d",
     body: "Makes for a great desk plant or floor plant. Putting one on",
     uid: 4
+  },
+  {
+    title: "Philodendron scandens",
+    photo: "https://images.unsplash.com/photo-1600411833196-7c1f6b1a8b90?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1064&q=80",
+    body: "Philodendron scandens brazil in a white hanging pot",
+    uid: 5
+  },
+  {
+    title: "Alocasia Black Velvet",
+    photo: "https://images.unsplash.com/photo-1632320212567-5b1cbd478154?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1064&q=80",
+    body: "",
+    uid: 5
+  },
+  {
+    title: "Aglaonema Cocomelon",
+    photo: "https://images.unsplash.com/photo-1631694109908-79d700217271?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1064&q=80",
+    body: "Check out my Agaonema Cocomelon",
+    uid: 6
+  },
+  {
+    title: "Succulent",
+    photo: "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80",
+    body: "This is my pride and joy",
+    uid: 6
+  },
+  {
+    title: "Yucca tree ",
+    photo: "https://images.unsplash.com/photo-1585738876562-7d008f53022a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=780&q=80",
+    body: "Full of life",
+    uid: 7
+  },
+  {
+    title: "Penelope and Glenn",
+    photo: "https://images.unsplash.com/photo-1591340120182-1dc91d56ea9f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80",
+    body: "In the suns glory",
+    uid: 8
   }
+
+
+  
+  
+  
 ]
 
 // post route to seed users (for each user in users above register a new user)
@@ -74,8 +193,11 @@ router.post('/users/register', (req, res) => {
 
 // post route to seed posts (for each post in posts above create a post)
 router.post('/posts', (req, res) => {
+  let index = 0
   posts.forEach(post => {
+    index++
     Post.create({
+     
       title: post.title,
       photo: post.photo,
       body: post.body,
@@ -84,6 +206,35 @@ router.post('/posts', (req, res) => {
       .then(() => res.sendStatus(200))
   })
 })
+
+router.post('/comments', (req, res) => {
+  
+
+  // userComments
+  userComments.forEach(comment=>{
+    let randomUser= Math.floor(Math.random()*8 +1)
+    let randomPost= Math.floor(Math.random()*12 +1)
+    console.log(randomUser)
+    console.log(comment.comment)
+    Comment.create({
+      comment: comment.comment,
+      pid: randomPost,
+      username: users[randomUser].username
+    })
+      .then(() => res.sendStatus(200))
+      
+
+
+  })
+  
+
+  
+  
+})
+
+
+
+
 
 // export the module
 module.exports = router

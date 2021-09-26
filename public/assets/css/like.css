@@ -60,7 +60,25 @@ body {
   opacity: 25%;
 }
 
-/* media queries for mobile resonsiveness start */
+.parallax {
+  /* The image used */
+  background-image: url("../image/leaf1.jpg");
+  /* Set a specific height */
+  /* min-height: 100%; */
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card {
+  margin: 0 auto;
+  float: none;
+  margin-top: 20px;
+  width: 65%;
+}
+
 @media (max-width: 8000px) and (min-width: 4001px) {
   #goHome {
     width: 250px;
@@ -240,29 +258,8 @@ body {
   }
 }
 
-.card {
-  margin: 0 auto;
-  float: none;
-  margin-top: 20px;
-  width: 65%;
-}
-
 @media only screen and (min-width: 1000px) {
   .card {
     width: 30%;
   }
-}
-/* sytling for media queries end */
-
-/* styling for parallax */
-.parallax {
-  /* The image used */
-  background-image: url("../image/leaf1.jpg");
-  /* Set a specific height */
-  /* min-height: 100%; */
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
