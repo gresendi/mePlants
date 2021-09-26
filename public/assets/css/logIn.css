@@ -1,3 +1,4 @@
+/* styling for the body */
 html, body {
   height: 100%;
 }
@@ -14,6 +15,7 @@ text-center {
   text-align: center !important;
 }
 
+/* styling for the form sign in */
 .form-signin {
   width: 100%;
   max-width: 330px;
@@ -37,6 +39,7 @@ text-center {
   border-top-right-radius: 0;
 }
 
+/* styling for the login button */
 #login {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -46,6 +49,7 @@ text-center {
   font-family: 'Gluten', cursive;
 }
 
+/* media queries for mobile responsiveness */
 @media (max-width: 8000px) and (min-width: 4001px) {
   #goHome {
     width: 250px;

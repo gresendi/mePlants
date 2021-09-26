@@ -5,36 +5,55 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>mePlant</title>
+  <!-- Original logo -->
   <link rel="icon" type="image/icon" href="./assets/image/mePlant_logo_w_background.ico">
+  <!-- Reset CSS -->
   <link rel="stylesheet" href="./assets/css/reset.css">
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <!-- Login CSS -->
   <link rel="stylesheet" href="./assets/css/logIn.css">
 </head>
+
+
 <body class="text-center">
+
+  <!-- main section -->
   <main class="form-signin">
+
+    <!-- log in form -->
     <form>
+      <!-- original logo -->
       <img src="./assets/image/mePlant_Color_V1.png" alt="mePlant Logo" class="mb-4" width="200" height="230">
       <h1 class="h3 mb-3 fw-normal headFont">Sign In mePlant</h1>
+      <!-- username input -->
       <div class="form-floating">
         <input type="username" class="form-control" id="username" placeholder="Username" required>
         <label for="username">Username</label>
       </div>
+      <!-- password input and error message -->
       <div class="form-floating">
         <input type="password" class="form-control" id="password" placeholder="Password" required>
         <label for="password">Password</label>
         <span id="errorMsg"></span>
       </div>
+      <!-- sign in / log in button -->
       <button class="w-100 btn btn-lg btn-success" id="login" type="submit">Sign In</button>
+      <!-- go to register page -->
       <p>New here? Become a new <a href="./register.html">mePlanter</a></p>
+      <!-- go to main page -->
       <a href="./index.html">Main Page</a>
     </form>
+
   </main>
 
-
+  <!-- Bootstrap script -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <!-- axios script -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- script -->
   <script src="./assets/js/logIn.js"></script>
 </body>
 

@@ -1,3 +1,5 @@
+/* styling for body */
+
 html, body {
   height: 100%;
 }
@@ -10,11 +12,15 @@ body {
   background-color: #def4c6;
 }
 
+/* sytling for the blog header */
+
 .blog-header {
   line-height: 1;
   border-bottom: 1px solid black;
   margin-bottom: 25px;
 }
+
+/* styling for original logo */
 
 .meplant-header-logo {
   padding-top: 8%;
@@ -22,6 +28,8 @@ body {
   font-size: 2rem;
   font-family: 'Gluten', cursive;
 }
+
+/* styling for material icons (buttons) */
 
 .material-icons-outlined {
   font-family: 'Material Icons';
@@ -54,6 +62,8 @@ body {
 #charLeftCounter {
   margin-left: 10px;
 }
+
+/* styling for media queries start */
 
 @media (max-width: 8000px) and (min-width: 4001px) {
   #goHome {
@@ -213,4 +223,16 @@ body {
     padding-left: 5%;
     font-size: 10px;
   }
+}
+
+/* styling for media queries start */
+
+/* styling for the post characters and character left counter in text area */
+.postChar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#charLeftCounter {
+  margin-left: 10px;
 }
