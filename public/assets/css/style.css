@@ -102,6 +102,7 @@ button {
 
 /* styling for parallax */
 .parallax {
+  border: black solid 1px;
   /* The image used */
   background-image: url("../image/leaf1.jpg");
   /* Set a specific height */
