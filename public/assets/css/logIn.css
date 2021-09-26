@@ -1,3 +1,4 @@
+/* styling for the body */
 html, body {
   height: 100%;
 }
@@ -7,23 +8,20 @@ body {
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #def4c6;
+  background-color: #DEF4C6;
 }
 
 text-center {
   text-align: center !important;
 }
 
+/* styling for the form sign in */
 .form-signin {
   width: 100%;
   max-width: 330px;
   padding: 15px;
   margin: auto;
 }
-
-/* .form-signin .form-floating: focus-within {
-  z-index: 2;
-} */
 
 .form-signin input[type="email"] {
   margin-bottom: -1px;
@@ -37,6 +35,7 @@ text-center {
   border-top-right-radius: 0;
 }
 
+/* styling for the login button */
 #login {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -44,36 +43,4 @@ text-center {
 
 .headFont {
   font-family: 'Gluten', cursive;
-}
-
-@media (max-width: 8000px) and (min-width: 4001px) {
-  #goHome {
-    width: 250px;
-    height: inherit;
-  }
-  .meplant-header-logo {
-    padding-bottom: 2%;
-    padding-left: 10%;
-    font-size: 110px;
-  }
-  .btn {
-    padding-right: 10%;
-    font-size: 125px;
-  }
-}
-
-@media (max-width: 4000px) and (min-width: 2001px) {
-  #goHome {
-    width: 250px;
-    height: inherit;
-  }
-  .meplant-header-logo {
-    padding-bottom: 2%;
-    padding-left: 10%;
-    font-size: 110px;
-  }
-  .btn {
-    padding-right: 10%;
-    font-size: 125px;
-  }
 }

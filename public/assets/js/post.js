@@ -22,11 +22,12 @@ const firebaseApp = initializeApp(firebaseConfig);
 // set empty variable for image url
 let imgUrl = ''
 
-
+// event listener when goHome button is clicked to go to home page
 document.getElementById('goHome').addEventListener('click', () => {
   window.location = '/'
 })
 
+// event listener when goLike button is clicked to go to the liked/favorites page (if token is still logged in, if not go to login page)
 document.getElementById('goLike').addEventListener('click', () => {
   if (localStorage.getItem('token')) {
     window.location = '/like.html'
@@ -35,6 +36,7 @@ document.getElementById('goLike').addEventListener('click', () => {
   }
 })
 
+// event listener when goProfile button is clicked to go to the profile page (if token is still logged in, if not go to login page)
 document.getElementById('goProfile').addEventListener('click', () => {
   if (localStorage.getItem('token')) {
     window.location = '/profile.html'
@@ -43,7 +45,7 @@ document.getElementById('goProfile').addEventListener('click', () => {
   }
 })
 
-
+// function to uploadPhoto
 function uploadPhoto() {
   // event listener when the html file input is changed (to upload image/photo)
   document.getElementById('photo').addEventListener('change', event => {
@@ -104,29 +106,34 @@ function uploadPhoto() {
   })
 }
 
+// call function to upload photo/image
 uploadPhoto()
 
+// event listener when the createPost button is clicked
 document.getElementById('createPost').addEventListener('click', event => {
   event.preventDefault()
 
+  // axios post the post
   axios.post('/api/posts', {
     title: document.getElementById('title').value,
     photo: imgUrl,
     body: document.getElementById('body').value
-  }, {
+  }, 
+  {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`
     }
   })
     .then(({ data: { id, title, photo, body, u: { username } } }) => {
 
+      // set the imgUrl as blank so it can be reset and used again
       let imgUrl = ''
       window.location = '/'
-
     })
     .catch(err => console.error(err))
 })
 
+// event listener when the body (post text area) is input with text by the user to count the total characters left available
 document.getElementById('body').addEventListener('input', event => {
   const target = event.currentTarget
   const maxCharLength = target.getAttribute('maxlength')
@@ -135,5 +142,6 @@ document.getElementById('body').addEventListener('input', event => {
   // console.log(`${maxCharLength - currentCharLength} chars left`);
   let charLeftCount = maxCharLength - currentCharLength
   // console.log(`${charLeftCount} many characters left`);
+  // add the characters left count to the charLeftCounter on the html screen
   document.getElementById('charLeftCounter').textContent = charLeftCount
 })

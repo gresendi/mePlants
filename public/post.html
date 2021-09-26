@@ -5,9 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>mePlant Post</title>
+  <!-- Original logo -->
   <link rel="icon" type="image/icon" href="./assets/image/mePlant_logo_w_background.ico">
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gluten&display=swap" rel="stylesheet">
@@ -16,10 +19,12 @@
 </head>
 <body>
 
-  <section class="container">
-    <header class="blog-header py-3">
-      <div class="row flex-nowrap justify-content-between align-items-center">
+  <!-- page section -->
+  <section class="container parallax">
+    <header class="formBody">
+      <div class="row formBody flex-nowrap justify-content-between align-items-center">
   
+        <!-- original logo -->
         <div class="col-2 ">
           <img class="btn" id="goHome" src="./assets/image/001_mePlant_logo.png" alt="mePlant Logo" height="70" width="80">
         </div>
@@ -28,6 +33,7 @@
           <p>Post</p>
         </div>
   
+        <!-- buttons to navigate to go to favorites/likes and go to profile -->
         <div class="col-4 d-flex justify-content-end align-items-center">
           <button class="btn navBtn material-icons-outlined" id="goLike">favorite_border</button>
           <button class="btn navBtn material-icons-outlined" id="goProfile">yard</button>
@@ -36,16 +42,24 @@
       </div>
     </header>
 
+    <!-- division to add new posts -->
+    <div class="row  list-group">
+
+   
     <div class="row justify-content-center"> 
-      <div class="col-7">
+      <div class="formBody shadow-lg rounded border border-dark mt-3 col-6">
+
+        <!-- form to gather user input for posts -->
         <form>
           <div class="row mb-3">
-            <label for="title" class="h3 col-sm-3 col-form-label text-center">Title:</label>
-            <div class="col-sm-9">
+            <!-- title/caption -->
+            <label for="title" class="h3 col-sm-3 mt-3 col-form-label text-center">Title:</label>
+            <div class="col-sm-9 mt-3">
               <input type="text" class="form-control" id="title" placeholder="Caption" maxlength="250">
             </div>
           </div>
         
+          <!-- text area and character left counter to count remaining characters available -->
           <div class="row mb-3">
             <label for="body" class="h3 col-sm-3 col-form-label text-center">Tell us about your plant:</label>
             <div class="col-sm-9">
@@ -59,31 +73,40 @@
             </div>
           </div>
 
+          <!-- image upload -->
           <div class="input-group mb-3">
             <input type="file" class="form-control" accept="image/*" id="photo">
           </div>
 
+          <!-- image upload status bar -->
           <div class="d-inline mb-3 align-items-center">
             <label for="uploader" class="h3 col-sm-3 col-form-label text-center">Image Status:</label>
             <progress id="uploader">0%</progress>
           </div>
 
-          <div class="d-grid col-6 mx-auto">
+          <!-- button to create the post -->
+          <div class="d-grid col-6 mb-3 mx-auto">
             <button id="createPost" class="btn btn-success">Post</button>
           </div>
         </form>
+
       </div>
+      </div></div>
     </div>
     
   </section>
+
+  <!-- Bootstrap Script -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- axios script -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <!-- Firebase Scripts version 8 (not using currently as using version 9 but leaving in case need to revert) -->
   <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> -->
-  <!-- Scripts -->
+  <!-- moment script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <!-- script -->
   <script type="module" src="./assets/js/post.js"></script>
   
 </body>

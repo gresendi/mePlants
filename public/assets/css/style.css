@@ -1,3 +1,5 @@
+/* styling for the body */
+
 html, body {
   height: 100%;
   width: 100%;
@@ -9,14 +11,9 @@ body {
   align-items: top;
   /* padding-top: 40px; */
   padding-bottom: 40px;
-  background-color: #def4c6;
+  background-color: #E3EFFD;
   flex-direction: column;
 }
-
-/* .blog-header {
-  line-height: 1;
-  border-bottom: 1px solid black;
-} */
 
 .meplant-header-logo {
   font-size: 25px;
@@ -24,6 +21,8 @@ body {
   padding-top: 5%;
   font-family: 'Gluten', cursive;
 }
+
+/* styling for material icons */
 
 .material-icons-outlined {
   font-family: 'Material Icons';
@@ -48,6 +47,12 @@ body {
   font-feature-settings: 'liga';
 }
 
+.lavender {
+  background-color: #E0BAD7;
+}
+
+/* styling for card */
+
 .card {
   margin: 0 auto;
   float: none;
@@ -60,8 +65,7 @@ body {
   min-block-size: 200px;
   height: 5vh;
   overflow: scroll;
-  padding-left: 0 ;
-
+  padding-left: 0;
 }
 
 .bottomSec {
@@ -73,6 +77,8 @@ body {
   margin-right: 5px;
 }
 
+/* styling for media query */
+
 @media only screen and (min-width: 1000px) {
   .card {
     width: 30%;
@@ -80,16 +86,19 @@ body {
 }
 
 .parallax {
+  border: black solid 1px;
   /* The image used */
   background-image: url("../image/leaf1.jpg");
   /* Set a specific height */
-  /* min-height: 100%; */
+  /* min-height: 500px; */
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/* styling for media queries */
 
 @media (max-width: 8000px) and (min-width: 4001px) {
   #goHome {
@@ -143,7 +152,7 @@ body {
     font-size: 35px;
   }
   .comment {
-    width: 270px;
+    width: 420px;
   }
   .card {
     width: 40%;
@@ -164,7 +173,7 @@ body {
     font-size: 35px;
   }
   .comment {
-    width: 200px;
+    width: 400px;
   }
   .card {
     width: 50%;
@@ -185,7 +194,7 @@ body {
     font-size: 35px;
   }
   .comment {
-    width: 170px;
+    width: 350px;
   }
   .card {
     width: 60%;
@@ -206,7 +215,7 @@ body {
     font-size: 35px;
   }
   .comment {
-    width: 420px;
+    width: 330px;
   }
 }
 
@@ -243,7 +252,7 @@ body {
     font-size: 25px;
   }
   .comment {
-    width: 150px;
+    width: 120px;
   }
 }
 
