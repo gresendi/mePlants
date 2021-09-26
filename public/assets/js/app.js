@@ -189,7 +189,7 @@ function getPosts() {
                 postElem.innerHTML =
                   `
                 <div class="col-lg-12 mb-4 border-dark">
-                    <div class="shadow-lg card border-dark">
+                    <div class="shadow-lg card border border-success">
                       <img src="${photo}" alt="a plant" class="card-img-top">
                       <div class="card-body">
                         <h5>
@@ -198,8 +198,8 @@ function getPosts() {
                         <h4 class="card-title">${title}</h4>
                         <p class="card-text">${body}</p>
                     
-                        <div class= "row">
-                         <div class="col-11">
+                        <div class= "row justify-content-center">
+                         <div class="col-12">
                            <ul id = "commentBox${id}" class ='ct' >${commentDiv.innerHTML}</ul >
                          </div>
 
