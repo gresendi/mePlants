@@ -21,10 +21,6 @@ text-center {
   margin: auto;
 }
 
-/* .form-signin .form-floating: focus-within {
-  z-index: 2;
-} */
-
 .form-signin input[type="email"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
@@ -44,36 +40,4 @@ text-center {
 
 .headFont {
   font-family: 'Gluten', cursive;
-}
-
-@media (max-width: 8000px) and (min-width: 4001px) {
-  #goHome {
-    width: 250px;
-    height: inherit;
-  }
-  .meplant-header-logo {
-    padding-bottom: 2%;
-    padding-left: 10%;
-    font-size: 110px;
-  }
-  .btn {
-    padding-right: 10%;
-    font-size: 125px;
-  }
-}
-
-@media (max-width: 4000px) and (min-width: 2001px) {
-  #goHome {
-    width: 250px;
-    height: inherit;
-  }
-  .meplant-header-logo {
-    padding-bottom: 2%;
-    padding-left: 10%;
-    font-size: 110px;
-  }
-  .btn {
-    padding-right: 10%;
-    font-size: 125px;
-  }
 }
