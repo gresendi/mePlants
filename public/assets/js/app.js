@@ -64,21 +64,29 @@ function getFavorites() {
   let postFav = []
 
   // axios get favorites
-  axios.get('/api/favorites', {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`
-    }
-  })
-    // then for each favorite let the num be equal to the favorite post id and push the num (post id) to the postFav array
-    .then(({ data: favorites }) => {
-
-      favs = favorites
-      favs.forEach(fav => {
-
-        let num = parseInt(fav.pid)
-        postFav.push(num)
-      })
+  if(localStorage.getItem('token')){
+    console.log("logged in")
+    axios.get('/api/favorites', {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
     })
+      // then for each favorite let the num be equal to the favorite post id and push the num (post id) to the postFav array
+      .then(({ data: favorites }) => {
+
+        favs = favorites
+        favs.forEach(fav => {
+
+          let num = parseInt(fav.pid)
+          postFav.push(num)
+        })
+      })
+  }else{
+console.log("not logged in")
+
+
+  }
+  
 }
 
 

@@ -1,4 +1,5 @@
 /* styling for body */
+
 html, body {
   height: 100%;
 }
@@ -33,6 +34,7 @@ body {
 }
 
 /* styling for material icons */
+
 .material-icons-outlined {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -70,6 +72,7 @@ body {
 }
 
 /* styling for card */
+
 .card {
   margin: 0 auto;
   float: none;
@@ -109,6 +112,7 @@ body {
 }
 
 /* media queries */
+
 @media only screen and (min-width: 1000px) {
   .card {
     width: 40%;
@@ -307,9 +311,10 @@ body {
 }
 
 /* styling for parallax */
+
 .parallax {
   /* The image used */
-  background-image: url("../image/leaf1.jpg");
+  background-image: url("../image/User\'s\ background.jpg");
   /* Set a specific height */
   /* min-height: 500px; */
   /* Create the parallax scrolling effect */
@@ -320,6 +325,7 @@ body {
 }
 
 /* styling for the second parallax */
+
 .parallax2 {
   border-radius: 25px;
   /*Theimageused*/
