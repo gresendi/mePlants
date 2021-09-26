@@ -81,6 +81,10 @@ On the site, users will be able to:
 
 <kbd>
 
+Register Page (left) | LogIn Page (right)
+
+![](/public/assets/image/screenRegister.jpg) | ![](/public/assets/image/screenLogin.jpg)
+
 Home Page (left) | Favorites/Liked Page (right)
 
 ![](/public/assets/image/screenHome.jpg) | ![](/public/assets/image/screen3.jpg)
