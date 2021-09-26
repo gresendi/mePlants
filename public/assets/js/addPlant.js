@@ -122,7 +122,7 @@ document.getElementById('createPlant').addEventListener('click', event => {
   let intervals = document.getElementById('sel1').value
   // console.log(intervals)
 
-  // axios post for all the user input
+  // axios post for all plant data from user input
   axios.post('/api/plants', {
     officialName: document.getElementById('officialName').value,
     nickName: document.getElementById('plantName').value,
@@ -137,7 +137,7 @@ document.getElementById('createPlant').addEventListener('click', event => {
     }
 
   }).then(() => {
-    console.log("plant added")
+    // console.log("plant added")
     window.location = '/profile.html'
     imgUrl = ' '
   })

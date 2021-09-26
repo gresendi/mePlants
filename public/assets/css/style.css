@@ -1,3 +1,4 @@
+/* styling for the body */
 html, body {
   height: 100%;
 }
@@ -11,11 +12,13 @@ body {
   flex-direction: column;
 }
 
+/* sytling for blog header */
 .blog-header {
   line-height: 1;
   border-bottom: 1px solid black;
 }
 
+/* styling for buttons */
 button {
   background-color: #48BF84;
 }
@@ -24,6 +27,7 @@ button {
   background-color: #E0BAD7;
 }
 
+/* styling for the meplant original logo */
 .meplant-header-logo {
   font-size: 25px;
   padding-right: 13%;
@@ -31,6 +35,7 @@ button {
   font-family: 'Gluten', cursive;
 }
 
+/* styling for material icons */
 .material-icons-outlined {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -58,6 +63,7 @@ button {
   background-color: #E0BAD7;
 }
 
+/* styling for card */
 .card {
   margin: 0 auto;
   float: none;
@@ -72,12 +78,14 @@ button {
   overflow: scroll
 }
 
+/* styling for media query */
 @media only screen and (min-width: 1000px) {
   .card {
     width: 30%;
   }
 }
 
+/* styling for parallax */
 .parallax {
   /* The image used */
   background-image: url("../image/leaf1.jpg");
@@ -90,6 +98,7 @@ button {
   background-size: cover;
 }
 
+/* styling for media queries */
 @media (max-width: 8000px) and (min-width: 4001px) {
   #goHome {
     width: 250px;

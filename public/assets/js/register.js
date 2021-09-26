@@ -14,12 +14,16 @@ document.getElementById('register').addEventListener('click', event => {
   // axios get usernames
   axios.get('/api/usernames')
     .then(({ data: usernames }) => {
+      // map the database usernames to lower case to help prevent duplicates
       const usernamesLowerCase = usernames.map(username => username.toLowerCase())
+      // if the (lowercase) desired user name exists in the database (lowercase) usernames then set error message to username already exists
       if (usernamesLowerCase.indexOf(usernameInput) !== -1) {
-        console.log('value exists');
+        // console.log('value exists');
         errorMessage.textContent = '⚠️ Username already exists, please choose another'
         errorMessage.style.color = 'red'
-      } else {
+      } 
+      // else if the username input and/or the password input is blank/empty set error message to notify user
+      else {
         console.log('value does not exist');
         if (usernameInput === '' && passwordInput === '') {
           errorMessage.textContent = '⚠️ Please enter a username and password'
@@ -30,12 +34,14 @@ document.getElementById('register').addEventListener('click', event => {
         } else if (passwordInput === '') {
           errorMessage.textContent = '⚠️ Please enter a password'
           errorMessage.style.color = 'red'
-        } else {
+        } 
+        // else, the user name is valid post and register the user
+        else {
           axios.post('/api/users/register', {
             username: usernameInput,
             password: passwordInput
           })
-            // .then(() => alert('User registered! Log in.'))
+            // then notify user of success and redirect to login page
             .then(() => {
               errorMessage.textContent = '✅  Success! Redirecting to login...'
               errorMessage.style.color = 'green'
@@ -49,6 +55,7 @@ document.getElementById('register').addEventListener('click', event => {
     .catch(err => console.log(err))
 })
 
+// function to go to login page
 function goToLogin() {
   window.location = '/login.html'
 }
