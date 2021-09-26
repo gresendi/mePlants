@@ -13,11 +13,6 @@ body {
   flex-direction: column;
 }
 
-/* .blog-header {
-  line-height: 1;
-  border-bottom: 1px solid black;
-} */
-
 .meplant-header-logo {
   font-size: 25px;
   padding-right: 13%;
