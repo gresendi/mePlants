@@ -5,34 +5,50 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>mePlanter Register</title>
+  <!-- Original Logo -->
   <link rel="icon" type="image/icon" href="./assets/image/mePlant_logo_w_background.ico">
+  <!-- Reset CSS -->
   <link rel="stylesheet" href="./assets/css/reset.css">
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <!-- Google fonts and icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gluten&display=swap" rel="stylesheet">
+  <!-- Register CSS -->
   <link rel="stylesheet" href="./assets/css/register.css">
 </head>
+
 <body class="text-center">
+
+  <!-- main section for sign in -->
   <main class="form-signin">
+
+    <!-- form for user sign in -->
     <form>
       <h6>
+        <!-- original logo -->
         <img src="./assets/image/001_mePlant_logo.png" alt="mePlantLogo" width="90px" height="100px">
       </h6>
       <h1 class="h1 fw-normal headFont">Welcome New mePlanter!</h1>
       <h1 class="h3 mb-3 fw-normal headFont">Sign Up</h1>
+      <!-- username -->
       <div class="form-floating">
         <input type="username" class="form-control mb-1" id="username" placeholder="Username" maxlength="250" required>
         <label for="username">Username</label>
       </div>
+      <!-- password and error message -->
       <div class="form-floating">
         <input type="password" class="form-control" id="password" placeholder="Password" maxlength="250" required>
         <label for="password">Password</label>
         <span id="errorMsg"></span>
       </div>
+      <!-- button to register a new user -->
       <button class="w-100 btn btn-lg btn-success" id="register" type="submit">Create New mePlanter</button>
+      <!-- go to login page -->
       <p>Returning mePlanter? <a href="./logIn.html">Log In</a></p>
+      <!-- go to index html -->
       <a href="./index.html">Main Page</a>
     </form>
   </main>

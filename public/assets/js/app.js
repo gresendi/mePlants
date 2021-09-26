@@ -64,21 +64,29 @@ function getFavorites() {
   let postFav = []
 
   // axios get favorites
-  axios.get('/api/favorites', {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`
-    }
-  })
-    // then for each favorite let the num be equal to the favorite post id and push the num (post id) to the postFav array
-    .then(({ data: favorites }) => {
-
-      favs = favorites
-      favs.forEach(fav => {
-
-        let num = parseInt(fav.pid)
-        postFav.push(num)
-      })
+  if(localStorage.getItem('token')){
+    console.log("logged in")
+    axios.get('/api/favorites', {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
     })
+      // then for each favorite let the num be equal to the favorite post id and push the num (post id) to the postFav array
+      .then(({ data: favorites }) => {
+
+        favs = favorites
+        favs.forEach(fav => {
+
+          let num = parseInt(fav.pid)
+          postFav.push(num)
+        })
+      })
+  }else{
+console.log("not logged in")
+
+
+  }
+  
 }
 
 
@@ -104,6 +112,8 @@ function getPosts() {
       // for each post
       posts.forEach(({ id, title, body, photo, u }) => {
 
+        
+
         // create a list element
         const postElem = document.createElement('li')
 
@@ -111,6 +121,7 @@ function getPosts() {
         let filter = false
         userId = u.id
         user = u.username
+        
         // console.log(userId + ' USERID')
 
         // variable for favs and postFav
@@ -252,6 +263,128 @@ function getPosts() {
                 document.getElementById('posts').prepend(postElem)
               }
             })
+          }).catch(err=>{
+            console.log("not logged in")
+
+            // variable set postID as the id (post id)
+            let postID = id
+
+            // axios get comments using post id
+            axios.get(`/api/comments/${postID}`).then(res => {
+
+              // comments aray equal to the response (spread/rest)
+              let commentsArray = [...res.data]
+              // console.log(commentsArray)
+
+              // create element unordered list for the comment
+              let commentDiv = document.createElement('ul')
+              commentDiv.className = "list-group list-group-flush ct"
+
+              // for each comment in the comments array
+              commentsArray.forEach(comment => {
+                // comment post id
+                comment.pid
+
+                // if the id (post id) matches the commments post id
+                if (id == comment.pid) {
+                  // create a list element and set the inner text as the comments comment amd append the comment to the post
+                  let commentItem = document.createElement('li')
+                  commentItem.className = "list-group-item"
+                  let pill = document.createElement('span')
+
+
+                  pill.className = 'badge bg-success rounded-pill mb-1 userCom'
+                  pill.innerText = comment.username
+                  let commentSpan = document.createElement('span')
+                  commentSpan.innerText = comment.comment
+                  commentItem.append(pill)
+                  commentItem.append(commentSpan)
+                  commentDiv.append(commentItem)
+                  // commentItem.innerText = comment.username + ' ' + comment.comment
+                  // commentDiv.append(commentItem)
+                }
+              })
+
+              // console.log(commentDiv.innerHTML)
+              // if the filter (favorite)
+              if (filter) {
+                // console.log('You liked this plant already')
+                // add class name for the post element and add the inner html with the post details
+                postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
+                postElem.innerHTML =
+                  `
+                <div class="col-lg-12 mb-4 border-dark">
+                    <div class="shadow-lg card border border-success">
+                      <img src="${photo}" alt="a plant" class="card-img-top">
+                      <div class="card-body">
+                        <h5>
+                        <span class="badge bg-success rounded-pill mb-1">${u.username}</span>
+                        </h5>
+                        <h4 class="card-title">${title}</h4>
+                        <p class="card-text">${body}</p>
+                    
+                        <div class= "row justify-content-center">
+                         <div class="col-12">
+                           <ul id = "commentBox${id}" class ='ct' >${commentDiv.innerHTML}</ul >
+                         </div>
+
+                          <form method="POST" class="bottomSec">
+                            <button data-id="${id}" class="btn justify-content-end align-items-center material-icons-outlined favorite" >favorite</button>
+
+                            <textarea id = "comment${id}" aria-label="Add a comment…" placeholder="Comment…" class="form-control comment" autocomplete="off" autocorrect="off" style="height: 30px;"></textarea>
+                            <button data-id="${id}" class="btn btn-success postComment" type="submit">Post</button>
+                          </form>
+                       </div>
+                      </div>
+                    </div>
+                </div>
+                `
+                // prepend the post elements to the post section on the html
+                document.getElementById('posts').prepend(postElem)
+              }
+              // else the filter (not favorite)
+              else {
+                // add class name for the post element and add the inner html with the post details
+                postElem.className = 'd-flex justify-content-between align-items-start mb-2 listItem'
+                postElem.innerHTML =
+                  `
+                <div class="col-lg-12 mb-4 border-dark">
+                    <div class="card border-dark">
+                      <img src="${photo}" alt="a plant" class="card-img-top">
+                      <div class="card-body">
+                        <h5>
+                        <span class="badge bg-success rounded-pill mb-1">${u.username}</span>
+                        </h5>
+                        <h4 class="card-title">${title}</h4>
+                        <p class="card-text">${body}</p>
+                    
+                         <div class= "row">
+                           <div class="col-11">
+                             <ul id = "commentBox${id}" class ='ct' >${commentDiv.innerHTML}</ul >
+                           </div>
+                          <form method="POST" class="bottomSec">
+                            <button data-id="${id}" class="btn justify-content-end  align-items-center material-icons-outlined favorite" >favorite_border</button>
+
+                            <textarea id = "comment${id}" aria-label="Add a comment…" placeholder="Comment…" class="form-control comment" autocomplete="off" autocorrect="off" style="height: 30px;"></textarea>
+                            <button data-id="${id}"" class="btn btn-success postComment" type="submit">Post</button>
+                          </form>
+                       </div>
+                      </div>
+                    </div>
+                </div>
+                `
+                // prepend the post elements to the post section on the html
+                document.getElementById('posts').prepend(postElem)
+              }
+
+
+
+
+
+              
+            })
+            
+
           })
       })
 
@@ -269,38 +402,59 @@ function getPosts() {
 
           // assign postId as the parse interger of post (post id)
           let postId = parseInt(post)
-          // axios post comments
-          axios.post('/api/comments',
-            {
-              pid: postId,
-              username: user,
-              comment: comment
-            },
-            {
-              headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
-              }
-            })
-            .then(() => {
-              // console.log("comment created")
-              let commentItem = document.createElement('li')
-              commentItem.className = "list-group-item"
+          let uidName = ''
+          axios.get('/api/users/posts', {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+          })
+            // then create a userElem div and insert the userElem innerHTML as the username
+            .then(({ data: { username } }) => {
+             uidName = username
+              axios.post('/api/comments',
+                {
+                  pid: postId,
+                  username: uidName,
+                  comment: comment
+                },
+                {
+                  headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                  }
+                })
+                .then(() => {
+                  // console.log("comment created")
+                  let commentItem = document.createElement('li')
+                  commentItem.className = "list-group-item"
 
-              let pill = document.createElement('span')
+                  let pill = document.createElement('span')
 
 
-              pill.className = 'badge bg-success rounded-pill mb-1 userCom'
-              pill.innerText = user
-              let commentSpan = document.createElement('span')
-              commentSpan.innerText = comment
-              commentItem.append(pill)
-              commentItem.append(commentSpan)
+                  pill.className = 'badge bg-success rounded-pill mb-1 userCom'
 
-              document.getElementById(`commentBox${post}`).append(commentItem)
+                  pill.innerText = uidName
+                  let commentSpan = document.createElement('span')
+                  commentSpan.innerText = comment
+                  commentItem.append(pill)
+                  commentItem.append(commentSpan)
 
-              document.getElementById(`comment${post}`).value = ''
+                  document.getElementById(`commentBox${post}`).append(commentItem)
+
+                  document.getElementById(`comment${post}`).value = ''
+                })
+                .catch(err => {
+                  window.location = '/login.html'
+                })
+
+
+
+
             })
             .catch(err => console.error(err))
+         
+          console.log(uidName)
+          // axios post comments
+         
         }
       })
     })
@@ -363,67 +517,6 @@ document.addEventListener('click', event => {
     }
   }
 })
-
-// function to upload photo to firebase
-function uploadPhoto() {
-  // event listener when the html file input is changed (to upload image/photo)
-  document.getElementById('photo').addEventListener('change', event => {
-    console.log('log event');
-
-    // Selected File Image is the event target files
-    let selectedImgFile = event.target.files[0]
-    console.log(selectedImgFile);
-
-    // Create a unique file name to pass the reference
-    let fileName = 'mePlant' + Date.now() + '.png'
-
-    // Assign a metadata (which will show as image/jpeg in storage)
-    let metadata = { contentType: 'image/jpeg' }
-
-    // Create reference to the firebase app storage
-    let storage = getStorage(firebaseApp)
-    // Create reference to storage images/ folder and add the unique file name for the images ref
-    let imagesRef = ref(storage, 'images/' + fileName)
-    // upload to the storage images folder the selected image file and show the metadata
-    let uploadTask = uploadBytesResumable(imagesRef, selectedImgFile, metadata)
-
-    // Register three observers:
-    // 1. 'state_changed' observer, called any time the state changes
-    // 2. Error observer, called on failure
-    // 3. Completion observer, called on successful completion
-    uploadTask.on('state_changed',
-      (snapshot) => {
-        // Observe state change events such as progress, pause, and resume
-        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log('Upload is ' + progress + '% done');
-        let uploader = document.getElementById('uploader')
-        uploader.value = progress
-
-        switch (snapshot.state) {
-          case 'paused':
-            console.log('Upload is paused');
-            break;
-          case 'running':
-            console.log('Upload is running');
-            break;
-        }
-      },
-      (error) => {
-        // Handle unsuccessful uploads
-        console.log(err)
-      },
-      () => {
-        // Handle successful uploads on complete
-        // get the download URL: https://firebasestorage.googleapis.com/...
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log('File available at', downloadURL);
-          imgUrl = downloadURL
-        });
-      }
-    );
-  })
-}
 
 //Rendering posts onto the page
 getPosts()

@@ -1,3 +1,5 @@
+/* styling for body */
+
 html, body {
   height: 100%;
 }
@@ -16,6 +18,8 @@ body {
   font-size: 2rem;
   font-family: 'Gluten', cursive;
 }
+
+/* styling for material icons (buttons) */
 
 .material-icons-outlined {
   font-family: 'Material Icons';
@@ -48,6 +52,8 @@ body {
 #charLeftCounter {
   margin-left: 10px;
 }
+
+/* styling for media queries start */
 
 @media (max-width: 8000px) and (min-width: 4001px) {
   #goHome {
@@ -222,4 +228,16 @@ body {
   .comment {
     width: 100px;
   }
+}
+
+/* styling for media queries start */
+
+/* styling for the post characters and character left counter in text area */
+.postChar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#charLeftCounter {
+  margin-left: 10px;
 }

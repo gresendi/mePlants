@@ -64,7 +64,7 @@ router.post('/users/register', (req, res) => {
 })
 
 // router post users login
-router.post('/users/login', (req, res) => {
+router.post('/users/login',(req, res) => {
   // authenticate user
   User.authenticate()(req.body.username, req.body.password, (err, user) => {
     if (err) { console.log(err) }
