@@ -4,9 +4,11 @@ const passport = require('passport')
 const moment = require('moment')
 const { update } = require('lodash')
 
+// router to post comments
 router.post('/comments', passport.authenticate('jwt'), (req, res) => {
-  console.log(res.body)
+  // console.log(res.body)
 
+  // create comment
   Comment.create({
     pid: req.body.pid, 
     username: req.body.username,
@@ -16,50 +18,22 @@ router.post('/comments', passport.authenticate('jwt'), (req, res) => {
     .catch(err => console.log(err))
 })
 
-// router.get('/comments', passport.authenticate('jwt'), (req, res) => {
-
-
-//   let user = req.user
-//   console.log(user.dataValues.id)
-
-//   Comment.findAll({
-//     where: {
-//       pid: user.dataValues.id
-//     }
-//   })
-//     .then(favorite => {
-//       res.json(favorite)
-//     })
-//     .catch(err => console.log(err))
-
-// })
-
-// router.delete('/favorites/:pid', (req, res) => Favorite.destroy({ where: { pid: req.params.pid } })
-//   .then(() => res.sendStatus(200))
-//   .catch(err => console.log(err)))
-
-
-
-
+// router get comments (based on post id)
 router.get('/comments/:pid', (req, res) => {
 
- 
   post = req.params.pid
- console.log(req.params)
+  // console.log(req.params)
+  // find all comment where the post id matches the request id (post id)
   Comment.findAll({
     where: {
       pid: post
     }
   })
-    .then(comments => {
-     
-      
+    .then(comments => { 
       res.json(comments)
     })
     .catch(err => console.log(err))
-
 })
 
-
-
+// export router
 module.exports = router

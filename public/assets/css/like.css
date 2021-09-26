@@ -62,6 +62,7 @@ body {
   opacity: 25%;
 }
 
+/* styling for parallax  */
 .parallax {
   border: black solid 1px;
   /* The image used */
@@ -75,6 +76,7 @@ body {
   background-size: cover;
 }
 
+/* styling for card  */
 .card {
   margin: 0 auto;
   float: none;
@@ -82,6 +84,7 @@ body {
   width: 65%;
 }
 
+/* styling for media queries  */
 @media (max-width: 8000px) and (min-width: 4001px) {
   #goHome {
     width: 130px;

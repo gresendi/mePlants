@@ -189,10 +189,7 @@ axios.get('api/plants', {
                   <button data-id = "${id}" class="btn btn-danger mb-3 removePlant ">Delete</button>
                 </div>
               </div>
-
-              
             </div>
-
       </div>
       `
       // append the plant to the plants section in html
@@ -254,7 +251,8 @@ document.addEventListener('click', event => {
     let parent = button.parentNode
     button.remove()
     let container = document.createElement('form')
-    container.innerHTML = `
+    container.innerHTML = 
+    `
     <label class="h6" for="sel1">Days (select one):</label>
         <select id='sel1' class="form-select mb-3" aria-label="Default select example">
           <option selected>Water In </option>
@@ -269,9 +267,7 @@ document.addEventListener('click', event => {
           <option value="9">9 days</option>
         </select>
         <button id="createPlant" class="btn scheduleWater mb-2 schedule">Schedule</button>
-    
     `
-
     // append the container form to the parent
     parent.append(container)
 

@@ -17,5 +17,7 @@ Favorite.belongsTo(User, { as: 'u', foreignKey: 'uid' })
 
 User.hasMany(Comment, { foreignKey: 'uid' })
 Comment.belongsTo(User, { as: 'u', foreignKey: 'uid' })
+
+// export User, Post, Plant, Favorite (likes), Comment
 module.exports = { User, Post, Plant, Favorite, Comment }
 

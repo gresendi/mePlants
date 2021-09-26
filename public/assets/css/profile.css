@@ -133,6 +133,8 @@ body {
   font-size: 125px;
 }
 
+/* styling for media queries */
+
 @media (max-width: 8000px) and (min-width: 4001px) {
   #goHome {
     width: 130px;

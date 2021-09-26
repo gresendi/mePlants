@@ -53,6 +53,7 @@ body {
   font-feature-settings: 'liga';
 }
 
+/* styling for cards */
 .card {
   margin: 0 auto;
   float: none;
