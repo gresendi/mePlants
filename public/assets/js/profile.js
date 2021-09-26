@@ -141,7 +141,7 @@ axios.get('/api/users/posts', {
       const postElem = document.createElement('li')
       postElem.className = 'd-flex mb-2 listItem'
       postElem.innerHTML = `
-    <div class="mb-4 card border-dark">
+    <div class="mb-4 card border border-success">
       <img src="${photo}" alt="a plant" class="card-img-top">
       <div class="card-body">
       
@@ -178,7 +178,7 @@ axios.get('api/plants', {
          <div class="row  mb-2 justify-content-center ">
               <div class="col-sm-4 ">
                 <img src="${photo}"
-                  class="card-img-top rounded border border-dark" alt="plant">
+                  class="card-img-top rounded border border-success" alt="plant">
               </div>
 
               <div class="rounded border border-dark col-sm-4 card-text text-center plantCard ">

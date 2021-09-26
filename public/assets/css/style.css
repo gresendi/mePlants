@@ -59,7 +59,9 @@ body {
   max-block-size: 200px;
   min-block-size: 200px;
   height: 5vh;
-  overflow: scroll
+  overflow: scroll;
+  padding-left: 0 ;
+
 }
 
 .bottomSec {
