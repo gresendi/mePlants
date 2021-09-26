@@ -137,7 +137,7 @@ axios.get('/api/users/posts', {
       postElem.className = 'd-flex mb-2 listItem'
       postElem.innerHTML = 
       `
-      <div class="mb-4 card border-dark">
+      <div class="shadow-lg mb-4 card border-dark">
         <img src="${photo}" alt="a plant" class="card-img-top">
         <div class="card-body">
           <h5 class="card-title">${title}</h5>

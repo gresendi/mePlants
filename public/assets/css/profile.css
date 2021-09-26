@@ -1,4 +1,5 @@
 /* styling for body */
+
 html, body {
   height: 100%;
 }
@@ -25,7 +26,6 @@ body {
   background-color: #A2CBF9;
 }
 
-/* styling for the meplant original logo */
 .meplant-header-logo {
   padding-top: 5%;
   padding-left: 8%;
@@ -34,6 +34,7 @@ body {
 }
 
 /* styling for material icons */
+
 .material-icons-outlined {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -71,6 +72,7 @@ body {
 }
 
 /* styling for card */
+
 .card {
   margin: 0 auto;
   float: none;
@@ -81,7 +83,7 @@ body {
 .parallax {
   border: black solid 1px;
   /* The image used */
-  background-image: url("../image/leaf1.jpg");
+  background-image: url("../image/postParralax.jpg");
   /* Set a specific height */
   /* min-height: 500px; */
   /* Create the parallax scrolling effect */
@@ -94,7 +96,7 @@ body {
 .parallax2 {
   border-radius: 25px;
   /*Theimageused*/
-  background-image: url("../image/User\'s\ background.jpg");
+  background-image: url("../image/postParralax.jpg");
   /*Setaspecificheight*/
   /*min-height: 500px;
   */
@@ -307,36 +309,9 @@ body {
 }
 
 /* styling for parallax */
-.parallax {
-  /* The image used */
-  background-image: url("../image/leaf1.jpg");
-  /* Set a specific height */
-  /* min-height: 500px; */
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
 /* styling for the second parallax */
-.parallax2 {
-  border-radius: 25px;
-  /*Theimageused*/
-  background-image: url("../image/User\'s\ background.jpg");
-  /*Setaspecificheight*/
-  /*min-height: 500px;
-  */
-  /*Createtheparallaxscrollingeffect*/
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  -ms-border-radius: 25px;
-  -o-border-radius: 25px;
-}
+
 
 .parallax3 {
   border-radius: 20px;
@@ -357,7 +332,7 @@ body {
 }
 
 .plantCard {
-  background-color: #EFFDE2;
+  background-color: #E3EFFD;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -112,7 +112,7 @@ function getPosts() {
               postElem.innerHTML = 
               `
               <div class="col-lg-12 mb-4 border-dark">
-                <div class="card  border-dark">
+                <div class="shadow-lg card  border-dark">
                   <img src="${photo}" alt="" class="card-img-top">
                   <div class="card-body">
                     <h5>
