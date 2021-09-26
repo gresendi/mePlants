@@ -166,7 +166,7 @@ button {
     font-size: 35px;
   }
   .comment {
-    width: 270px;
+    width: 420px;
   }
   .card {
     width: 40%;
@@ -187,7 +187,7 @@ button {
     font-size: 35px;
   }
   .comment {
-    width: 200px;
+    width: 400px;
   }
   .card {
     width: 50%;
@@ -208,7 +208,7 @@ button {
     font-size: 35px;
   }
   .comment {
-    width: 170px;
+    width: 350px;
   }
   .card {
     width: 60%;
@@ -229,7 +229,7 @@ button {
     font-size: 35px;
   }
   .comment {
-    width: 420px;
+    width: 330px;
   }
 }
 
@@ -266,7 +266,7 @@ button {
     font-size: 25px;
   }
   .comment {
-    width: 150px;
+    width: 120px;
   }
 }
 
