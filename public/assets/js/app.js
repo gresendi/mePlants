@@ -57,6 +57,7 @@ document.getElementById('goProfile').addEventListener('click', () => {
   }
 })
 
+// function to get favorites
 function getFavorites() {
 
   // assign favs as blank and postFav array as empty
