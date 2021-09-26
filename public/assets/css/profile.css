@@ -78,7 +78,7 @@ body {
 .parallax {
   border: black solid 1px;
   /* The image used */
-  background-image: url("../image/leaf1.jpg");
+  background-image: url("../image/postParralax.jpg");
   /* Set a specific height */
   /* min-height: 500px; */
   /* Create the parallax scrolling effect */
@@ -91,7 +91,7 @@ body {
 .parallax2 {
   border-radius: 25px;
   /*Theimageused*/
-  background-image: url("../image/User\'s\ background.jpg");
+  background-image: url("../image/postParralax.jpg");
   /*Setaspecificheight*/
   /*min-height: 500px;
   */
@@ -307,37 +307,8 @@ body {
 
 /* styling for parallax */
 
-.parallax {
-  /* The image used */
-  background-image: url("../image/User\'s\ background.jpg");
-  /* Set a specific height */
-  /* min-height: 500px; */
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 /* styling for the second parallax */
 
-.parallax2 {
-  border-radius: 25px;
-  /*Theimageused*/
-  background-image: url("../image/User\'s\ background.jpg");
-  /*Setaspecificheight*/
-  /*min-height: 500px;
-  */
-  /*Createtheparallaxscrollingeffect*/
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  -ms-border-radius: 25px;
-  -o-border-radius: 25px;
-}
 
 .parallax3 {
   border-radius: 20px;

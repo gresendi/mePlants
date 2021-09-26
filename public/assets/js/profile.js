@@ -137,7 +137,7 @@ axios.get('/api/users/posts', {
       postElem.className = 'd-flex mb-2 listItem'
       postElem.innerHTML = 
       `
-      <div class="mb-4 card border-dark">
+      <div class="shadow-lg mb-4 card border-dark">
         <img src="${photo}" alt="a plant" class="card-img-top">
         <div class="card-body">
           <h5 class="card-title">${title}</h5>
@@ -267,7 +267,17 @@ document.addEventListener('click', event => {
           <option value="7">7 days</option>
           <option value="8">8 days</option>
           <option value="9">9 days</option>
-        </select>
+          <option value="10">10 days</option>
+          <option value="11">11 day</option>
+          <option value="12">12 days</option>
+          <option value="13">13 days</option>
+          <option value="14">14 days</option>
+          <option value="15">15 days</option>
+          <option value="16">16 days</option>
+          <option value="17">17 days</option>
+          <option value="18">18 days</option>
+          <option1 value="19">19 days</option1>
+ 1       </select>
         <button id="createPlant" class="btn scheduleWater mb-2 schedule">Schedule</button>
     
     `

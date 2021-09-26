@@ -62,6 +62,22 @@ body {
 #charLeftCounter {
   margin-left: 10px;
 }
+.formBody{
+  background-color: #E3EFFD;
+}
+
+.parallax {
+  border: black solid 1px;
+  /* The image used */
+  background-image: url("../image/leaf1.jpg");
+  /* Set a specific height */
+  /* min-height: 500px; */
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 /* styling for media queries start */
 
@@ -243,6 +259,7 @@ body {
 /* styling for media queries start */
 
 /* styling for the post characters and character left counter in text area */
+
 .postChar {
   display: flex;
   justify-content: flex-end;

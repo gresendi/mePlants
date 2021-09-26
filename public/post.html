@@ -20,9 +20,9 @@
 <body>
 
   <!-- page section -->
-  <section class="container">
-    <header class="blog-header">
-      <div class="row flex-nowrap justify-content-between align-items-center">
+  <section class="container parallax">
+    <header class="formBody">
+      <div class="row formBody flex-nowrap justify-content-between align-items-center">
   
         <!-- original logo -->
         <div class="col-2 ">
@@ -43,15 +43,18 @@
     </header>
 
     <!-- division to add new posts -->
+    <div class="row  list-group">
+
+   
     <div class="row justify-content-center"> 
-      <div class="col-7">
+      <div class="formBody shadow-lg rounded border border-dark mt-3 col-6">
 
         <!-- form to gather user input for posts -->
         <form>
           <div class="row mb-3">
             <!-- title/caption -->
-            <label for="title" class="h3 col-sm-3 col-form-label text-center">Title:</label>
-            <div class="col-sm-9">
+            <label for="title" class="h3 col-sm-3 mt-3 col-form-label text-center">Title:</label>
+            <div class="col-sm-9 mt-3">
               <input type="text" class="form-control" id="title" placeholder="Caption" maxlength="250">
             </div>
           </div>
@@ -82,12 +85,13 @@
           </div>
 
           <!-- button to create the post -->
-          <div class="d-grid col-6 mx-auto">
+          <div class="d-grid col-6 mb-3 mx-auto">
             <button id="createPost" class="btn btn-success">Post</button>
           </div>
         </form>
 
       </div>
+      </div></div>
     </div>
     
   </section>
