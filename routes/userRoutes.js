@@ -46,7 +46,7 @@ router.post('/users/register', (req, res) => {
     User.register(new User({ username: usernameLowerCase }), req.body.password, err => {
       // if there is an error and the username already exists (in the existing registered users) then send unsuccessful registration to avoid duplicate usernames (not case sensitive)
       if (err) {
-        regUsers.username.indexOf(username) !== -1 && (regStatus.username = 'User name is already exists')
+        regUsers.username.indexOf(username) !== -1 && (regStatus.username = 'User name already exists')
         console.log('username already exists');
         res.json({
           status: regStatus,

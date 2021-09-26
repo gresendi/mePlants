@@ -15,6 +15,12 @@ body {
   flex-direction: column;
 }
 
+/* .blog-header {
+  line-height: 1;
+  border-bottom: 1px solid black;
+} */
+
+/* styling for the meplant original logo */
 .meplant-header-logo {
   font-size: 25px;
   padding-right: 13%;
@@ -47,12 +53,7 @@ body {
   font-feature-settings: 'liga';
 }
 
-.lavender {
-  background-color: #E0BAD7;
-}
-
-/* styling for card */
-
+/* styling for cards */
 .card {
   margin: 0 auto;
   float: none;

@@ -13,6 +13,13 @@ body {
   flex-direction: column;
 }
 
+/* .blog-header {
+  line-height: 1;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+} */
+
+/* styling for the meplant header */
 .meplant-header-logo {
   padding-top: 5%;
   padding-left: 5%;
@@ -55,6 +62,7 @@ body {
   opacity: 25%;
 }
 
+/* styling for parallax  */
 .parallax {
   border: black solid 1px;
   /* The image used */
@@ -68,6 +76,7 @@ body {
   background-size: cover;
 }
 
+/* styling for card  */
 .card {
   margin: 0 auto;
   float: none;
@@ -75,8 +84,7 @@ body {
   width: 65%;
 }
 
-/* media queries for mobile resonsiveness start */
-
+/* styling for media queries  */
 @media (max-width: 8000px) and (min-width: 4001px) {
   #goHome {
     width: 130px;
@@ -257,7 +265,3 @@ body {
     width: 30%;
   }
 }
-
-/* sytling for media queries end */
-
-/* styling for parallax */

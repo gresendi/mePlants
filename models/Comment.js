@@ -3,6 +3,7 @@ const sequelize = require('../db')
 
 class Comment extends Model { }
 
+// create table/columns for comment
 Comment.init({
   pid: {
     type: DataTypes.INTEGER,
@@ -18,4 +19,5 @@ Comment.init({
   }
 }, { sequelize, modelName: 'comment' })
 
+// export Comment
 module.exports = Comment

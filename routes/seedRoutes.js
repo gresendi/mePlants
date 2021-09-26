@@ -2,12 +2,6 @@ const router = require('express').Router()
 const { Post, User, Plant, Comment } = require('../models')
 
 // users seed data to create 'dummy' users
-
-
-
-
-
-
 let users = [
   {
     username: "Emerald",
@@ -44,6 +38,7 @@ let users = [
 
 ]
 
+// user comments seed data to create dummy comments
 let userComments = [
   {
     comment: "I love this plant!" 
@@ -173,11 +168,6 @@ let posts = [
     body: "In the suns glory",
     uid: 8
   }
-
-
-  
-  
-  
 ]
 
 // post route to seed users (for each user in users above register a new user)
@@ -207,9 +197,9 @@ router.post('/posts', (req, res) => {
   })
 })
 
+// post route to seed comments (randomoized to apply comments across users/posts)
 router.post('/comments', (req, res) => {
   
-
   // userComments
   userComments.forEach(comment=>{
     let randomUser= Math.floor(Math.random()*8 +1)
@@ -222,19 +212,8 @@ router.post('/comments', (req, res) => {
       username: users[randomUser].username
     })
       .then(() => res.sendStatus(200))
-      
-
-
   })
-  
-
-  
-  
 })
-
-
-
-
 
 // export the module
 module.exports = router

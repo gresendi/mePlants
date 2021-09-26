@@ -13,6 +13,11 @@ body {
   flex-direction: column;
 }
 
+/* .blog-header {
+  line-height: 1;
+  border-bottom: 1px solid black;
+} */
+
 .addBtn {
   background-color: #EFFDE2;
 }
@@ -106,8 +111,6 @@ body {
   -o-border-radius: 25px;
 }
 
-/* media queries */
-
 @media only screen and (min-width: 1000px) {
   .card {
     width: 40%;
@@ -129,6 +132,8 @@ body {
   padding-right: 10%;
   font-size: 125px;
 }
+
+/* styling for media queries */
 
 @media (max-width: 8000px) and (min-width: 4001px) {
   #goHome {

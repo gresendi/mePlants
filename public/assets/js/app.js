@@ -57,15 +57,16 @@ document.getElementById('goProfile').addEventListener('click', () => {
   }
 })
 
+// function to get favorites
 function getFavorites() {
 
   // assign favs as blank and postFav array as empty
   let favs = 'blank'
   let postFav = []
 
-  // axios get favorites
+  // axios get favorites if logged in
   if(localStorage.getItem('token')){
-    console.log("logged in")
+    // console.log("logged in")
     axios.get('/api/favorites', {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -81,16 +82,14 @@ function getFavorites() {
           postFav.push(num)
         })
       })
-  }else{
-console.log("not logged in")
-
-
   }
-  
+  else {
+  // console.log("not logged in")
+  }
 }
 
 
-// function to get posts
+// function to get posts (and comments on posts)
 function getPosts() {
 
   // variables for userId and user (username)
@@ -111,8 +110,6 @@ function getPosts() {
 
       // for each post
       posts.forEach(({ id, title, body, photo, u }) => {
-
-        
 
         // create a list element
         const postElem = document.createElement('li')
@@ -287,12 +284,12 @@ function getPosts() {
 
                 // if the id (post id) matches the commments post id
                 if (id == comment.pid) {
-                  // create a list element and set the inner text as the comments comment amd append the comment to the post
+                  // create a list element for the comment
                   let commentItem = document.createElement('li')
                   commentItem.className = "list-group-item"
                   let pill = document.createElement('span')
 
-
+                  // set the inner text as the comment (and username) and append the comment to the post
                   pill.className = 'badge bg-success rounded-pill mb-1 userCom'
                   pill.innerText = comment.username
                   let commentSpan = document.createElement('span')
@@ -376,15 +373,7 @@ function getPosts() {
                 // prepend the post elements to the post section on the html
                 document.getElementById('posts').prepend(postElem)
               }
-
-
-
-
-
-              
             })
-            
-
           })
       })
 
@@ -424,20 +413,21 @@ function getPosts() {
                 })
                 .then(() => {
                   // console.log("comment created")
+                  // create a list element for the comment item
                   let commentItem = document.createElement('li')
                   commentItem.className = "list-group-item"
-
+                  // create a span element for pill to add user name to the comment
                   let pill = document.createElement('span')
 
-
+                  // create pill class to show user name
                   pill.className = 'badge bg-success rounded-pill mb-1 userCom'
-
+                  // set the inner text as the user name and create/append the comments to the posts
                   pill.innerText = uidName
                   let commentSpan = document.createElement('span')
                   commentSpan.innerText = comment
                   commentItem.append(pill)
                   commentItem.append(commentSpan)
-
+                  // append the comment to the post
                   document.getElementById(`commentBox${post}`).append(commentItem)
 
                   document.getElementById(`comment${post}`).value = ''
@@ -445,16 +435,9 @@ function getPosts() {
                 .catch(err => {
                   window.location = '/logIn.html'
                 })
-
-
-
-
             })
             .catch(err => console.error(err))
-         
-          console.log(uidName)
-          // axios post comments
-         
+            // console.log(uidName)
         }
       })
     })
@@ -520,6 +503,3 @@ document.addEventListener('click', event => {
 
 //Rendering posts onto the page
 getPosts()
-
-
-//got to line 400
