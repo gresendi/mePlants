@@ -17,7 +17,7 @@ This application is powered by HTML, CSS, Javascript, Bootstrap, Firebase and ot
  <img src="https://img.shields.io/badge/-moment npm-pink">
 </p>
 
-#### Deployed Link Heroku: [mePlant]()
+#### Deployed Link Heroku: [mePlant](https://meplant.herokuapp.com/)
 
 #### [Gitub Repo](https://github.com/gresendi/mePlants)
 
@@ -79,16 +79,18 @@ On the site, users will be able to:
 
 ## Screenshots
 
-<p align="center">
+<kbd>
 
-![](/public/assets/image/screen1.jpg)
+Home Page (left) | Favorites/Liked Page (right)
 
-![](/public/assets/image/screen2.jpg?style=centerme)
+![](/public/assets/image/screenHome.jpg) | ![](/public/assets/image/screen3.jpg)
 
-![](/public/assets/image/screen3.jpg)
+Plant Tracker (left) | Profile Page (right)
 
-![](/public/assets/image/screen4.jpg)
+![](/public/assets/image/screen2.jpg) | ![](/public/assets/image/screen5.jpg)
 
-![](/public/assets/image/screen5.jpg)
+Create a Post (left) | Add a Plant (right)
 
-</p>
+![](/public/assets/image/screen4.jpg) | ![](/public/assets/image/screenAddPlant.jpg)
+
+</kbd>
