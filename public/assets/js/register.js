@@ -57,5 +57,5 @@ document.getElementById('register').addEventListener('click', event => {
 
 // function to go to login page
 function goToLogin() {
-  window.location = '/login.html'
+  window.location = '/logIn.html'
 }

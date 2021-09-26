@@ -32,7 +32,7 @@ document.getElementById('goHome').addEventListener('click', () => {
 // event listener when logOut button is clicked to go to login screen page
 document.getElementById('logOut').addEventListener('click', () => {
   localStorage.removeItem('token')
-  window.location = '/login.html'
+  window.location = '/logIn.html'
 })
 
 // event listener when favorites button is clicked to go to like (favorites) page

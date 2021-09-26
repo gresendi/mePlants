@@ -32,7 +32,7 @@ document.getElementById('goLike').addEventListener('click', () => {
   if (localStorage.getItem('token')) {
     window.location = '/like.html'
   } else {
-    window.location = '/login.html'
+    window.location = '/logIn.html'
   }
 })
 
@@ -41,7 +41,7 @@ document.getElementById('goProfile').addEventListener('click', () => {
   if (localStorage.getItem('token')) {
     window.location = '/profile.html'
   } else {
-    window.location = '/login.html'
+    window.location = '/logIn.html'
   }
 })
 
