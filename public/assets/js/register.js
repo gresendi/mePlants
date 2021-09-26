@@ -52,7 +52,7 @@ document.getElementById('register').addEventListener('click', event => {
         }
       }
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err))//
 })
 
 // function to go to login page
