@@ -443,7 +443,7 @@ function getPosts() {
                   document.getElementById(`comment${post}`).value = ''
                 })
                 .catch(err => {
-                  window.location = '/login.html'
+                  window.location = '/logIn.html'
                 })
 
 
@@ -461,7 +461,7 @@ function getPosts() {
     // catch error and go to login html
     .catch(err => {
       console.log(err)
-      window.location = '/login.html'
+      window.location = '/logIn.html'
     })
 }
 
