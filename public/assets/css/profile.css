@@ -7,7 +7,7 @@ body {
   align-items: top;
   /* padding-top: 40px; */
   padding-bottom: 40px;
-  background-color: #def4c6;
+  background-color: #E3EFFD;
   flex-direction: column;
 }
 
@@ -15,6 +15,14 @@ body {
   line-height: 1;
   border-bottom: 1px solid black;
 } */
+
+.addBtn {
+  background-color: #EFFDE2;
+}
+
+.wtrAllBtn {
+  background-color: #A2CBF9;
+}
 
 .meplant-header-logo {
   padding-top: 5%;
@@ -108,11 +116,11 @@ body {
   height: inherit;
 }
 
-.meplant-header-logo {
+/* .meplant-header-logo {
   padding-bottom: 2%;
   padding-left: 5%;
   font-size: 100px;
-}
+} */
 
 .navBtn {
   padding-right: 10%;
@@ -343,5 +351,12 @@ body {
 }
 
 .plantCard {
-  background-color: #def4c6;
+  background-color: #EFFDE2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.scheduleWater {
+  background-color: #FDE8E2;
 }

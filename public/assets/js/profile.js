@@ -170,31 +170,27 @@ axios.get('api/plants', {
       plant.innerHTML = `
 
    <div class="row mb-2 justify-content-center  ">
-             
 
-     
-         
-             
-         <div class="row  mb-2 justify-content-center ">
+         <div class="row mb-2 justify-content-center ">
               <div class="col-sm-4 ">
                 <img src="${photo}"
                   class="card-img-top rounded border border-success" alt="plant">
               </div>
 
-              <div class="rounded border border-dark col-sm-4 card-text text-center plantCard ">
-                <h5 class = 'mt-5'>${nickName}</h5>
+              <div class="rounded border border-dark col-sm-4 card-text text-center plantCard">
+                <h4 class='mt-2'>${nickName}</h4>
                 <p>${officialName}</p>
-                <p>Care Tips: ${care}</p>
-                <p>Last Watered: ${lastWatered}</p>
-                <p>Next Watering: ${nextWatering}</p>
-                <div class="row justify-content-center">
-                  <button data-id = "${id}"  class=" col-sm-5 btn btn-primary water mb-2">Water</button>
+                <p><strong>Care Tips:</strong> ${care}</p>
+                <p><strong>Last Watered:</strong> ${lastWatered}</p>
+                <p><strong>Next Watering:</strong> ${nextWatering}</p>
+                <div class="row justify-content-center d-grid col-6 mx-auto">
+                  <button data-id = "${id}"  class="btn wtrAllBtn water mb-2">Water</button>
                 </div>
-                <div class="row justify-content-center">
-                  <button data-id = "${id}"  class="col-sm-6 btn btn-success scheduleWater mb-2 ">Schedule Watering</button>
+                <div class="row justify-content-center d-grid col-6 mx-auto">
+                  <button data-id = "${id}"  class="btn scheduleWater mb-2 ">Change Schedule</button>
                 </div>
-                <div class="row justify-content-center align-items-end">
-                  <button data-id = "${id}" class="col-sm-5 btn btn-danger mb-3 removePlant ">Delete</button>
+                <div class="row justify-content-center align-items-end d-grid col-6 mx-auto">
+                  <button data-id = "${id}" class="btn btn-danger mb-3 removePlant ">Delete</button>
                 </div>
               </div>
 
@@ -238,11 +234,7 @@ document.getElementById('waterAll').addEventListener('click', event => {
                   })
               }
             })
-
           })
-
-
-
       })
     })
 
@@ -260,7 +252,7 @@ document.addEventListener('click', event => {
     button.remove()
     let container = document.createElement('form')
     container.innerHTML = `
-    <label for="sel1">Days (select one):</label>
+    <label class="h6" for="sel1">Days (select one):</label>
         <select id='sel1' class="form-select mb-3" aria-label="Default select example">
           <option selected>Water In </option>
           <option value="1">1 day</option>
@@ -273,7 +265,7 @@ document.addEventListener('click', event => {
           <option value="8">8 days</option>
           <option value="9">9 days</option>
         </select>
-        <button id="createPlant" class="btn btn-success mb-3 schedule">Schedule</button>
+        <button id="createPlant" class="btn scheduleWater mb-2 schedule">Schedule</button>
     
     `
     parent.append(container)

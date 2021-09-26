@@ -7,7 +7,7 @@ body {
   align-items: top;
   /* padding-top: 40px; */
   padding-bottom: 40px;
-  background-color: #def4c6;
+  background-color: #E3EFFD;
   flex-direction: column;
 }
 
@@ -119,7 +119,7 @@ body {
     height: inherit;
   }
   .meplant-header-logo {
-    padding-left: 25%;
+    padding-left: 15%;
     font-size: 60px;
   }
   .navBtn {
@@ -140,7 +140,7 @@ body {
     height: inherit;
   }
   .meplant-header-logo {
-    padding-left: 25%;
+    padding-left: 15%;
     font-size: 50px;
   }
   .navBtn {
@@ -161,7 +161,7 @@ body {
     height: inherit;
   }
   .meplant-header-logo {
-    padding-left: 25%;
+    padding-left: 15%;
     font-size: 50px;
   }
   .navBtn {
@@ -200,7 +200,7 @@ body {
     height: inherit;
   }
   .meplant-header-logo {
-    padding-left: 25%;
+    padding-left: 15%;
     font-size: 40px;
   }
   .navBtn {
@@ -218,7 +218,7 @@ body {
     height: inherit;
   }
   .meplant-header-logo {
-    padding-left: 25%;
+    padding-left: 10%;
     font-size: 30px;
   }
   .navBtn {
@@ -237,7 +237,7 @@ body {
     height: inherit;
   }
   .meplant-header-logo {
-    padding-left: 25%;
+    padding-left: 10%;
     font-size: 30px;
   }
   .navBtn {
