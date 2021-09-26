@@ -40,7 +40,7 @@ router.post('/users/register', (req, res) => {
       status: regStatus,
       message: 'Unable to register due to empty fields'
     })
-  } 
+  }
   // else, register the new user by passing through the lowercase of the username and providing the request body password
   else {
     User.register(new User({ username: usernameLowerCase }), req.body.password, err => {
@@ -54,7 +54,7 @@ router.post('/users/register', (req, res) => {
           err
         })
         return
-      } 
+      }
       // else send OK status that user was registered
       else {
         res.sendStatus(200)
@@ -64,7 +64,7 @@ router.post('/users/register', (req, res) => {
 })
 
 // router post users login
-router.post('/users/login',(req, res) => {
+router.post('/users/login', (req, res) => {
   // authenticate user
   User.authenticate()(req.body.username, req.body.password, (err, user) => {
     if (err) { console.log(err) }
