@@ -143,7 +143,7 @@ body {
     font-size: 35px;
   }
   .comment {
-    width: 270px;
+    width: 420px;
   }
   .card {
     width: 40%;
@@ -164,7 +164,7 @@ body {
     font-size: 35px;
   }
   .comment {
-    width: 200px;
+    width: 400px;
   }
   .card {
     width: 50%;
@@ -185,7 +185,7 @@ body {
     font-size: 35px;
   }
   .comment {
-    width: 170px;
+    width: 350px;
   }
   .card {
     width: 60%;
@@ -206,7 +206,7 @@ body {
     font-size: 35px;
   }
   .comment {
-    width: 420px;
+    width: 330px;
   }
 }
 
@@ -243,7 +243,7 @@ body {
     font-size: 25px;
   }
   .comment {
-    width: 150px;
+    width: 120px;
   }
 }
 
