@@ -8,7 +8,7 @@ body {
   align-items: top;
   /* padding-top: 40px; */
   padding-bottom: 40px;
-  background-color: #def4c6;
+  background-color: #E3EFFD;
   flex-direction: column;
 }
 
@@ -17,7 +17,14 @@ body {
   border-bottom: 1px solid black;
 } */
 
-/* styling for the meplant original logo */
+.addBtn {
+  background-color: #EFFDE2;
+}
+
+.wtrAllBtn {
+  background-color: #A2CBF9;
+}
+
 .meplant-header-logo {
   padding-top: 5%;
   padding-left: 8%;
@@ -113,11 +120,11 @@ body {
   height: inherit;
 }
 
-.meplant-header-logo {
+/* .meplant-header-logo {
   padding-bottom: 2%;
   padding-left: 5%;
   font-size: 100px;
-}
+} */
 
 .navBtn {
   padding-right: 10%;
@@ -168,7 +175,7 @@ body {
     height: inherit;
   }
   .meplant-header-logo {
-    padding-left: 25%;
+    padding-left: 15%;
     font-size: 60px;
   }
   .navBtn {
@@ -189,7 +196,7 @@ body {
     height: inherit;
   }
   .meplant-header-logo {
-    padding-left: 25%;
+    padding-left: 15%;
     font-size: 50px;
   }
   .navBtn {
@@ -210,7 +217,7 @@ body {
     height: inherit;
   }
   .meplant-header-logo {
-    padding-left: 25%;
+    padding-left: 15%;
     font-size: 50px;
   }
   .navBtn {
@@ -231,7 +238,7 @@ body {
     height: inherit;
   }
   .meplant-header-logo {
-    padding-left: 25%;
+    padding-left: 15%;
     font-size: 40px;
   }
   .navBtn {
@@ -249,7 +256,7 @@ body {
     height: inherit;
   }
   .meplant-header-logo {
-    padding-left: 25%;
+    padding-left: 10%;
     font-size: 40px;
   }
   .navBtn {
@@ -267,7 +274,7 @@ body {
     height: inherit;
   }
   .meplant-header-logo {
-    padding-left: 25%;
+    padding-left: 10%;
     font-size: 30px;
   }
   .navBtn {
@@ -286,7 +293,7 @@ body {
     height: inherit;
   }
   .meplant-header-logo {
-    padding-left: 25%;
+    padding-left: 10%;
     font-size: 30px;
   }
   .navBtn {
@@ -350,5 +357,12 @@ body {
 }
 
 .plantCard {
-  background-color: #def4c6;
+  background-color: #EFFDE2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.scheduleWater {
+  background-color: #FDE8E2;
 }
