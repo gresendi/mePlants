@@ -14,24 +14,6 @@ body {
   flex-direction: column;
 }
 
-/* .blog-header {
-/* sytling for blog header */
-.blog-header {
-  line-height: 1;
-  border-bottom: 1px solid black;
-} 
-
-
-/* styling for buttons */
-button {
-  background-color: #48BF84;
-}
-
-.lavender {
-  background-color: #E0BAD7;
-}
-
-/* styling for the meplant original logo */
 .meplant-header-logo {
   font-size: 25px;
   padding-right: 13%;
