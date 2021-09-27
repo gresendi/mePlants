@@ -29,6 +29,10 @@ body {
   font-family: 'Gluten', cursive;
 }
 
+.bcblue{
+  background-color: #E3EFFD;
+}
+
 /* styling for material icons (buttons) */
 
 .material-icons-outlined {
@@ -236,4 +240,17 @@ body {
   .comment {
     width: 100px;
   }
+}
+
+.parallax {
+  border: black solid 1px;
+  /* The image used */
+  background-image: url("../image/leaf1.jpg");
+  /* Set a specific height */
+  /* min-height: 500px; */
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
