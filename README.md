@@ -17,7 +17,7 @@ This application is powered by HTML, CSS, Javascript, Bootstrap, Firebase and ot
  <img src="https://img.shields.io/badge/-moment npm-pink">
 </p>
 
-#### Deployed Link Heroku: [mePlant](https://meplant.herokuapp.com/)
+#### Deployed Link Heroku: [mePlant](https://meplant-app.herokuapp.com/)
 
 #### [Gitub Repo](https://github.com/gresendi/mePlants)
 
