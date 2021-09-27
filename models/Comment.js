@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../db')
-
+//creating a class for the comments table
 class Comment extends Model { }
 
 // create table/columns for comment
